@@ -43,7 +43,7 @@ function showInnerText(Id){
 	var showText = "对不起没有信息！";
 	switch(switchId){
 	    case 1:
-		   showText =  "大鱼商城后台管理系统!";
+		   showText =  "派尔商城后台管理系统!";
 		   break;
 		 <?php 
 		 foreach($menu_ar as $k=>$var){ 
