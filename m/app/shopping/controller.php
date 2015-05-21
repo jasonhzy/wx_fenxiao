@@ -951,7 +951,7 @@ class ShoppingController extends Controller{
 		
 		//
 		$order_sn = isset($_GET['order_sn']) ? $_GET['order_sn'] : '';
-		$sql = "SELECT order_sn,order_amount,pay_status,shipping_fee FROM `{$this->App->prefix()}goods_order_info` WHERE pay_status = '0' AND order_sn='$order_sn' LIMIT 1";
+		$sql = "SELECT order_id,  order_sn,order_amount,pay_status,shipping_fee FROM `{$this->App->prefix()}goods_order_info` WHERE pay_status = '0' AND order_sn='$order_sn' LIMIT 1";
 		$rt = $this->App->findrow($sql);
 		$rt['order_amount'] = $rt['order_amount']+$rt['shipping_fee'];
 		if(empty($rt)){
