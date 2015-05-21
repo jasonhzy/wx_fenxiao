@@ -948,7 +948,6 @@ class ShoppingController extends Controller{
 	function get_openid_AND_pay_info(){
 		$wecha_id = $this->Session->read('User.wecha_id');
 		if(empty($wecha_id)) $wecha_id = isset($_COOKIE[CFGH.'USER']['UKEY']) ? $_COOKIE[CFGH.'USER']['UKEY'] : '';
-		$wecha_id = $wecha_id;
 		
 		//
 		$order_sn = isset($_GET['order_sn']) ? $_GET['order_sn'] : '';
@@ -962,7 +961,10 @@ class ShoppingController extends Controller{
 			$this->jump(str_replace('/WxPay','',ADMIN_URL).'user.php?act=orderlist');exit;
 		}
 		$rt['openid'] = $wecha_id;
-		$rt['body'] = $GLOBALS['LANG']['site_name'].'购物平台';
+		
+		$sql = "SELECT goods_name FROM `{$this->App->prefix()}goods_order` WHERE order_id='{$rt['order_id']}' LIMIT 1";
+		$order = $this->App->findrow($sql);
+		$rt['body'] = $order['goods_name']  ? $order['goods_name']  : $GLOBALS['LANG']['site_name'].'购物平台';
 		return $rt;
 	}
 	
