@@ -16,7 +16,8 @@ class GoodsController extends Controller{
 	}
 	
 	function goods_tuijian_del(){
-		$sql = "DELETE FROM `{$this->App->prefix()}goods_tuijian` WHERE type='$id' AND goods_id='$goods_id'";
+		$ids = $_POST['ids'];
+		$sql = "DELETE FROM `{$this->App->prefix()}goods_tuijian` WHERE id='$ids'";
 		$this->App->query($sql);
 		echo ""; exit;
 	}
