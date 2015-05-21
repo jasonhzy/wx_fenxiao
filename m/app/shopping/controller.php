@@ -1702,7 +1702,7 @@ class ShoppingController extends Controller{
 			$orderdata['user_id']= $uid ? $uid : 0;
 			
 			$daili_uid = $this->return_daili_uid($uid);
-			$orderdata['parent_uid'] = $daili_uid;
+			$orderdata['parent_uid'] = $daili_uid ?  $daili_uid : 0;
 			
 			//查找二级、三级代理
 			if($daili_uid > 0){

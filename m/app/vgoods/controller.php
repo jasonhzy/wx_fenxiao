@@ -463,7 +463,7 @@ class VgoodsController extends Controller{
 		if(isset($_POST)&&!empty($_POST)){
 			
 			$daili_uid = $this->return_daili_uid($uid);
-			$orderdata['parent_uid'] = $daili_uid;//一级分销
+			$orderdata['parent_uid'] = $daili_uid ? $daili_uid : 0;//一级分销
 			
 			if($daili_uid > 0){
 				$sql = "SELECT p1_uid,p2_uid FROM `{$this->App->prefix()}user_tuijian_fx` WHERE uid ='$daili_uid' LIMIT 1";
