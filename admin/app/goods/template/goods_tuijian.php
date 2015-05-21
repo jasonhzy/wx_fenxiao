@@ -34,3 +34,23 @@ $thisurl = ADMIN_URL.'goods.php';
 	 </table>
 	 <?php $this->element('page',array('pagelink'=>$pagelink));?>
 </div>
+<?php  $thisurl = ADMIN_URL.'goods.php'; ?>
+<script type="text/javascript">
+	$('.delgoodsid').click(function (){
+		ids = $(this).attr('id');
+		thisobj = $(this).parent().parent();
+		if(confirm("确定加入删除吗？")){
+			createwindow();
+			$.post('<?php echo $thisurl;?>',{action:'goods_tuijian_del',ids:ids},function(data){
+				removewindow();
+				if(data == ""){
+					thisobj.hide(300);
+				}else{
+					alert(data);	
+				}
+			});
+		}else{
+			return false;	
+		}
+	});
+</script>

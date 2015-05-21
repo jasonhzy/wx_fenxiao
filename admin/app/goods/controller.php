@@ -7,13 +7,21 @@ class GoodsController extends Controller{
 			$this->css('content.css');
 	}
 	
-		function goods_tuijian(){
+	function goods_tuijian(){
 		$sql = "SELECT tb1.*,tb2.goods_name,tb2.shop_price,tb2.pifa_price,tb2.goods_thumb FROM `{$this->App->prefix()}goods_tuijian` AS tb1 LEFT JOIN `{$this->App->prefix()}goods` AS tb2 ON tb1.goods_id = tb2.goods_id ORDER BY tb1.id DESC";
 		$rt = $this->App->find($sql);
 		
 		$this->set('rt',$rt);
 		$this->template('goods_tuijian');
 	}
+	
+	function goods_tuijian_del(){
+		$sql = "DELETE FROM `{$this->App->prefix()}goods_tuijian` WHERE type='$id' AND goods_id='$goods_id'";
+		$this->App->query($sql);
+		echo ""; exit;
+	}
+	
+	
 	function goods_tuijian_info($data=array()){
 		$this->js(array("edit/kindeditor.js"));
 		$this->js('time/WdatePicker.js');
