@@ -90,15 +90,7 @@
 				'getBrandWCPayRequest',
 				<?php echo $jsApiParameters; ?>,
 				function(res){
-					WeixinJSBridge.log(res.err_msg);
-					//alert(res.err_code+res.err_desc+res.err_msg);
-					str = res.err_msg;
-					if(str!=""){
-						rr = str.split(":");
-						if(rr[1]=='ok'){
-						window.location.href="<?php echo str_replace('/WxPay','',ADMIN_URL).'user.php?act=orderlist';?>";
-						}
-					}
+					window.location.href="<?php echo str_replace('/WxPay','',ADMIN_URL).'user.php?act=orderlist';?>";
 				}
 			);
 		}
