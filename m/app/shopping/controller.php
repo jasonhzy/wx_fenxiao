@@ -431,8 +431,8 @@ class ShoppingController extends Controller{
 			//计算资金，便于下面返佣
 			//计算每个产品的佣金
 			$sql = "SELECT takemoney1,takemoney2,takemoney3,goods_number FROM `{$this->App->prefix()}goods_order` WHERE order_id='$order_id'";
-			echo $sql;
-			exit;
+			//echo $sql;
+			//exit;
 			$moneys = $this->App->find($sql);
 			//购物者根据消费金额送积分
 			$pointnum =  $rts['pointnum'];
