@@ -76,8 +76,9 @@
 	  <tr>
 		<td class="label">品牌LOGO:</td>
 		<td>
+			<?php if(isset($rt['brand_logo'])){ ?><img src="<?php echo !empty($rt['brand_logo']) ? SITE_URL.$rt['brand_logo'] : $this->img('no_picture.gif');?>" width="100" style="padding:1px; border:1px solid #ccc"/><?php } ?>
 		  <input name="brand_logo" id="brandlogo" type="hidden" value="<?php echo isset($rt['brand_logo']) ? $rt['brand_logo'] : '';?>" size="43"/>
-		  <iframe id="iframe_t" name="iframe_t" border="0" src="upload.php?action=<?php echo isset($rt['brand_logo'])&&!empty($rt['brand_logo'])? 'show' : '';?>&ty=brandlogo&tyy=brand&files=<?php echo isset($rt['brand_logo']) ? $rt['brand_logo'] : '';?>" scrolling="no" width="445" frameborder="0" height="25"></iframe>
+		  <iframe id="iframe_t" name="iframe_t" border="0" src="upload.php?action=<?php echo isset($rt['brand_logo'])&&!empty($rt['brand_logo'])? 'show' : '';?>&ty=brandlogo&files=<?php echo isset($rt['brand_logo']) ? $rt['brand_logo'] : '';?>" scrolling="no" width="445" frameborder="0" height="25"></iframe>
 		  <br><span class="notice-span" style="display: block;" id="warn_brandlogo">
 			请上传图片，做为品牌的LOGO！</span>
 		</td>
