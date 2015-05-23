@@ -255,7 +255,6 @@ h2.nav a{ color:#999999; display:block; float:left; height:24px;width:113px; tex
 					<td align="left">
 					<input type="text" name="photo_gallery_desc[]" value="" size="23"/>
 					<input type="hidden" name="photo_gallery_url[]" id="goodsgallery" value=""/>
-					<input name="goods_thumb" id="goods_thumb" type="hidden" value="<?php echo isset($rt['goods_thumb']) ? $rt['goods_thumb'] : '';?>"/></td>
 					<td align="right"><b>相册图片：</b></td>
 					<td align="left"><iframe id="iframe_t" name="iframe_t" border="0" src="upload.php?action=&ty=goodsgallery&tyy=goods&files=" scrolling="no" width="445" frameborder="0" height="25"></iframe></td>
 				</tr>

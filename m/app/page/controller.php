@@ -40,7 +40,7 @@ class PageController extends Controller{
 	 	if(is_null($rt)) {
 			$s = '';
 			if($id > 0) $s = "tb1.id='$id' AND";
-			$sql = "SELECT tb1.*,tb2.goods_name FROM `{$this->App->prefix()}goods_tuijian` AS tb1 LEFT JOIN `{$this->App->prefix()}goods` AS tb2 ON tb2.goods_id = tb1.goods_id WHERE {$s} tb2.is_on_sale = '1' ORDER BY id DESC LIMIT 1";
+			$sql = "SELECT tb1.*,tb2.goods_name, tb2.goods_thumb FROM `{$this->App->prefix()}goods_tuijian` AS tb1 LEFT JOIN `{$this->App->prefix()}goods` AS tb2 ON tb2.goods_id = tb1.goods_id WHERE {$s} tb2.is_on_sale = '1' ORDER BY id DESC LIMIT 1";
 			$rt['tj'] = $this->App->findrow($sql);
 			
 			$this->Cache->write($rt);

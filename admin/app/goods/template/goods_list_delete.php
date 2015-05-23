@@ -55,8 +55,8 @@
 			<option value="is_best" <?php if(isset($_GET['is_goods_attr'])&&$_GET['is_goods_attr']=='is_best'){ echo 'selected="selected""'; } ?>>精品</option>
 <!--			<option value="is_alone_sale" <?php if(isset($_GET['is_alone_sale'])&&$_GET['is_alone_sale']=='is_alone_sale'){ echo 'selected="selected""'; } ?>>礼包</option>-->
 			<option value="is_promote" <?php if(isset($_GET['is_goods_attr'])&&$_GET['is_goods_attr']=='is_promote'){ echo 'selected="selected""'; } ?>>特价商品</option>
-<!--			<option value="is_qianggou" <?php if(isset($_GET['is_goods_attr'])&&$_GET['is_goods_attr']=='is_qianggou'){ echo 'selected="selected""'; } ?>>抢购商品</option>
-			<option value="is_jifen" <?php if(isset($_GET['is_jifen'])&&$_GET['is_jifen']=='is_jifen'){ echo 'selected="selected""'; } ?>>积分商品</option>-->
+<!--			<option value="is_qianggou" <?php if(isset($_GET['is_goods_attr'])&&$_GET['is_goods_attr']=='is_qianggou'){ echo 'selected="selected""'; } ?>>抢购商品</option>-->
+			<option value="is_jifen" <?php if(isset($_GET['is_jifen'])&&$_GET['is_jifen']=='is_jifen'){ echo 'selected="selected""'; } ?>>积分商品</option>
 		 </select>
 		 
 		 <!--品牌-->
@@ -184,7 +184,7 @@
    
      //批量还元
    $('.redugoods').click(function (){
-   		if(confirm("确定删除吗？")){
+   		if(confirm("确定要还原吗？")){
 			createwindow();
 			var arr = [];
 			$('input[name="quanxuan"]:checked').each(function(){
@@ -265,6 +265,6 @@
 		
 		keys = $('input[name="keyword"]').val();
 		
-		location.href='<?php echo $thisurl;?>?type=goods_list&cat_id='+catid+'&is_goods_attr='+is_goods+'&brand_id='+bid+'&keyword='+keys+'&is_delete=1';
+		location.href='<?php echo $thisurl;?>?type=goods_list_all&cat_id='+catid+'&is_goods_attr='+is_goods+'&brand_id='+bid+'&keyword='+keys+'&is_delete=1';
 	});
 </script>

@@ -10,10 +10,10 @@
 <input name="site_name" id="site_name"  type="text" style="width:315px;" value="<?php echo isset($rt['site_name']) ? $rt['site_name'] : '';?>">
 		</td>
 	  </tr>
-	  <!--<tr>
+	  <tr>
 		<td class="label">公司地址:</td>
 		<td><input name="company_url" id="company_url"  type="text" style="width:315px;" value="<?php echo isset($rt['company_url']) ? $rt['company_url'] : '';?>"></td>
-	  </tr>-->
+	  </tr>
 	  <tr>
 		<td class="label">网站标题:</td>
 		<td><input name="site_title" id="site_title"  type="text" style="width:315px;" value="<?php echo isset($rt['site_title']) ? $rt['site_title'] : '';?>"></td>
@@ -44,7 +44,7 @@
 		<td><input name="custome_qq" id="custome_qq" value="<?php echo isset($rt['custome_qq']) ? $rt['custome_qq'] : '';?>" type="text" style="width:315px;"><br /><em>前两个是QQ号码，后两个是MSN,用逗号分隔。</em></td>
 	  </tr>
 	   <tr>
-		<td class="label">在线客服:</td>
+		<td class="label">Email:</td>
 		<td><input name="custome_email" id="custome_email" value="<?php echo isset($rt['custome_email']) ? $rt['custome_email'] : '';?>" type="text" style="width:315px;">
 		<!-- <p style="padding:0px; margin:0px; padding-top:5px;">下载软件获取链接：<a href="http://kuaishang.cn/" target="_blank">http://kuaishang.cn/</a>,&nbsp;&nbsp;<a href="http://kefu6.kuaishang.cn/bs/im.htm?cas=31235___565427&fi=33908" target="_blank" style="color:#FF0000">示例</a></p> -->
 		</td>
