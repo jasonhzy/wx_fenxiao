@@ -154,16 +154,16 @@ width:100%;
 		
 		<div class="uitem">
 			<p class="pp">
-				<a href="javascript:;" onclick="ajax_show_sub(3,this);"><i></i>我的红米<span>￥<?php echo !empty($rt['pay5']) ? $rt['pay5'] : '0.00';?></span></a>
+				<a href="javascript:;" onclick="ajax_show_sub(3,this);"><i></i>我的佣金<span>￥<?php echo !empty($rt['pay5']) ? $rt['pay5'] : '0.00';?></span></a>
 			</p>
 			<ul class="gonglist gg3">
-				<li class="uli6"><p><a href="<?php echo ADMIN_URL.'daili.php?act=mymoneydata&status=weifu';?>"><i></i>未付款订单红米<span><?php echo !empty($rt['pay1']) ? $rt['pay1'] : '0.00';?>元</span></a></p></li>
-				<li class="uli9"><p><a href="<?php echo ADMIN_URL.'daili.php?act=mymoneydata&status=yifu';?>"><i></i>已付款订单红米<span><?php echo !empty($rt['pay2']) ? $rt['pay2'] : '0.00';?>元</span></a></p></li>
-				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=mymoneydata&status=shouhuo';?>"><i></i>已收货订单红米<span><?php echo !empty($rt['pay3']) ? $rt['pay3'] : '0.00';?>元</span></a></p></li>		
-				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=mymoneydata&status=quxiao';?>"><i></i>已取消作废红米<span><?php echo !empty($rt['pay4']) ? $rt['pay4'] : '0.00';?>元</span></a></p></li>		
-				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=mymoneydata&status=tongguo';?>"><i></i>审核通过的红米<span><?php echo !empty($rt['pay5']) ? $rt['pay5'] : '0.00';?>元</span></a></p></li>		
-				<!--<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=postmoney';?>"><i></i>申请提款<span style="background:url(<?php echo $this->img('x.png');?>) left center no-repeat"></span></a></p></li>	
-				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=postmoneydata';?>"><i></i>提款记录<span style="background:url(<?php echo $this->img('x.png');?>) left center no-repeat"></span></a></p></li>		-->
+				<li class="uli6"><p><a href="<?php echo ADMIN_URL.'daili.php?act=mymoneydata&status=weifu';?>"><i></i>未付款订单<span><?php echo !empty($rt['pay1']) ? $rt['pay1'] : '0.00';?>元</span></a></p></li>
+				<li class="uli9"><p><a href="<?php echo ADMIN_URL.'daili.php?act=mymoneydata&status=yifu';?>"><i></i>已付款订单<span><?php echo !empty($rt['pay2']) ? $rt['pay2'] : '0.00';?>元</span></a></p></li>
+				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=mymoneydata&status=shouhuo';?>"><i></i>已收货订单<span><?php echo !empty($rt['pay3']) ? $rt['pay3'] : '0.00';?>元</span></a></p></li>		
+				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=mymoneydata&status=quxiao';?>"><i></i>已取消作废<span><?php echo !empty($rt['pay4']) ? $rt['pay4'] : '0.00';?>元</span></a></p></li>		
+				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=mymoneydata&status=tongguo';?>"><i></i>审核通过的<span><?php echo !empty($rt['pay5']) ? $rt['pay5'] : '0.00';?>元</span></a></p></li>		
+				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=postmoney';?>"><i></i>申请提款<span style="background:url(<?php echo $this->img('x.png');?>) left center no-repeat"></span></a></p></li>	
+				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=postmoneydata';?>"><i></i>提款记录<span style="background:url(<?php echo $this->img('x.png');?>) left center no-repeat"></span></a></p></li>
 				<div class="clear"></div>
 			</ul>
 		</div>
@@ -185,8 +185,13 @@ width:100%;
 				<a href="<?php echo ADMIN_URL;?>user.php?act=orderlist" style="background:url(<?php echo $this->img('404-2.png');?>) 90% center no-repeat"><i style="background:url(<?php echo $this->img('x.png');?>) 10% center no-repeat"></i>我的订单</a>
 			</p>
 		</div>
-		
 		<div class="uitem">
+			<p class="pp">
+				<a href="<?php echo ADMIN_URL;?>user.php?act=mycoll" style="background:url(<?php echo $this->img('404-2.png');?>) 90% center no-repeat"><i style="background:url(<?php echo $this->img('x.png');?>) 10% center no-repeat"></i>我的收藏</a>
+			</p>
+		</div>
+		
+		<!--<div class="uitem">
 			<p class="pp">
 				<a href="<?php echo ADMIN_URL;?>daili.php?act=postmoney" style="background:url(<?php echo $this->img('404-2.png');?>) 90% center no-repeat"><i style="background:url(<?php echo $this->img('x.png');?>) 10% center no-repeat"></i>申请提款</a>
 			</p>
@@ -196,7 +201,7 @@ width:100%;
 			<p class="pp">
 				<a href="<?php echo ADMIN_URL;?>daili.php?act=postmoneydata" style="background:url(<?php echo $this->img('404-2.png');?>) 90% center no-repeat"><i style="background:url(<?php echo $this->img('x.png');?>) 10% center no-repeat"></i>提款记录</a>
 			</p>
-		</div>
+		</div>-->
 
 		<!--<div class="uitem">
 			<p class="pp">
