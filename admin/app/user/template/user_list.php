@@ -45,7 +45,7 @@ $ip = $thisurl.'?type=list&asc=reg_ip';
 	<tr>
 	<td><input type="checkbox" name="quanxuan" value="<?php echo $row['user_id'];?>" class="gids"/></td>
 	<td align="center"><?php echo empty($row['nickname']) ? '未知' : $row['nickname'];?><br/><font color="#3399FF">[<?php echo $row['level_name'];?>]</font></td>
-	<td><img src="<?php echo !empty($row['headimgurl']) ? $row['headimgurl'] : $this->img('tx_img.gif');?>" height="60" /></td>
+	<td><img src="<?php echo !empty($row['headimgurl']) ? $row['headimgurl'] : $this->img('tx_img.gif');?>" height="30" width="30"/></td>
 	<td><?php echo $row['mobile_phone'];?></td>
 	<td><img src="<?php echo $this->img($row['active']==1 ? 'yes.gif' : 'no.gif');?>" alt="<?php echo $row['active']==1 ? '0' : '1';?>" class="activeop" lang="active" id="<?php echo $row['user_id'];?>"/></td>
 	<td><?php echo !empty($row['reg_time']) ? date('Y-m-d H:i:s',$row['reg_time']) : '未知';?></td>
