@@ -42,7 +42,7 @@ table p{ line-height:22px;}
 			<td align="left">付款状态:&nbsp;&nbsp;</td>
 			<td align="left">&nbsp;&nbsp;<?php echo $rt['status'][1];?>
 			<?php if($rt['orderinfo']['pay_status']=='0' && $rt['orderinfo']['order_status']!='1'){?>
-			&nbsp;&nbsp;<a class="payst" href="<?php echo ADMIN_URL.'mycart.php?type=fastpay2&oid='.$rt['orderinfo']['order_id'];?>">立即支付</a>&nbsp;&nbsp;<a href="<?php echo ADMIN_URL.'mycart.php?type=pay&oid='.$rt['orderinfo']['order_id'];?>" class="payst">找人代付</a>
+			&nbsp;&nbsp;<a class="payst" href="<?php echo ADMIN_URL.'mycart.php?type=fastpay2&oid='.$rt['orderinfo']['order_id'];?>">立即支付</a>&nbsp;&nbsp;<a href="<?php echo ADMIN_URL.'mycart.php?type=pay2&oid='.$rt['orderinfo']['order_id'];?>" class="payst">找人代付</a>
 			<?php } ?>
 			</td>
 			</tr>
