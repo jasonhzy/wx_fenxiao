@@ -131,9 +131,9 @@ width:100%;
 				<a href="javascript:;" onclick="ajax_show_sub(1,this);"><i></i>我的会员<span><?php echo empty($rt['zcount']) ? '0' : $rt['zcount'];?>人</span></a>
 			</p>
 			<ul class="gonglist gg1">
-				<li class="uli6"><p><a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=1';?>"><i></i>合伙人<span><?php echo empty($rt['zcount1']) ? '0' : $rt['zcount1'];?>人</span></a></p></li>
-				<li class="uli9"><p><a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=2';?>"><i></i>小伙伴<span><?php echo empty($rt['zcount2']) ? '0' : $rt['zcount2'];?>人</span></a></p></li>
-				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=3';?>"><i></i>店友<span><?php echo empty($rt['zcount3']) ? '0' : $rt['zcount3'];?>人</span></a></p></li>		
+				<li class="uli6"><p><a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=1';?>"><i></i>一级会员<span><?php echo empty($rt['zcount1']) ? '0' : $rt['zcount1'];?>人</span></a></p></li>
+				<li class="uli9"><p><a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=2';?>"><i></i>二级会员<span><?php echo empty($rt['zcount2']) ? '0' : $rt['zcount2'];?>人</span></a></p></li>
+				<li class="uli10"><p><a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=3';?>"><i></i>三级会员<span><?php echo empty($rt['zcount3']) ? '0' : $rt['zcount3'];?>人</span></a></p></li>		
 				<div class="clear"></div>
 			</ul>
 		</div>
