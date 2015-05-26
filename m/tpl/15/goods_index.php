@@ -217,11 +217,6 @@ margin-left:5px;
 	picrt.push(pic);
   }
   
-  function _report(a,c){
-	$.post('<?php ADMIN_URL;?>product.php',{action:'ajax_share',type:a,msg:c,thisurl:'<?php echo Import::basic()->thisurl();?>',imgurl:'<?php echo SITE_URL.$rt['goodsinfo']['goods_img'];?>',title:'<?php echo $rt['goodsinfo']['goods_name'];?>'},function(data){
-	});
-  }
-  
     function ajax_submit_mes(){
   	  var goods        = new Object();
 	  createwindow();
@@ -251,52 +246,28 @@ margin-left:5px;
 		   }//end sucdess
 		});
   }
+</script>    
 
-
-  document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        window.shareData = {  
-            "imgUrl": "<?php echo SITE_URL.$rt['goodsinfo']['goods_img'];?>",
-            "LineLink": '<?php echo $thisurl;?>',
-            "Title": "<?php echo $rt['goodsinfo']['goods_name'];?>",
-            "Content": "<?php echo !empty($rt['goodsinfo']['sort_desc']) ? $rt['goodsinfo']['sort_desc'] : $rt['goodsinfo']['goods_name'];?>"
-        };
-        // 发送给好友
-        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
-            WeixinJSBridge.invoke('sendAppMessage', { 
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.LineLink,
-                "desc": window.shareData.Content,
-                "title": window.shareData.Title
-            }, function (res) {
-                _report('send_msg', res.err_msg);
-            })
-        });
-        // 分享到朋友圈
-        WeixinJSBridge.on('menu:share:timeline', function (argv) {
-            WeixinJSBridge.invoke('shareTimeline', {
-                "img_url": window.shareData.imgUrl,
-                "img_width": "640",
-                "img_height": "640",
-                "link": window.shareData.LineLink,
-                "desc": window.shareData.Content,
-                "title": window.shareData.Title
-            }, function (res) {
-                _report('timeline', res.err_msg);
-            });
-        });
-        // 分享到微博
-        WeixinJSBridge.on('menu:share:weibo', function (argv) {
-            WeixinJSBridge.invoke('shareWeibo', {
-                "content": window.shareData.Content,
-                "url": window.shareData.LineLink,
-            }, function (res) {
-                _report('weibo', res.err_msg);
-            });
-        });
-        }, false)
-</script>
+<?php 
+	$imgurl =   SITE_URL.$rt['goodsinfo']['goods_img'];
+	$title =  $rt['goodsinfo']['goods_name'];
+	$params = array(
+		'title' => $title,
+		'action' => 'ajax_share',
+		'thisurl' => $thisurl,
+		'imgurl' => $imgurl
+	);
+	$wxshare = array(
+		'title' => $title,
+		'imgUrl' =>  $imgurl,
+		'desc' =>  !empty($rt['goodsinfo']['sort_desc']) ? $rt['goodsinfo']['sort_desc'] : $rt['goodsinfo']['goods_name'],
+		'link' => $thisurl,
+		'is_record' => 1,
+		'ajax_url' => ADMIN_URL.'product.php',
+		'ajax_params' => $params,
+	);
+   $this->element('15/wxshare',array('lang' =>  array_merge($lang, $wxshare) )); 
+ ?>
     
 <script type="text/javascript">
 $('.mainbottombg span').click(function(){
