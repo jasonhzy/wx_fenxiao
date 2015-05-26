@@ -44,13 +44,15 @@ jQuery(document).ready(function($){
 		cid = $('.cat_id').val();
 		action = $('.action').val(); 
 		$.post('<?php echo $thisurl;?>',{oid:cid,name:cname,content:content,action:action},function(data){
-			if(data !=""){ 
-				$('.cat_name_mes').html(data);
-				$('.cat_name_mes').css('color','#FE0000');
-			}else{
-				$('.cat_name_mes').html("");
-				//$('#form1').submit();
-			}
+			alert(data);
+			window.location.href = "<?php echo ADMIN_URL.'weixin.php?type=oauth';?>";
+//			if(data !=""){ 
+//				$('.cat_name_mes').html(data);
+//				$('.cat_name_mes').css('color','#FE0000');
+//			}else{
+//				$('.cat_name_mes').html("");
+//				//$('#form1').submit();
+//			}
 		});
 		return false;
 	}); 

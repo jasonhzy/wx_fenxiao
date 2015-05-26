@@ -336,7 +336,7 @@ class UserController extends Controller{
 		$sql = "SELECT * FROM `{$this->App->prefix()}user_cate` WHERE parent_id='0' AND is_show='1' ORDER BY sort_order ASC,cat_id ASC";
 		$rt['shopcate'] = $this->App->find($sql);
 			
-		if(!defined(NAVNAME)) define('NAVNAME', "用户登陆");
+		if(!defined(NAVNAME)) define('NAVNAME', "用户登录");
 		$this->set('rt',$rt);
 		
 		$mb = $GLOBALS['LANG']['mubanid'] > 0 ? $GLOBALS['LANG']['mubanid'] : '';
@@ -544,7 +544,7 @@ class UserController extends Controller{
 		$password = $rt['userinfo']['password'];
 		$mobile_phone = $rt['userinfo']['mobile_phone'];
 		if(empty($qq) || empty($password) || empty($mobile_phone)){
-			//$this->jump(ADMIN_URL.'user.php?act=myinfos_u',0,'请先完善微信外登陆资料！');
+			//$this->jump(ADMIN_URL.'user.php?act=myinfos_u',0,'请先完善微信外登录资料！');
 			//exit;
 		}
 		$this->action('common','checkjump');
@@ -2203,7 +2203,7 @@ class UserController extends Controller{
 		
    }
    
-	//判断是否已经登陆
+	//判断是否已经登录
 	function is_login(){
 		$uid = $this->Session->read('User.uid');
 		$username = $this->Session->read('User.username');

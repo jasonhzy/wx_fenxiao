@@ -46,7 +46,7 @@ if(!($rank>0)){
 			</tr>-->
 			<tr>
 			<td align="center">
-			 你的会员登陆账号是：<b style="font-size:32px;"><?php echo $userinfo['email'];?></b>,请牢记！
+			 你的会员登录账号是：<b style="font-size:32px;"><?php echo $userinfo['email'];?></b>,请牢记！
 			</td>
 			</tr>
 

@@ -652,7 +652,7 @@ class WeixinController extends Controller{
 		  $this->App->delete('wx_article','article_id',$id);
 		}
 	}
-	// 微信自动登陆
+	// 微信自动登录
 	function oauth(){
 	    $sql = "Select * from `{$this->App->prefix()}oauth`";
 		$findall = $this->App->find($sql);
@@ -660,7 +660,7 @@ class WeixinController extends Controller{
 		$this->template('oauth');
 	}
 	/*
-	* 自动登陆详情页面
+	* 自动登录详情页面
 	*/
 	function oauthinfo($data=array()){ 
 	    $oid = intval(trim($_GET['oid']));

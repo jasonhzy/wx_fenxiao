@@ -10,7 +10,7 @@
 			<td class="cro siz weg loc_r"><a href="<?php echo SITE_URL.'user.php?act=myinfo';?>" style="color:#A50098">编辑个人资料</a></td>
 		  </tr>
 		  <tr>
-			<td class="siz weg">登陆账号：<?php echo $rt['userinfo']['email'];?></td>
+			<td class="siz weg">登录账号：<?php echo $rt['userinfo']['email'];?></td>
 			<td class="siz weg">消费及积分记录</td>
 			<td class="siz weg">待操作信息</td>
 		  </tr>

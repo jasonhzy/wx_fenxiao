@@ -461,7 +461,7 @@ class CommonController extends Controller{
 	}
 	
 	
-	//自动登陆
+	//自动登录
 	function user_auto_login(){
 		$rt = $this->_get_appid_appsecret();
 		if( is_weixin()==false || $rt['is_oauth']=='0'){

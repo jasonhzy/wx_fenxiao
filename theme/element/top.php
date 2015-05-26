@@ -21,7 +21,7 @@
 		<table border="0" cellpadding="0" cellspacing="0" style="float:right; width:200px; margin-right:20px">
 			<tr>
 			<?php if($uid>0){?><td align="center" valign="middle"><a href="<?php echo SITE_URL.'user.php';?>" style="line-height:24px; height:24px;">会员中心</a></td>
-		<td align="center" valign="middle"><a href="<?php echo SITE_URL.'user.php?act=logout';?>" style=" float:left; padding-left:15px; line-height:24px; height:24px;">退出登陆</a></td><?php } else {?><td align="center" valign="middle"><a href="<?php echo get_url('马上登录',0,SITE_URL.'user.php?act=login','login',array('user','login'));?>" style="line-height:24px; height:24px;">[登陆]</a></td>
+		<td align="center" valign="middle"><a href="<?php echo SITE_URL.'user.php?act=logout';?>" style=" float:left; padding-left:15px; line-height:24px; height:24px;">退出登录</a></td><?php } else {?><td align="center" valign="middle"><a href="<?php echo get_url('马上登录',0,SITE_URL.'user.php?act=login','login',array('user','login'));?>" style="line-height:24px; height:24px;">[登录]</a></td>
 		<td align="center" valign="middle"><a href="<?php echo get_url('免费注册',0,SITE_URL.'user.php?act=register','register',array('user','register'));?>" style=" line-height:24px; height:24px;">[注册]</a></td><?php } ?>
 		<td align="center" valign="middle"><a href="<?php echo get_url('帮助中心',0,SITE_URL.'about.php','category',array('about','index'));?>" style="line-height:24px; height:24px;">帮助中心</a></td>
 			</tr>

@@ -11,7 +11,7 @@
 			<td class="cro siz weg loc_r"><a href="<?php echo SITE_URL.'user.php?act=myinfo';?>" style="color:#A50098">编辑个人资料</a></td>
 		  </tr>
 		  <tr>
-		    <td>会员编号：<?php echo $rt['userinfo']['user_id'];?>&nbsp;&nbsp;&nbsp;<span style="color:#FF0000">(今后登陆账号)</span></td>
+		    <td>会员编号：<?php echo $rt['userinfo']['user_id'];?>&nbsp;&nbsp;&nbsp;<span style="color:#FF0000">(今后登录账号)</span></td>
 			<td>真实姓名：<?php echo $rt['userinfo']['consignee'];?></td>
 			<td>会员级别：<?php echo $rt['userinfo']['level_name'];?></td>
 		  </tr>

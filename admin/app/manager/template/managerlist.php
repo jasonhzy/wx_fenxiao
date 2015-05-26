@@ -8,7 +8,7 @@
 			foreach($adminlist as $row){
 		?>
         <tr>
-        	<td><?php echo $row['adminname'];?></td><td><?php echo $row['groupname'] ? $row['groupname'] : '超级管理员';?></td><td><?php echo $row['email'];?></td><td><?php echo date('Y-m-d H:i:s',$row['addtime']);?></td><td><?php echo empty($row['lasttime']) ? '从未登陆' : date('Y-m-d H:i:s',$row['lasttime']);?></td><td><a href="manager.php?type=loglist&tt=<?php echo $row['adminname'];?>" title="查看日记"><img src="<?php echo $this->img('icon_view.gif');?>" title="查看日记"/></a>&nbsp;<a href="manager.php?type=edit&id=<?php echo $row['adminid'];?>" title="编辑"><img src="<?php echo $this->img('icon_edit.gif');?>" title="编辑"/></a>&nbsp;<img src="<?php echo $this->img('icon_drop.gif');?>" title="删除" alt="删除" id="<?php echo $row['adminid'];?>" class="deladmin"/></td>
+        	<td><?php echo $row['adminname'];?></td><td><?php echo $row['groupname'] ? $row['groupname'] : '超级管理员';?></td><td><?php echo $row['email'];?></td><td><?php echo date('Y-m-d H:i:s',$row['addtime']);?></td><td><?php echo empty($row['lasttime']) ? '从未登录' : date('Y-m-d H:i:s',$row['lasttime']);?></td><td><a href="manager.php?type=loglist&tt=<?php echo $row['adminname'];?>" title="查看日记"><img src="<?php echo $this->img('icon_view.gif');?>" title="查看日记"/></a>&nbsp;<a href="manager.php?type=edit&id=<?php echo $row['adminid'];?>" title="编辑"><img src="<?php echo $this->img('icon_edit.gif');?>" title="编辑"/></a>&nbsp;<img src="<?php echo $this->img('icon_drop.gif');?>" title="删除" alt="删除" id="<?php echo $row['adminid'];?>" class="deladmin"/></td>
         </tr>
         <?php
 			} 

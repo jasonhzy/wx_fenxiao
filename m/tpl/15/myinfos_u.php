@@ -29,7 +29,7 @@ border-radius:5px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
 <tr>
 		<td width="20%" align="right" style="padding-bottom:2px;"><b class="cr2">*</b>手机：</td>
 		<td width="80%" align="left" style="padding-bottom:2px;">
-		<input type="text" value="<?php echo isset($rt['userinfo']['mobile_phone'])&&!empty($rt['userinfo']['mobile_phone']) ? $rt['userinfo']['mobile_phone'] : "";?>" name="mobile_phone"  class="pw" placeholder="手机号码为登陆账号" style="padding-left:25px; background:url(<?php echo $this->img('u.png');?>) 3px center no-repeat"/></td>
+		<input type="text" value="<?php echo isset($rt['userinfo']['mobile_phone'])&&!empty($rt['userinfo']['mobile_phone']) ? $rt['userinfo']['mobile_phone'] : "";?>" name="mobile_phone"  class="pw" placeholder="手机号码为登录账号" style="padding-left:25px; background:url(<?php echo $this->img('u.png');?>) 3px center no-repeat"/></td>
 	</tr>
 	<tr>
 	<td width="20%" align="right" style="padding-bottom:2px;"><b class="cr2">*</b>密码：</td>

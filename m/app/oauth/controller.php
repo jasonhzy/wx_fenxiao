@@ -86,7 +86,7 @@ class OauthController extends Controller{
 			
 			$rt = $this->App->findrow("SELECT * FROM `{$this->App->prefix()}user` WHERE `wecha_id` = '$openid'");
 			//$_SESSION['wxid'] = $openid; 
-			// 模拟登陆
+			// 模拟登录
 		
 				$ip = Import::basic()->getip();
 				$datas['last_ip'] = empty($ip) ? '0.0.0.0' : $ip;
