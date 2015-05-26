@@ -48,7 +48,7 @@ function show_zhuan(){
 	$params = array(
 		'title' => $title,
 		'action' => 'ajax_share',
-		'thisurl' => Import::basic()->thisurl(),
+		'thisurl' => $thisurl,
 		'imgurl' => $imgurl
 	);
 	$wxshare = array(
