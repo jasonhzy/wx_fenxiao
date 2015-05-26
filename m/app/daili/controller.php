@@ -1814,7 +1814,7 @@ class DailiController extends Controller{
 		
    }
    
-	//判断是否已经登陆
+	//判断是否已经登录
 	function is_login(){
 		$uid = $this->Session->read('User.uid');
 		$username = $this->Session->read('Agent.username');
@@ -1978,7 +1978,7 @@ class DailiController extends Controller{
 						}
 					} //end if
 				}else{
-					//跳转到登陆页面
+					//跳转到登录页面
 					$this->jump(ADMIN_URL.'daili.php?act=login');exit;
 				}
 		}

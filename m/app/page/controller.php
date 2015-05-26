@@ -821,7 +821,7 @@ class PageController extends Controller{
 	}
 	
 	
-	//判断是否已经登陆
+	//判断是否已经登录
 	function is_login(){
 		$uid = $this->Session->read('Shop.uid');
 		if( $uid >0 ) {

@@ -1645,7 +1645,7 @@ class UserController extends Controller{
 		
    }
    
-	//判断是否已经登陆
+	//判断是否已经登录
 	function is_login(){
 		$uid = $this->Session->read('User.uid');
 		$username = $this->Session->read('User.username');

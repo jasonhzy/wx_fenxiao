@@ -456,7 +456,7 @@ class SystemController extends Controller{
 	//管理员操作日记
 	function add_admin_log($optionlog = ""){ 
 		$uname = $this->Session->read('adminname');
-		if(empty($uname)) Import::basic()->redirect('login.php',0,'非法操作：没有登陆！');
+		if(empty($uname)) Import::basic()->redirect('login.php',0,'非法操作：没有登录！');
 		$data['optioner'] = $uname;
 		$data['optiondt'] = time();
 		$data['optionip'] = Import::basic()->getip();

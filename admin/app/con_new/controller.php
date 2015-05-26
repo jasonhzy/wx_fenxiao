@@ -300,7 +300,7 @@ class Con_newController extends Controller{
 		$this->App->update('article_cate',$sdata,'cat_id',$data['id']);
 	}
 	
-	// 自动登陆添加
+	// 自动登录添加
 	function ajax_oauthadd($data=array()){
 		
 		if($data['name'] AND $data['content']){
@@ -321,7 +321,7 @@ class Con_newController extends Controller{
 		
 		
 	}
-	// 自动登陆修改
+	// 自动登录修改
 	function ajax_oauthedit($data=array()){
 		if($data['name'] AND $data['content'] AND $data['oid']){
 		    $d = array(
@@ -339,7 +339,7 @@ class Con_newController extends Controller{
 		}
 		
 	}
-	// 自动登陆删除
+	// 自动登录删除
 	function ajax_oauthdel($data=array()){
 	   $d = explode('+',$data['ids']);
 	   if(is_array($d)){

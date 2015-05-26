@@ -1,6 +1,6 @@
 <div id="wrap" style="padding-top:20px;width:920px; margin:0px auto">
 	<div class="mt" style="background:url(<?php echo $this->img('hend.jpg');?>) center center no-repeat; height:43px; line-height:43px;">
-		<h2>用户登陆</h2>
+		<h2>用户登录</h2>
 	</div>
 	<style type="text/css">
 	.content table td input{ width:250px; height:28px; line-height:28px; border:1px solid #ccc}
@@ -9,12 +9,12 @@
 			<form id="LOGIN" name="LOGIN" method="post" action="">
 			<table cellpadding="3" cellspacing="5" style="line-height:40px; width:500px; margin:0px auto; padding-left:40px" border="0">
 			<tr>
-				<th width="70" align="right">登陆用户：</th><td width="270">
+				<th width="70" align="right">登录用户：</th><td width="270">
 				    <input type="text" name="username"  value="<?php echo isset($_COOKIE['USER']['USERNAME']) ? $_COOKIE['USER']['USERNAME'] : "";?>"/>
 				</td>
 			</tr>
 			<tr>
-				<th align="right">登陆密码：</th><td><input type="password" name="password" value="<?php echo isset($_COOKIE['USER']['PASS']) ? $_COOKIE['USER']['PASS'] : "";?>"/></td>
+				<th align="right">登录密码：</th><td><input type="password" name="password" value="<?php echo isset($_COOKIE['USER']['PASS']) ? $_COOKIE['USER']['PASS'] : "";?>"/></td>
 			</tr>
   
 			<tr><td>&nbsp;</td><td>
