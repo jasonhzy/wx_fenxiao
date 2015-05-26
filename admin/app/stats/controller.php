@@ -100,7 +100,6 @@ class StatsController extends Controller{
 				$end_time = intval(strtotime($_POST['month_endYear']."-".$_POST['month_endMonth']));
 			}
 		}
-
 		// 分组统计订单数和销售额：已发货时间为准
 		$format = ($query_type == 'year') ? '%Y' : '%Y-%m';
 		$sql = "SELECT DATE_FORMAT(FROM_UNIXTIME(add_time), '$format') AS period, COUNT(*) AS order_count, SUM(goods_amount + shipping_fee) AS order_amount FROM `{$this->App->prefix()}goods_order_info` WHERE add_time BETWEEN '$start_time' AND '$end_time' AND order_status='2' AND pay_status='1' GROUP BY period";
@@ -123,6 +122,26 @@ class StatsController extends Controller{
 		
 		$rt['order_data'] = sprintf($xml, '', $data_count); // 订单数统计数据
 		$rt['sale_data'] = sprintf($xml, '', $data_amount);    // 销售额统计数据
+		
+		$years = array(
+			date('Y') - 5 => date('Y') - 5,
+			date('Y') - 4 => date('Y') - 4,
+			date('Y') - 3 => date('Y') - 3,
+			date('Y') - 2 => date('Y') - 2,
+			date('Y') - 1 => date('Y') - 1,
+			date('Y') 	   => date('Y') ,
+			date('Y') + 1 => date('Y') + 1,
+			date('Y') + 2 => date('Y') + 2,
+			date('Y') + 3 => date('Y') + 3,
+			date('Y') + 4 => date('Y') + 4,
+			date('Y') + 5 => date('Y') + 5
+		);
+		$months = array();
+		for ($i = 1; $i < 13; $i++) {
+			$months[] = $i;
+		}
+		$this->set('years',$years);
+		$this->set('months',$months);
 		$this->set('rt',$rt);
 		$this->template('sale_trend');
 	}

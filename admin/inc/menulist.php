@@ -89,7 +89,7 @@ $menu[10] = array(
 		array('name'=>'品牌列表','en_name'=>'1009','url'=>'brand.php?type=band_list'),
 		array('name'=>'添加品牌','en_name'=>'1010','url'=>'brand.php?type=band_info'),
 		array('name'=>'商品属性','en_name'=>'1011','url'=>'goods.php?type=goods_attr_list'),
-		array('name'=>'派放红包','en_name'=>'1013','url'=>'coupon.php?type=list'),
+		//array('name'=>'派放红包','en_name'=>'1013','url'=>'coupon.php?type=list'),
 		array('name'=>'用户评论','en_name'=>'1014','url'=>'goods.php?type=comment_list'),
 		array('name'=>'单品推荐','en_name'=>'1021','url'=>'goods.php?type=goods_tuijian'),
 
@@ -161,7 +161,7 @@ $menu[17] = array(
 		array('name'=>'添加导航栏','en_name'=>'1702','url'=>'systemconfig.php?type=nav_add')
 	)
 );
-$menu[33]= array(
+/*$menu[33]= array(
 	'en_name'=>'33',
 	'big_key'=>'s06',
 	'small_mod'=>'短信设置',
@@ -169,7 +169,7 @@ $menu[33]= array(
 	'sub_mod'=>array(
 		array('name'=>'思远电子','en_name'=>'1701','url'=>'smsconfig.php?type=sms_yuansi'),
 	)
-);
+);*/
 $menu[21] = array(
 	'en_name'=>'21',
 	'big_key'=>'s010',
