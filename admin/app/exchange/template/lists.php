@@ -11,7 +11,7 @@ table th a{ text-decoration:underline}
 	   <th>名称</th>
 	   <th>图标</th>
 	   <th>所需积分</th>
-	   <th>是否显示</th>
+	   <th>是否上架</th>
 	   <th>是否推荐</th>
 	   <th>排序</th>
 	   <th>操作</th>
