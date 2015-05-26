@@ -14,12 +14,41 @@ h2.nav a{ color:#999999; display:block; float:left; height:24px;width:113px; tex
  
   <form action="" method="post" style="background-color:#EEF2F5">
   <img src="<?php echo $this->img('icon_search.gif');?>" alt="SEARCH" width="26" border="0" height="22" align="absmiddle"><strong>年走势</strong>
-  <select name="year_beginYear"><option value="2006">2006</option><option value="2007" selected>2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option></select>  -
-  <select name="year_endYear"><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012" selected>2012</option><option value="2013">2013</option></select>  <input type="submit" name="query_by_year" value="查询" class="button" />
+	  <select name="year_beginYear">
+	  	  <?php  foreach ($years as $year) {?>
+		  	<option value="<?php echo $year; ?>" <?php if ($year == date('Y')) echo 'selected'; ?>><?php echo $year; ?></option>
+		 <?php  }?>
+	  </select>  -
+	  <select name="year_endYear">
+		    <?php  foreach ($years as $year) {?>
+			  	<option value="<?php echo $year; ?>" <?php if ($year == date('Y')) echo 'selected'; ?>><?php echo $year; ?></option>
+			 <?php  }?>
+	  </select>  
+	  <input type="submit" name="query_by_year" value="查询" class="button" />
   <br />
   <img src="<?php echo $this->img('icon_search.gif');?>" alt="SEARCH" width="26" border="0" height="22" align="absmiddle"><strong>月走势</strong>
-  <select name="month_beginYear"><option value="2006">2006</option><option value="2007" selected>2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option></select>&nbsp;<select name="month_beginMonth"><option value="1" selected>01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>  -
-  <select name="month_endYear"><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012" selected>2012</option><option value="2013">2013</option></select>&nbsp;<select name="month_endMonth"><option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6" selected>06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>  <input type="submit" name="query_by_month" value="查询" class="button" />
+  		<select name="month_beginYear">
+  		 <?php  foreach ($years as $year) {?>
+		  	<option value="<?php echo $year; ?>" <?php if ($year == date('Y')) echo 'selected'; ?>><?php echo $year; ?></option>
+		 <?php  }?>
+	</select>
+	<select name="month_beginMonth">
+		<?php  foreach ($months as $month) {?>
+		  	<option value="<?php echo $month; ?>" <?php if ($month == date('m')) echo 'selected'; ?>><?php echo $month; ?></option>
+		 <?php  }?>
+  	</select> 
+  	</select>  -
+  	<select name="month_endYear">
+  		 <?php  foreach ($years as $year) {?>
+			  	<option value="<?php echo $year; ?>" <?php if ($year == date('Y')) echo 'selected'; ?>><?php echo $year; ?></option>
+			 <?php  }?>
+	</select>&nbsp;
+	<select name="month_endMonth">
+		<?php  foreach ($months as $month) {?>
+		  	<option value="<?php echo $month; ?>" <?php if ($month == date('m')) echo 'selected'; ?>><?php echo $month; ?></option>
+		 <?php  }?>
+  	</select> 
+  	<input type="submit" name="query_by_month" value="查询" class="button" />
   </form>
 
  

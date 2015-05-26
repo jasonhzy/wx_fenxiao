@@ -3,7 +3,7 @@
 <table cellspacing="2" cellpadding="5" width="100%">
 <tr>
 <th>&nbsp;</th>
-<th style="text-align:right"><a href="goods.php?type=goods_attr_list">商品属列表性</a></th>
+<th style="text-align:right"><a href="goods.php?type=goods_attr_list">商品属性列表</a></th>
 </tr>
 <tr>
         <td class="label" width="15%" >属性名称：</td>
