@@ -59,7 +59,7 @@ background-size: 28px auto;
 </style>
 <div id="main" style="padding:5px; padding-top:0px">
 <div class="logoqu">
-	<img src="<?php echo $this->img('logo4.png');?>" class="logos"/>
+	<img src="<?php echo $this->img('logo.jpg');?>" class="logos"/>
 	<div class="menunav">
 	<a href="<?php echo ADMIN_URL.'catalog.php';?>"><i></i>所有商品</a>
 	<a href="<?php echo ADMIN_URL.'mycart.php';?>"><i></i>购物车</a>

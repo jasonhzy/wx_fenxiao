@@ -42,7 +42,7 @@ function show_zhuan(){
 
 
   function _report(a,c){
-		$.post('<?php ADMIN_URL;?>product.php',{action:'ajax_share',type:a,msg:c,thisurl:'<?php echo Import::basic()->thisurl();?>',imgurl:'<?php echo !empty($lang['site_logo'])? SITE_URL.$lang['site_logo'] : $this->img('logo4.png');?>',title:'<?php echo $title;?>'},function(data){
+		$.post('<?php ADMIN_URL;?>product.php',{action:'ajax_share',type:a,msg:c,thisurl:'<?php echo Import::basic()->thisurl();?>',imgurl:'<?php echo !empty($lang['site_logo'])? SITE_URL.$lang['site_logo'] : $this->img('logo.jpg');?>',title:'<?php echo $title;?>'},function(data){
 		});
   }
 
@@ -64,7 +64,7 @@ wx.ready(function () {
 		title: '<?php echo $lang['metatitle'];?>', // 分享标题
 		desc: '<?php echo $lang['metadesc'];?>', // 分享描述
 		link: '<?php echo $thisurl;?>', // 分享链接
-		imgUrl: '<?php echo !empty($lang['site_logo'])? SITE_URL.$lang['site_logo'] : $this->img('logo4.png');?>', // 分享图标
+		imgUrl: '<?php echo !empty($lang['site_logo'])? SITE_URL.$lang['site_logo'] : $this->img('logo.jpg');?>', // 分享图标
 		success: function () { 
 			// 用户确认分享后执行的回调函数
 			_report('send_msg', 'st:ok');
@@ -78,7 +78,7 @@ wx.ready(function () {
 wx.onMenuShareTimeline({
       title: '<?php echo $lang['metatitle'];?>', // 分享标题
 	  link: '<?php echo $thisurl;?>', // 分享链接
-	  imgUrl: '<?php echo !empty($lang['site_logo'])? SITE_URL.$lang['site_logo'] : $this->img('logo4.png');?>', // 分享图标
+	  imgUrl: '<?php echo !empty($lang['site_logo'])? SITE_URL.$lang['site_logo'] : $this->img('logo.jpg');?>', // 分享图标
       success: function () { 
 			// 用户确认分享后执行的回调函数
 			 _report('timeline', 'st:ok');

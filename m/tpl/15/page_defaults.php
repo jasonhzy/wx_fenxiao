@@ -43,7 +43,7 @@ function show_zhuan(){
 }
 </script>
 <?php 
-	$imgurl = !empty($rt['tj']['goods_thumb'])? SITE_URL.$rt['tj']['goods_thumb'] : $this->img('logo4.png');
+	$imgurl = !empty($rt['tj']['goods_thumb'])? SITE_URL.$rt['tj']['goods_thumb'] : $this->img('logo.jpg');
 	$title =  $rt['tj']['goods_name'] ? $rt['tj']['goods_name'] : $lang['metatitle'];
 	$params = array(
 		'title' => $title,
