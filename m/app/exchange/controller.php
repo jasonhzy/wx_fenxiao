@@ -12,9 +12,9 @@ class ExchangeController extends Controller{
 	 	if(is_null($rt)) {
 			$list = 20;
 			$start = ($page-1)*$list;
-			$tt = $this->App->findvar("SELECT COUNT(goods_id) FROM `{$this->App->prefix()}goods` WHERE is_on_sale='1' AND is_alone_sale='1' AND is_jifen='1'");
+			$tt = $this->App->findvar("SELECT COUNT(goods_id) FROM `{$this->App->prefix()}goods` WHERE is_on_sale='1' AND is_alone_sale='1' AND is_jifen='1'  AND is_delete='0' ");
 			//$rt['jifengoodspage'] = Import::basic()->ajax_page($tt,$list,$page,'get_jifen_page'); //分页
-			$sql = "SELECT goods_id,goods_name,market_price,shop_price,promote_price,goods_thumb,goods_img,is_jifen,need_jifen FROM `{$this->App->prefix()}goods` WHERE is_on_sale='1' AND is_alone_sale='1' AND is_jifen='1' ORDER BY sort_order ASC, goods_id DESC LIMIT $start,$list";
+			$sql = "SELECT goods_id,goods_name,market_price,shop_price,promote_price,goods_thumb,goods_img,is_jifen,need_jifen FROM `{$this->App->prefix()}goods` WHERE is_on_sale='1' AND is_alone_sale='1' AND is_jifen='1'  AND is_delete='0' ORDER BY sort_order ASC, goods_id DESC LIMIT $start,$list";
 			$rt['lists'] = $this->App->find($sql);
 			
 			
