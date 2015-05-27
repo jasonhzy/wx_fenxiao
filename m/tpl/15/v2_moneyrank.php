@@ -16,7 +16,7 @@
 #main li{ background:#FFF}
 #main li:hover{ background:#ededed}
 </style>
-<div id="main" style=" min-height:200px;margin-bottom:20px;">
+<div id="main" style=" min-height:200px;margin-bottom:20px;position: relative;z-index: -1;">
 <ul class="v12_ul">
 <?php if(!empty($rt['ulist']))foreach($rt['ulist'] as $k=>$row){
 ?>
