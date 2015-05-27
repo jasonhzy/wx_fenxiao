@@ -17,13 +17,13 @@
 		</li>-->
 	<?php } ?>
 		<li>
-		<a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=1';?>"><i></i>我的董事<span><?php echo empty($rt['zcount1']) ? '0' : $rt['zcount1'];?>人</span></a>
+		<a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=1';?>"><i></i>一级会员<span><?php echo empty($rt['zcount1']) ? '0' : $rt['zcount1'];?>人</span></a>
 		</li>
 		<li>
-		<a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=2';?>"><i></i>我的经理<span><?php echo empty($rt['zcount2']) ? '0' : $rt['zcount2'];?>人</span></a>
+		<a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=2';?>"><i></i>二级会员<span><?php echo empty($rt['zcount2']) ? '0' : $rt['zcount2'];?>人</span></a>
 		</li>
 		<li>
-		<a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=3';?>"><i></i>我的秘书<span><?php echo empty($rt['zcount3']) ? '0' : $rt['zcount3'];?>人</span></a>
+		<a href="<?php echo ADMIN_URL.'daili.php?act=myuser&t=3';?>"><i></i>三级会员<span><?php echo empty($rt['zcount3']) ? '0' : $rt['zcount3'];?>人</span></a>
 		</li>
 	</ul>
 </div>
