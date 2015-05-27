@@ -45,7 +45,7 @@ h2.nav a{ color:#999999; display:block; float:left; height:24px;width:113px; tex
 	</select>&nbsp;
 	<select name="month_endMonth">
 		<?php  foreach ($months as $month) {?>
-		  	<option value="<?php echo $month; ?>" <?php if ($month == date('m')) echo 'selected'; ?>><?php echo $month; ?></option>
+		  	<option value="<?php echo $month; ?>" <?php if ($month == date('m') + 1) echo 'selected'; ?>><?php echo $month; ?></option>
 		 <?php  }?>
   	</select> 
   	<input type="submit" name="query_by_month" value="查询" class="button" />
