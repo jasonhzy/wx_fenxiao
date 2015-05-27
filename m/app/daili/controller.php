@@ -900,7 +900,7 @@ class DailiController extends Controller{
 		$this->checked_login();
 		$uid = $this->Session->read('User.uid');
 		$ts = isset($_GET['t']) ? $_GET['t'] : '0';
-		$l = $ts=='1' ? '合伙人' : ($ts=='2' ? '小伙伴' : '店友');
+		$l = $ts=='1' ? '一级会员' : ($ts=='2' ? '二级会员' : '三级会员');
 		if(!defined(NAVNAME)) define('NAVNAME', "我的分销：".$l);
 		
 		
