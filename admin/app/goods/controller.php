@@ -1188,9 +1188,9 @@ class GoodsController extends Controller{
             $pagelink = Import::basic()->getpage($tt, $list, $page,'?page=',true);
             $this->set("pagelink",$pagelink);
 			
-            $sql = "SELECT c.content, c.comment_id, c.comment_rank, c.add_time,c.status, c.id_value AS goods_id, g.goods_name, c.ip_address AS ip, c.ip_form, c.user_name FROM `{$this->App->prefix()}comment` AS c";
+            $sql = "SELECT c.content, c.comment_id, c.comment_rank, c.add_time,c.status, c.id_value AS goods_id, g.goods_name, c.ip_address AS ip, c.ip_form, u.nickname AS user_name FROM `{$this->App->prefix()}comment` AS c";
            // $sql .= " LEFT JOIN `{$this->App->prefix()}comment` AS r  ON r.parent_id = c.comment_id AND r.parent_id > 0";
-           // $sql .= " LEFT JOIN `{$this->App->prefix()}user` AS u ON c.user_id = u.user_id AND c.user_id>0";
+        	$sql .= " LEFT JOIN `{$this->App->prefix()}user` AS u ON c.user_id = u.user_id AND c.user_id>0";
             $sql .= " LEFT JOIN `{$this->App->prefix()}goods` AS g ON g.goods_id = c.id_value";
             $sql .= " WHERE c.parent_id ='0' $u $orderby LIMIT $start,$list";
             $rt = $this->App->find($sql);
@@ -1237,9 +1237,9 @@ class GoodsController extends Controller{
 
             }
 
-            $sql = "SELECT c.content,c.comment_id, c.comment_rank,c.email,c.goods_rand,c.shopping_rand,c.saleafter_rand, c.add_time,c.status, c.id_value AS goods_id, g.goods_name, c.ip_address AS ip, c.ip_form, c.user_name,rc.add_time AS rp_addtime, rc.content AS rp_conent,rc.ip_address AS rp_ip,rc.up_time, ad.adminname AS adname,ad.adminid, rc.comment_id AS rp_com_id  FROM  `{$this->App->prefix()}comment` AS c";
+            $sql = "SELECT c.content,c.comment_id, c.comment_rank,c.email,c.goods_rand,c.shopping_rand,c.saleafter_rand, c.add_time,c.status, c.id_value AS goods_id, g.goods_name, c.ip_address AS ip, c.ip_form, u.nickname AS user_name,rc.add_time AS rp_addtime, rc.content AS rp_conent,rc.ip_address AS rp_ip,rc.up_time, ad.adminname AS adname,ad.adminid, rc.comment_id AS rp_com_id  FROM  `{$this->App->prefix()}comment` AS c";
             $sql .=" LEFT JOIN `{$this->App->prefix()}comment` AS rc ON rc.parent_id=c.comment_id AND rc.parent_id>0";
-           // $sql .= " LEFT JOIN `{$this->App->prefix()}user` AS u ON c.user_id = u.user_id AND c.user_id>0";
+          	$sql .= " LEFT JOIN `{$this->App->prefix()}user` AS u ON c.user_id = u.user_id AND c.user_id>0";
             $sql .= " LEFT JOIN `{$this->App->prefix()}goods` AS g ON g.goods_id = c.id_value";
             $sql .=" LEFT JOIN `{$this->App->prefix()}admin` AS ad ON ad.adminid=rc.user_id AND rc.user_id>0";
             $sql .=" WHERE c.comment_id='$id'"; 
