@@ -1,4 +1,4 @@
-<div id="home">
+<div id="home"  style="position: relative;z-index: 100;">
 	<div id="header">
 		<div class="logo" style="height:28px; padding-top:10px; background:url(<?php echo $this->img('xy.png');?>) 10px 8px no-repeat"><span onclick=" history.go(-1);">&nbsp;</span></div>
 		<div class="shoptitle"><span><?php echo NAVNAME;?></span></div>
