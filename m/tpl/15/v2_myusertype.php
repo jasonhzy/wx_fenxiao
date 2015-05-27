@@ -9,7 +9,7 @@
 .dailicenter li a:hover{ background:#cfccbd}
 .dailicenter li a span{border-radius:10px; height:24px; line-height:24px; padding-left:15px; padding-right:15px;display:block;background:#497bae; text-align:center; font-size:12px; font-weight:bold; color:#FFF; cursor:pointer; position:absolute;right:12%; top:8px; z-index:99;}
 </style>
-<div id="main" style="min-height:300px;margin-bottom:20px;position: relative;z-index: -1;">
+<div id="main" style="min-height:300px;margin-bottom:20px;">
 	<ul class="dailicenter">
 	<?php if($rt['zcount']>0){?>
 		<!--<li>
