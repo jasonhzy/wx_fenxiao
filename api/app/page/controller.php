@@ -57,11 +57,11 @@ class PageController extends Controller{
 			break;
 			case 'markimg2':
 			$openid = $rt['openid'];
-			$data = '{"touser":"'.$openid.'","msgtype":"text","text":{"content":"对不起、您不是东家,获得推广图片,请<a href=\"http://fenxiao.pinet.cc/m/oauth.php?oid=1\">购买商品</a>成为东家"}}';
+			$data = '{"touser":"'.$openid.'","msgtype":"text","text":{"content":"对不起、您不是东家,获得推广图片,请<a href=\"http://'.SITE_URL.'/m/oauth.php?oid=1\">购买商品</a>成为东家"}}';
 			break;
 			case 'markimg3':
 			$openid = $rt['openid'];
-			$data = '{"touser":"'.$openid.'","msgtype":"text","text":{"content":"对不起、您不是东家,获得推广图片,请<a href=""http://fenxiao.pinet.cc/m/oauth.php?oid=1"">购买商品</a>成为东家"}}';
+			$data = '{"touser":"'.$openid.'","msgtype":"text","text":{"content":"对不起、您不是东家,获得推广图片,请<a href="http://'.SITE_URL.'/m/oauth.php?oid=1">购买商品</a>成为东家"}}';
 			break;
 			case 'markimgsend':
 			$openid = $rt['openid'];
@@ -707,43 +707,31 @@ class PageController extends Controller{
 					break;
 				case 'ranklist':  // 排行榜
 				     $RL = $this->App->findrow("SELECT user_id,user_rank FROM `{$this->App->prefix()}user` WHERE wecha_id='{$this->wecha_id}' LIMIT 1");
-			 $uid = isset($RL['user_id']) ? $RL['user_id'] : '0';
-			 $purt = $this->App->findrow("SELECT ut.parent_uid,u.wecha_id FROM `{$this->App->prefix()}user_tuijian` AS ut LEFT JOIN `{$this->App->prefix()}user` AS u ON u.user_id = ut.parent_uid WHERE ut.uid='$uid' LIMIT 1");
+					 $uid = isset($RL['user_id']) ? $RL['user_id'] : '0';
+					 $purt = $this->App->findrow("SELECT ut.parent_uid,u.wecha_id FROM `{$this->App->prefix()}user_tuijian` AS ut LEFT JOIN `{$this->App->prefix()}user` AS u ON u.user_id = ut.parent_uid WHERE ut.uid='$uid' LIMIT 1");
 
 					$puid = isset($purt['parent_uid']) ? $purt['parent_uid'] : '0';
 					if($uid > 0){
-
 								$gzcount = $this->App->findvar("SELECT COUNT(user_id) FROM `{$this->App->prefix()}user` LIMIT 1");
-
 								$gzcount = $gzcount*5+750;
-
 								if($puid > 0){
-
 									$nickname = $this->App->findrow("SELECT nickname FROM `{$this->App->prefix()}user` WHERE user_id = '$puid' LIMIT 1");
-
 									if(empty($nickname)) $nickname = '官网';
-                                   
 									$str = '来自好友【'.$nickname['nickname'].'】的推荐成为第【'.$gzcount.'】位会员，立即关注，抢夺店主地盘！';
-
 								}else{
-                                   
 									$str = '来自【官网】的推荐成为第【'.$gzcount.'】位会员，立即关注，抢夺店主地盘！';
-
 								}
-
 					}
-					
 				    $data = '{"touser":"'.$wecha_id.'","msgtype":"text","text":{"content":"'.$str.'"}}';
 					$access_token = $this->_get_access_token();
 		            $rt=$this->curlPost('https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token='.$access_token,$data,0);
 					$orderid = $this->App->findvar("SELECT order_id FROM  `{$this->App->prefix()}goods_order_info` where `user_id`='{$RL['user_id']}' and `pay_status`=1");
 					if($orderid or $RL['user_rank'] > 1){
-						
 						return array('你已经是店主 发送你的名片给你的好友 赚钱吧', 'text');
 					}else{
-						return array("您还不是店主，请<a href=\"".SITE_URL."/m/oauth.php?oid=41\">购买商品</a>成为店主", 'text');
+						return array("您还不是店主，请<a href=\"".SITE_URL."/m/oauth.php?oid=1\">购买商品</a>成为店主", 'text');
 					}
-				break;
+					break;
 				case 'qr'://生成二维码
 				case '我的二维码'://生成二维码
 					$yuming = str_replace(array('www','.',),'',$_SERVER["HTTP_HOST"]);
@@ -1034,8 +1022,8 @@ class PageController extends Controller{
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-		curl_setopt($curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
-		curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)');
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		curl_setopt($ch, CURLOPT_AUTOREFERER, 1);
@@ -1071,7 +1059,6 @@ class PageController extends Controller{
 		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)');
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		curl_setopt($ch, CURLOPT_AUTOREFERER, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$temp = curl_exec($ch);
 		if(empty($temp)) $temp = Import::crawler()->curl_get_con($url);
