@@ -2,7 +2,7 @@
 <script type="text/javascript">
   function _report(a,c){
   	<?php if ($lang['is_record']) {  ?>
-	  	$.post('<?php echo $lang['ajax_url'] ?>', {"action": "<?php echo $lang['ajax_params']['action'] ?>","type": a,"msg": c, "thisurl": "<?php echo $lang['ajax_params']['thisurl'] ?>","imgurl": "<?php echo $lang['ajax_params']['imgurl'] ?>"},function(data){
+	  	$.post('<?php echo $lang['ajax_url'] ?>', {"action": "<?php echo $lang['ajax_params']['action'] ?>","type": a,"msg": c, "thisurl": "<?php echo $lang['ajax_params']['thisurl'] ?>","imgurl": "<?php echo $lang['ajax_params']['imgurl'] ?>", "title": "<?php echo $lang['ajax_params']['title'] ?>"},function(data){
 		});
   	<?php } ?>
   }
