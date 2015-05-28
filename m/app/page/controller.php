@@ -106,7 +106,7 @@ class PageController extends Controller{
 		$uid = $this->Session->read('User.uid');
 		$rt['shareinfo'] = array();
 		if($uid > 0){ 
-			$sql = "SELECT tb1.nickname,tb1.headimgurl, tb1.is_subscribe  FROM `{$this->App->prefix()}user` AS tb1 LEFT JOIN `{$this->App->prefix()}user_tuijian` AS tb2 ON tb1.user_id = tb2.parent_uid LEFT JOIN `{$this->App->prefix()}user` AS tb3 ON tb3.user_id = tb2.uid WHERE tb3.user_id='$uid' LIMIT 1";
+			$sql = "SELECT tb1.nickname,tb1.headimgurl, tb3.is_subscribe  FROM `{$this->App->prefix()}user` AS tb1 LEFT JOIN `{$this->App->prefix()}user_tuijian` AS tb2 ON tb1.user_id = tb2.parent_uid LEFT JOIN `{$this->App->prefix()}user` AS tb3 ON tb3.user_id = tb2.uid WHERE tb3.user_id='$uid' LIMIT 1";
 			$rt['shareinfo'] = $this->App->findrow($sql);
 			if(empty($rt['shareinfo'])){
 			 	$rt['shareinfo']['nickname'] = '官网';
