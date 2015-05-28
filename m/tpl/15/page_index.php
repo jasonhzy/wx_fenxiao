@@ -22,14 +22,14 @@ body{ background:#efefef !important;}
 	
 	<?php
 	if(!empty($rt['shareinfo'])){
-	$issubscribe = $this->Session->read('User.subscribe');
+		$issubscribe = $issubscribe = isset($rt['shareinfo']['is_subscribe']) ? $rt['shareinfo']['is_subscribe'] : $this->Session->read('User.subscribe');
 	?>
 	<div style="height:44px; line-height:44px; background:#FFF; width:100%; border-bottom:1px solid #ededed; position:relative">
 		<img src="<?php echo $rt['shareinfo']['headimgurl'] ? $rt['shareinfo']['headimgurl'] : $this->img('account.png');?>" height="40" style="margin:2px 8px 2px 10px;" />
 		<p style="  padding-top:4px; padding-bottom:4px; line-height:20px; color:#333; display: inline-table; position: absolute; top: 0; width: 140px;">
 		来自<font color="#00761d">【<?php echo $rt['shareinfo']['nickname'];?>】</font>的推荐<br/><?php echo $issubscribe=='1' ? '立即购买,抢占东家地盘' : '立即关注,将享更多惊喜';?>
 		</p>
-		<?php if($issubscribe!='1'){?>
+		<?php if($issubscribe=='1'){?>
 		<a href="<?php echo ADMIN_URL.'catalog.php';?>" style="position:absolute; right:0px; top:0px; z-index:99; cursor:pointer; width:70px; display:block; height:44px; line-height:44px; background:#F7F7F7; text-align:center; color:#00761d">进入选购</a>
 		<?php }else{?>
 		<a href="<?php echo $lang['wxguanzhuurl'];?>" style="position:absolute; right:10px; top:6px; z-index:99; cursor:pointer; height:35px;"><img src="<?php echo $this->img('guanzhu.png');?>" /></a>
