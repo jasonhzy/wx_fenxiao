@@ -11,7 +11,7 @@
 	<span style=" display:block; color:#999999">点击复制链接</span>
 	<p class="copyurl" style="width:100%; color:#666; background:#FAFAFA; border:none; overflow:hidden" onclick="clickselect()"><?php echo $thisurl;?></p>
 	</div>
-	<a href="<?php echo ADMIN_URL;?>user.php?act=ajax_down_img" class="addcar" style=" width:90px; background:#4f82b4; position:fixed; left:5px; bottom:55px;height:24px; line-height:24px; color:#FFF">下载二维码</a>
+	<!-- <a href="<?php echo ADMIN_URL;?>user.php?act=ajax_down_img" class="addcar" style=" width:90px; background:#4f82b4; position:fixed; left:5px; bottom:55px;height:24px; line-height:24px; color:#FFF">下载二维码</a> -->
 </div>
 <div style="height:40px; clear:both"></div>
 <script type="text/javascript">

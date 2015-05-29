@@ -28,9 +28,10 @@ $rand = $thisurl.'?type=comment_list&asc=c.comment_rank';
 	</tr>
     <tr>
 	   <th width="60"><label><input type="checkbox" class="quxuanall" value="checkbox" />编号</label></th>
-	   <th><a href="<?php echo $uname;?>">用户名</a></th>
+	   <th><a href="<?php echo $uname;?>">用户昵称</a></th>
 	   <th><a href="<?php echo $goods;?>">评论对象</a></th>
 	   <th><a href="<?php echo $rand;?>">好评度</a></th>
+	   <th>评论内容</th>
 	   <th><a href="<?php echo $ip_from;?>">IP地址[地区]</a></th>
 	   <th><a href="<?php echo $dt;?>">评论时间</a></th>
 	   <th><a href="<?php echo $ac;?>">状态</a></th>
@@ -45,6 +46,7 @@ $rand = $thisurl.'?type=comment_list&asc=c.comment_rank';
 	<td><?php echo $row['user_name'];?></td>
 	<td><a href="../m/product.php?id=<?php echo $row['goods_id'];?>" target="_blank"><?php echo $row['goods_name'];?></a></td>
 	<td><?php echo $row['comment_rank']=='3' ? '好评' : ($row['comment_rank']=='2' ? '中评' : '差评');?></td>
+	<td><?php echo $row['content'];?></td>
 	<td><?php echo $row['ip'];?><font color="#FF0000">[<?php echo !empty($row['ip_form'])? $row['ip_form'] : '无知';?>]</font></td>
 	<td><?php echo !empty($row['add_time']) ? date('Y-m-d H:i:s',$row['add_time']) : '无知';?></td>
 	<td><img src="<?php echo $this->img($row['status']==1 ? 'yes.gif' : 'no.gif');?>" alt="<?php echo $row['status']==1 ? '0' : '1';?>" class="active_comment" lang="active" id="<?php echo $row['comment_id'];?>"/></td>

@@ -819,7 +819,7 @@ class ProductController extends Controller{
 		 
 		 //查询评论
 		 $list = 3;
-                 $page = 1;
+         $page = 1;
 		 $start = ($page-1)*$list;		 
 		 $tt = $this->get_comment_count($goodsid);
 		 $rt['comment_count'] =$tt;

@@ -6,7 +6,7 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-			<P style="background:#F5F7F2; line-height:25px; margin-bottom:0px; border-bottom:1px solid #666"><strong><a href="mailto:<?php echo !empty($rt['email']) ? $rt['email'] : "";?>"><?php echo $rt['user_name'];?></a></strong> 于  <?php echo !empty($rt['add_time'])? date('H-m-d H:i:s',$rt['add_time']) : '无知';?> 对 <strong><a href="../goods.php?id=<?php echo $rt['goods_id'];?>" target="_blank"><?php echo $rt['goods_name'];?></a></strong> 发表评论
+			<P style="background:#F5F7F2; line-height:25px; margin-bottom:0px; border-bottom:1px solid #666"><strong><a href="mailto:<?php echo !empty($rt['email']) ? $rt['email'] : "";?>"><?php echo $rt['user_name'];?></a></strong> 于  <?php echo !empty($rt['add_time'])? date('H-m-d H:i:s',$rt['add_time']) : '无知';?> 对 <strong><a href="../m/product.php?id=<?php echo $rt['goods_id'];?>" target="_blank"><?php echo $rt['goods_name'];?></a></strong> 发表评论
 			</P>
 			<p><?php echo $rt['content'];?></p>
 			<p style="text-align:right"><strong>IP地址：</strong><?php echo $rt['ip'];?>&nbsp;<strong>来源：</strong><?php echo $rt['ip_form'];?></p>

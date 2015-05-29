@@ -1111,6 +1111,7 @@ class Basic{
 	################################
 	function Pinyin($_String, $_Code='UTF-8') 
 	{
+		    $orig_string = $_String;
             if(empty($_String)) return "";
 			$_String = $this->clearhtml($_String);
             $_DataKey = "a|ai|an|ang|ao|ba|bai|ban|bang|bao|bei|ben|beng|bi|bian|biao|bie|bin|bing|bo|bu|ca|cai|can|cang|cao|ce|ceng|cha".
@@ -1179,7 +1180,8 @@ class Basic{
 
             $cls_str=array("!","@","#","$","%","^","&","*","(",")","~","<",">","{","}","[","]","?",",",".","/","\\","|","+"," ");
             $str = str_replace($cls_str,"",$_Res);//preg_replace("/[^a-z0-9]*/", '', $_Res);
-			return (strlen($str) > 40) ? substr($str,0,40) : $str;
+            
+			return (strlen($str) > 40) ? substr($str,0,40) : ($str ? $str : 'fx_params_'.$orig_string);
 	} 
 	
 	function _Pinyin($_Num, $_Data) 
