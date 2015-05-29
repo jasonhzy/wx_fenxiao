@@ -1466,20 +1466,6 @@ class UserController extends Controller{
 	
 	//订单列表
 	function orderlist(){
-		/*setcookie(CFGH.'USER[SUBSCRIBE]', '', 0);
-                setcookie(CFGH.'USER[TOOPENID]', '', 0);
-
-                setcookie(CFGH.'USER[UKEY]', '', 0);
-                setcookie(CFGH.'USER[PASS]', '', 0);
-                setcookie(CFGH.'USER[TID]', '', 0);
-                setcookie(CFGH.'USER[UID]', '', 0);
-                setcookie(CFGH.'USER[CODETIME]', '', 0);
-                setcookie(CFGH.'USER[USERNAME]', '', 0);
-                setcookie(CFGH.'USER[URL]', '', 0);
-                setcookie('HISTORYVIEW', '', 0);
-                setcookie('PHPSESSID', '', 0);
-                session_destroy();*/
-		
 		$this->title('我的订单 - '.$GLOBALS['LANG']['site_name']);
 		$dt = isset($_GET['dt'])&&intval($_GET['dt'])>0 ?  intval($_GET['dt']) : "";
 		$status = isset($_GET['status']) ?  trim($_GET['status']) : "";
