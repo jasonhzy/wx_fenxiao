@@ -22,7 +22,7 @@ body{ background:#efefef !important;}
 	
 	<?php
 	if(!empty($rt['shareinfo'])){
-		$issubscribe = $issubscribe = isset($rt['shareinfo']['is_subscribe']) ? $rt['shareinfo']['is_subscribe'] : $this->Session->read('User.subscribe');
+		$issubscribe = $rt['shareinfo']['is_subscribe'];
 	?>
 	<div style="height:44px; line-height:44px; background:#FFF; width:100%; border-bottom:1px solid #ededed; position:relative">
 		<img src="<?php echo $rt['shareinfo']['headimgurl'] ? $rt['shareinfo']['headimgurl'] : $this->img('account.png');?>" height="40" style="margin:2px 8px 2px 10px;" />
