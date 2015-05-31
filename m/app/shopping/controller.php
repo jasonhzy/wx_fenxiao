@@ -244,6 +244,16 @@ class ShoppingController extends Controller{
 		if(empty($rt)){
 			$this->jump(ADMIN_URL,0,'非法支付提交！'); exit;
 		}
+
+		//判断是否库存足够
+		$sql = "SELECT gdorder.`goods_number` as buy_num, goods.`goods_number` pro_num FROM `{$this->App->prefix()}goods_order` gdorder
+			INNER JOIN `{$this->App->prefix()}goods` goods ON gdorder.goods_id = goods.goods_id
+			WHERE gdorder.order_id = '$oid'";
+		$order = $this->App->findrow($sql);
+		if ($order && $order['pro_num'] < $order['buy_num']) {
+			$this->jump(ADMIN_URL,0,'库存已不足，请重新下单购买!'); exit;
+		}
+
 		
 		$rts['pay_id'] = $rt['pay_id'];
 		$rts['order_sn'] = $rt['order_sn'];
@@ -400,6 +410,17 @@ class ShoppingController extends Controller{
 			$dd['pay_status'] = '1';
 			$dd['pay_time'] = mktime();
 			$this->App->update('goods_order_info',$dd,'order_sn',$order_sn);
+
+			//修改库存
+			$sql = "SELECT `goods_id`, `goods_number` FROM `{$this->App->prefix()}goods_order` gdorder
+				INNER JOIN `{$this->App->prefix()}goods_order_info` info ON gdorder.order_id = info.order_id
+				WHERE info.order_sn = '$order_sn'";
+			$order = $this->App->findvar($sql);
+			if ($order && $order['goods_id'] > 0) {
+				$sql = "UPDATE `{$this->App->prefix()}goods` SET `sale_count` = `sale_count` + {$order['goods_number']} , `goods_number` = `goods_number`- '{$order['goods_number']}' WHERE goods_id = '{$order['goods_id']}'";
+				$this->App->query($sql);
+			}
+			
 			
 			$rrL = $this->action('common','get_userconfig');
 			$openfx_minmoney = empty($rrL['openfx_minmoney']) ? 0 : intval($rrL['openfx_minmoney']);
