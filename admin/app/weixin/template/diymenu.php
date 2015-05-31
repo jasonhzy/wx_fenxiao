@@ -119,10 +119,10 @@ padding-left:55px;
 			</td>
 			<td>
 			  <div>
-				<span><?php echo $row['keyword'];?></span>
+				<span><?php echo $row['title'];?></span>
 			  </div>
 			</td>
-			<td><span><?php echo $row['sort'];?></span></td>
+			<td><span><?php echo $row['keyword'];?></span></td>
 			<td><span><?php echo empty($row['url']) ? "无链接":$row['url'];?></span></td>
 			<td>
 				<a class="ajax btnGreen  cboxElement" href="<?php echo ADMIN_URL.'weixin.php?type=diymenuinfo&id='.$row['id'];?>" title="修改主菜单">修改</a>
@@ -136,10 +136,10 @@ padding-left:55px;
 					</td>
 					<td>
 					  <div class="board">
-						<span><?php echo $rows['keyword'];?></span>
+						<span><?php echo $rows['title'];?></span>
 					  </div>
 					</td>
-					<td><span><?php echo $rows['sort'];?></span></td>
+					<td><span><?php echo $rows['keyword'];?></span></td>
 					<td><span><?php echo empty($rows['url']) ? "无链接":$rows['url'];?></span></td>
 					<td>
 						<a class="ajax btnGreen  cboxElement" href="<?php echo ADMIN_URL.'weixin.php?type=diymenuinfo&id='.$rows['id'];?>" title="修改主菜单">修改</a>
