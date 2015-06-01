@@ -416,6 +416,7 @@ class ShoppingController extends Controller{
 				INNER JOIN `{$this->App->prefix()}goods_order_info` info ON gdorder.order_id = info.order_id
 				WHERE info.order_sn = '$order_sn'";
 			$order = $this->App->findrow($sql);
+
 			if ($order && $order['goods_id'] > 0) {
 				$sql = "UPDATE `{$this->App->prefix()}goods` SET `sale_count` = `sale_count` + {$order['goods_number']} , `goods_number` = `goods_number`- '{$order['goods_number']}' WHERE goods_id = '{$order['goods_id']}'";
 				$this->App->query($sql);
