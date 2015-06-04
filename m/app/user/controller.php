@@ -225,7 +225,7 @@ class UserController extends Controller{
 			$thisurl = ADMIN_URL."?tid=".$uid;
 		}
 		
-		if(!(is_file($f)) || !file_exists($f) || (mktime() - filemtime($fn) > 10000)){
+		if(!(is_file($f)) || !file_exists($f) || (mktime() - filemtime($f) > 10000)){
 			$this->action('common','mark_phpqrcode',$f,$thisurl);
 		}
 		

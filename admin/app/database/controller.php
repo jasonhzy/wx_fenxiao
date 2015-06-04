@@ -27,6 +27,11 @@ class DatabaseController extends Controller{
 		 @set_time_limit(1800); //最大运行时间半个小时
 		 @ini_set('memory_limit', '64M'); //设置内存
          $sqlfn = SYS_PATH.'data'.DS.'backup'.DS.date('Y-m-d'.'-'.time(),time()).'.sql';
+         
+         if (!is_dir(SYS_PATH.'data'.DS.'backup')) {
+         	mkdir(SYS_PATH.'data'.DS.'backup');
+         }
+         
 		 if($type==2){
 		 	$tt = false;
 		 }else{
