@@ -12,7 +12,7 @@
 	<th>操作</th>
   </tr>
 <?php 
-if(!empty($restoredblist)&&$_SERVER["HTTP_HOST"]=='weixin.apiqq.com'){ 
+if(!empty($restoredblist)){ 
 foreach($restoredblist as $row){
 ?>
   <tr>

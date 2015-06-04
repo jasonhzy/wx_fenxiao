@@ -944,7 +944,11 @@ class PageController extends Controller{
 				
 			}
 		}
-		//
+		//商户主动将请求转发至客服
+		/* $kehu = array('type' => '1');
+		 if ($kehu && $kehu['type'] == '1') {
+         	return array('', 'transfer_customer_service');
+         }*/
 	}
 	
 	function https_request($url, $data = null)
