@@ -24,7 +24,7 @@ $thisurl = ADMIN_URL.'user.php';
 	<tr>
 	<td width="20%" align="left"><?php echo empty($row['nickname']) ? '未知' : $row['nickname'];?></td>
 	<td width="40%" align="left">
-	<a href="<?php echo $row['img'];?>" target="_blank"><img src="<?php echo $row['img'];?>" width="60" /></a>
+	<a href="<?php echo $row['img'];?>" target="_blank"><img src="<?php echo $row['img'];?>" width="30" /></a>
 	</td>
 	<td>
 	<a href="user.php?type=usererweima&img=<?php echo $row['path'];?>" title="编辑" onclick="return confirm('确定删除吗')"><img src="<?php echo $this->img('icon_drop.gif');?>" title="删除" alt="删除" /></a>

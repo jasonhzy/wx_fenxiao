@@ -518,7 +518,6 @@ class UserController extends Controller{
 		}
 		
 		$yuming = str_replace(array('www','.',),'',$_SERVER["HTTP_HOST"]);
-		if(!empty($yuming)) $yuming = $yuming;
 					
 		$key = isset($_GET['keyword']) ? trim($_GET['keyword']) : '';
 		$w = !empty($key) ? "AND nickname LIKE '%$key%'" : '';
@@ -527,7 +526,7 @@ class UserController extends Controller{
 		if(empty($page)){
 			   $page = 1;
 		}
-		$list = 30;
+		$list = 15;
 		$start = ($page-1)*$list;
 		$sql = "SELECT COUNT(user_id) FROM `{$this->App->prefix()}user` WHERE quid>0 $w";
 		$tt = $this->App->findvar($sql);
@@ -1340,14 +1339,17 @@ class UserController extends Controller{
 		if(empty($page)){
 			   $page = 1;
 		}
-		$list = 30;
+		$w = '';
+		if(isset($_GET['keyword'])&&$_GET['keyword'])
+			$w .=  "WHERE u.user_name LIKE '%".trim($_GET['keyword'])."%'";
+		$list = 15;
 		$start = ($page-1)*$list;
-		$sql = "SELECT COUNT(id) FROM `{$this->App->prefix()}user_share`";
+		$sql = "SELECT COUNT(id) FROM `{$this->App->prefix()}user_share`  AS us LEFT JOIN `{$this->App->prefix()}user` AS u ON u.user_id = us.uid $w";
 		$tt = $this->App->findvar($sql);
 		$pagelink = Import::basic()->getpage($tt, $list, $page,'?page=',true);
 		$this->set("pagelink",$pagelink);
 			
-		$sql = "SELECT u.nickname,us.* FROM `{$this->App->prefix()}user_share` AS us LEFT JOIN `{$this->App->prefix()}user` AS u ON u.user_id = us.uid ORDER BY us.id DESC LIMIT $start,$list";
+		$sql = "SELECT u.nickname,us.* FROM `{$this->App->prefix()}user_share` AS us LEFT JOIN `{$this->App->prefix()}user` AS u ON u.user_id = us.uid $w ORDER BY us.id DESC LIMIT $start,$list";
 		$rt = $this->App->find($sql);
 		$this->set("rt",$rt);
 		
