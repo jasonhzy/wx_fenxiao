@@ -376,10 +376,10 @@ $('.jian').live('click',function(){
 	}
 	if(vall>1){
 		$(numobj).val((parseInt(vall)-1));
+		nn = $('.mycarts').html();
+		$('.mycarts').html(parseInt(nn)-1);
+		change_number(numobj);
 	}
-	nn = $('.mycarts').html();
-	$('.mycarts').html(parseInt(nn)-1);
-	change_number(numobj);
 });
 //数量加1
 $('.jia').live('click',function(){
