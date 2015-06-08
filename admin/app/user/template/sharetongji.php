@@ -5,9 +5,9 @@ $thisurl = ADMIN_URL.'user.php';
 <div class="contentbox">
      <table cellspacing="2" cellpadding="5" width="100%">
 	 <tr>
-		<th colspan="6" align="left" style="text-align:left">分享统计</th>
+		<th colspan="7" align="left" style="text-align:left">分享统计</th>
 	</tr>
-	<tr><td colspan="6" align="left">
+	<tr><td colspan="7" align="left">
     	<img src="<?php echo $this->img('icon_search.gif');?>" alt="SEARCH" width="26" border="0" height="22" align="absmiddle">
     	关键字 <input name="keyword" size="15" type="text" value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : "";?>">
     	<input value=" 搜索 " class="cate_search" type="button">
@@ -25,7 +25,7 @@ $thisurl = ADMIN_URL.'user.php';
 	<tr>
 	<td><input type="checkbox" name="quanxuan" value="<?php echo $row['id'];?>" class="gids"/></td>
 	<td><?php echo $row['nickname'];?></td>
-	<td><?php if(!empty($row['imgurl'])){?><img src="<?php echo $row['imgurl'];?>" height="50" style="cursor:pointer" /><?php }else{ echo "无图片";}?></td>
+	<td><?php if(!empty($row['imgurl'])){?><img src="<?php echo $row['imgurl'];?>" height="30" style="cursor:pointer" /><?php }else{ echo "无图片";}?></td>
 	<td><?php echo $row['url'];?></td>
 	<td><?php echo $row['date'];?></td>
 	<td><?php echo $row['counts'];?></td>
