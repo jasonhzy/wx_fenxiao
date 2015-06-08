@@ -57,11 +57,11 @@ class PageController extends Controller{
 			break;
 			case 'markimg2':
 			$openid = $rt['openid'];
-			$data = '{"touser":"'.$openid.'","msgtype":"text","text":{"content":"对不起、您不是东家,获得推广图片,请<a href=\"http://'.SITE_URL.'/m/oauth.php?oid=1\">购买商品</a>成为东家"}}';
+			$data = '{"touser":"'.$openid.'","msgtype":"text","text":{"content":"对不起、您不是东家,获得推广图片,请<a href="'.SITE_URL.'/m/oauth.php?oid=1">购买商品</a>成为东家"}}';
 			break;
 			case 'markimg3':
 			$openid = $rt['openid'];
-			$data = '{"touser":"'.$openid.'","msgtype":"text","text":{"content":"对不起、您不是东家,获得推广图片,请<a href="http://'.SITE_URL.'/m/oauth.php?oid=1">购买商品</a>成为东家"}}';
+			$data = '{"touser":"'.$openid.'","msgtype":"text","text":{"content":"对不起、您不是东家,获得推广图片,请<a href="'.SITE_URL.'/m/oauth.php?oid=1">购买商品</a>成为东家"}}';
 			break;
 			case 'markimgsend':
 			$openid = $rt['openid'];
