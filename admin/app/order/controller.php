@@ -356,7 +356,7 @@ class OrderController extends Controller{
 					$s2 = '0';
 					if($pay_status=='1') $s = '1'; else $s = '0';
 					if($shipping_status=='0'){
-						$str .= '<input value="发货" class="order_action" type="button" id="2'.$s.'2">'."\n";
+						//$str .= '<input value="发货" class="order_action" type="button" id="2'.$s.'2">'."\n";
 					}elseif($shipping_status=='2'){//已经发货
 						$s2 = '2';
 						$str .= '<input value="收货" class="order_action" type="button" id="215">'."\n";
@@ -533,6 +533,33 @@ class OrderController extends Controller{
 			}elseif($datas['pay_status'] == '1'){
 				$datas['pay_time'] = time();
 			}
+			//修改库存
+			$pay_status = $this->App->findvar("SELECT `pay_status` FROM `{$this->App->prefix()}goods_order_info` WHERE `order_id` = $order_id");
+			if ($pay_status != '1' && $datas['pay_status'] == '1') {
+				$sql = "SELECT `goods_id`, `goods_number` FROM `{$this->App->prefix()}goods_order` gdorder
+					INNER JOIN `{$this->App->prefix()}goods_order_info` info ON gdorder.order_id = info.order_id
+					WHERE info.order_sn = '$order_sn'";
+				$orders = $this->App->find($sql);
+				if ($orders) {
+					foreach ($orders as $order) {
+						$sql = "UPDATE `{$this->App->prefix()}goods` SET `sale_count` = `sale_count` + {$order['goods_number']} , `goods_number` = `goods_number`- '{$order['goods_number']}' WHERE goods_id = '{$order['goods_id']}'";
+						$this->App->query($sql);
+					}
+				}
+			}
+			if ($pay_status == '1' && $datas['pay_status'] != '1') {
+				$sql = "SELECT `goods_id`, `goods_number` FROM `{$this->App->prefix()}goods_order` gdorder
+					INNER JOIN `{$this->App->prefix()}goods_order_info` info ON gdorder.order_id = info.order_id
+					WHERE info.order_sn = '$order_sn'";
+				$orders = $this->App->find($sql);
+				if ($orders) {
+					foreach ($orders as $order) {
+						$sql = "UPDATE `{$this->App->prefix()}goods` SET `sale_count` = `sale_count` -  {$order['goods_number']} , `goods_number` = `goods_number` +  '{$order['goods_number']}' WHERE goods_id = '{$order['goods_id']}'";
+						$this->App->query($sql);
+					}
+				}
+			}
+			
 			$this->App->update('goods_order_info',$datas,'order_id',$data['opid']); //更新状态
 			$datas['order_id'] = $data['opid'];
 			$datas['action_note'] = !empty($data['opremark']) ? $data['opremark'] : "---";
