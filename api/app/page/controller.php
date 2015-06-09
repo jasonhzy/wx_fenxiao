@@ -868,7 +868,7 @@ class PageController extends Controller{
 						$imgobj->thumb($sf,$f3,530,800);
 						
 						$t = 'false';
-						$t = $this->mark_img($f3,$f2,152,410);
+						$t = $this->mark_img($f3,$f2,152,460);
 						if($t=='true'){
 							//头像
 							$t = "false";
@@ -884,7 +884,7 @@ class PageController extends Controller{
 									$imgobj->thumb($f4,$f5,70,70);
 									if(file_exists($f5)){
 										if($this->mark_img($f3,$f5,90,30)=="true"){
-											if($this->mark_txt($f3,$nickname,265,58)=="true"){
+											if($this->mark_txt($f3,$nickname,265,58)=="true"){ //昵称
 												$type = "image";
 												$filedata = array("media"=>"@".$f3);
 												$url = "http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token=$access_token&type=$type";

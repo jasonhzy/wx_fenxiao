@@ -60,7 +60,7 @@ $dt = $thisurl.'?type=list&tt=delivery&status=222&asc=add_time';
 	<option value="<?php echo $item['shipping_id'];?>"<?php if($item['shipping_id']==$row['shipping_id_true']){ echo ' selected="selected"';} ?>><?php echo $item['shipping_name'];?></option>
 	<?php } ?>
 	</select>
-	<?php echo !empty($row['sn_id']) ? '<a style="color:#fe0000" href="http://m.kuaidi100.com/index_all.html?type='.$row['shipping_code'].'&postid='.$row['sn_id'].'" target="_blank">'.$row['sn_id'].'</a></font>' : '<span class="vieworder" style="color:#fe0000;display:none" id="'.$row['order_id'].'">点击输入物流单</span>';?></td>
+	<?php echo !empty($row['sn_id']) ? '<a style="color:#fe0000" href="http://m.kuaidi100.com/index_all.html?type='.$row['shipping_code'].'&postid='.$row['sn_id'].'&callbackurl='.urlencode( SITE_URL.'m/user.php?act=orderlist').'" target="_blank">'.$row['sn_id'].'</a></font>' : '<span class="vieworder" style="color:#fe0000;display:none" id="'.$row['order_id'].'">点击输入物流单</span>';?></td>
 	<td>
 	<a href="goods_order.php?type=order_info&id=<?php echo $row['order_id'];?>" title="编辑"><img src="<?php echo $this->img('icon_view.gif');?>" title="编辑"/></a>&nbsp;
 	<?php if(in_array($row['order_status'],array('1','4'))){?><img src="<?php echo $this->img('icon_drop.gif');?>" title="删除" alt="删除" id="<?php echo $row['order_id'];?>" class="delorder"/><?php } ?>

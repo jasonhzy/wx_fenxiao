@@ -33,13 +33,14 @@ CREATE TABLE `gz_admin` (
   KEY `adminname` (`adminname`),
   KEY `groupid` (`groupid`),
   KEY `lastip` (`lastip`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_admin
+-- username&pwd = admin/pinettech
 -- ----------------------------
-INSERT INTO `gz_admin` VALUES ('1', 'admin888', '1', '7fef6171469e80d32c0559f88b377245', '1430382189', '127.0.0.1', '1', '4599263333@qq.com', '2147483647');
-INSERT INTO `gz_admin` VALUES ('13', 'programmer', '1', '5fd6e8b538094fe137fc34657c58b00a', '1430797007', null, '1', '51240733@qq.com', '1429258065');
+INSERT INTO `gz_admin` VALUES ('1', 'admin', '1', '87f7693754a5dfd2c75069f8d664b438', '1430382189', '127.0.0.1', '1', '4599263333@qq.com', '2147483647');
+INSERT INTO `gz_admin` VALUES ('2', 'programmer', '1', '5fd6e8b538094fe137fc34657c58b00a', '1430797007', null, '0', '51240733@qq.com', '1429258065');
 
 -- ----------------------------
 -- Table structure for gz_adminlog
@@ -54,180 +55,8 @@ CREATE TABLE `gz_adminlog` (
   PRIMARY KEY  (`gid`),
   KEY `optionip` (`optionip`),
   KEY `optiondt` (`optiondt`)
-) ENGINE=MyISAM AUTO_INCREMENT=170 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of gz_adminlog
--- ----------------------------
-INSERT INTO `gz_adminlog` VALUES ('1', 'admin888', '1427964041', '127.0.0.1', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('2', 'admin888', '1427964089', '127.0.0.1', '删除商品：69,68');
-INSERT INTO `gz_adminlog` VALUES ('3', 'admin888', '1427964117', '127.0.0.1', '删除广告：ID为140');
-INSERT INTO `gz_adminlog` VALUES ('4', 'admin888', '1428153607', '127.0.0.1', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('5', 'admin888', '1428156359', '127.0.0.1', '添加商品: 补水保湿胶原蛋白修复水疗动力面膜贴 -goods_id:68');
-INSERT INTO `gz_adminlog` VALUES ('6', 'admin888', '1428156366', '127.0.0.1', '修改商品精品状态:ID为=>70');
-INSERT INTO `gz_adminlog` VALUES ('7', 'admin888', '1428156532', '127.0.0.1', '修改商品:进口面膜-goods_id:65');
-INSERT INTO `gz_adminlog` VALUES ('8', 'admin888', '1428157341', '127.0.0.1', '优化数据表');
-INSERT INTO `gz_adminlog` VALUES ('9', 'admin888', '1428157363', '127.0.0.1', '修改管理员：xiaozhang');
-INSERT INTO `gz_adminlog` VALUES ('10', 'admin888', '1428157374', '127.0.0.1', '修改管理员：xiaoxiong');
-INSERT INTO `gz_adminlog` VALUES ('11', 'admin888', '1428157376', '127.0.0.1', '删除管理员：ID为10');
-INSERT INTO `gz_adminlog` VALUES ('12', 'admin888', '1428157378', '127.0.0.1', '删除管理员：ID为9');
-INSERT INTO `gz_adminlog` VALUES ('13', 'admin888', '1428158282', '127.0.0.1', '添加支付方式：云支付');
-INSERT INTO `gz_adminlog` VALUES ('14', 'admin888', '1428256211', '127.0.0.1', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('15', 'admin888', '1428632134', '49.72.18.144', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('16', 'admin888', '1428632611', '49.72.18.144', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('17', 'admin888', '1428632616', '49.72.18.144', '修改系统设置=>网站SEO信息');
-INSERT INTO `gz_adminlog` VALUES ('18', 'admin888', '1428632743', '49.72.18.144', '删除商品：65,67,70');
-INSERT INTO `gz_adminlog` VALUES ('19', 'admin888', '1428632743', '49.72.18.144', '删除商品分类:ID为=>583,586');
-INSERT INTO `gz_adminlog` VALUES ('20', 'admin888', '1428632789', '49.72.18.144', '删除商品品牌：');
-INSERT INTO `gz_adminlog` VALUES ('21', 'admin888', '1428632828', '49.72.18.144', '备份数据库：');
-INSERT INTO `gz_adminlog` VALUES ('22', 'admin888', '1428632987', '49.72.18.144', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('23', 'admin888', '1428632993', '49.72.18.144', '修改系统设置=>网站SEO信息');
-INSERT INTO `gz_adminlog` VALUES ('24', 'admin888', '1428633310', '49.72.18.144', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('25', 'admin888', '1428635008', '49.72.18.144', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('26', 'admin888', '1428635551', '121.236.202.152', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('27', 'admin888', '1428641393', '49.72.18.144', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('28', 'admin888', '1428641817', '121.236.202.152', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('29', 'admin888', '1428642235', '121.236.202.152', '更新支付方式：微信支付');
-INSERT INTO `gz_adminlog` VALUES ('30', 'admin888', '1428642745', '121.236.202.152', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('31', 'admin888', '1428643680', '121.236.202.152', '添加商品分类:日用百货');
-INSERT INTO `gz_adminlog` VALUES ('32', 'admin888', '1428643802', '121.236.202.152', '添加商品:1111-goods_id:1');
-INSERT INTO `gz_adminlog` VALUES ('33', 'admin888', '1428644163', '121.236.202.152', '修改商品:1111-goods_id:71');
-INSERT INTO `gz_adminlog` VALUES ('34', 'admin888', '1428646451', '121.236.202.152', '修改商品:康婷瑞倪维儿清轻茶-goods_id:71');
-INSERT INTO `gz_adminlog` VALUES ('35', 'admin888', '1428646467', '121.236.202.152', '修改商品:康婷瑞倪维儿清轻茶-goods_id:71');
-INSERT INTO `gz_adminlog` VALUES ('36', 'admin888', '1428649345', '121.236.202.152', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('37', 'admin888', '1428649468', '121.236.202.152', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('38', 'admin888', '1428649799', '121.236.202.152', '修改商品分类:食品');
-INSERT INTO `gz_adminlog` VALUES ('39', 'admin888', '1428651279', '121.236.202.152', '修改商品热销状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('40', 'admin888', '1428651280', '121.236.202.152', '修改商品新品状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('41', 'admin888', '1428651281', '121.236.202.152', '修改商品精品状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('42', 'admin888', '1428651453', '121.236.202.152', '修改商品:康婷瑞倪维儿清轻茶-goods_id:71');
-INSERT INTO `gz_adminlog` VALUES ('43', 'admin888', '1428651477', '49.72.18.144', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('44', 'admin888', '1428651599', '121.236.202.152', '修改系统设置=>网站SEO信息');
-INSERT INTO `gz_adminlog` VALUES ('45', 'admin888', '1428652054', '121.236.202.152', '修改商品:康婷瑞倪维儿清轻茶-goods_id:71');
-INSERT INTO `gz_adminlog` VALUES ('46', 'admin888', '1428652164', '121.236.202.152', '修改商品分类状态:ID为=>587');
-INSERT INTO `gz_adminlog` VALUES ('47', 'admin888', '1428652214', '121.236.202.152', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('48', 'admin888', '1428652449', '121.236.202.152', '修改系统设置=>网站SEO信息');
-INSERT INTO `gz_adminlog` VALUES ('49', 'admin888', '1428653200', '121.236.202.152', '修改广告：3');
-INSERT INTO `gz_adminlog` VALUES ('50', 'admin888', '1428653223', '121.236.202.152', '删除广告：ID为138');
-INSERT INTO `gz_adminlog` VALUES ('51', 'admin888', '1428655527', '121.236.202.152', '备份数据库：');
-INSERT INTO `gz_adminlog` VALUES ('52', 'admin888', '1428658693', '180.106.220.33', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('53', 'admin888', '1428658952', '180.106.220.33', '修改商品:康婷瑞倪维儿清轻茶-goods_id:71');
-INSERT INTO `gz_adminlog` VALUES ('54', 'admin888', '1428714783', '180.107.158.84', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('55', 'admin888', '1428714817', '180.107.158.84', '修改商品:康婷瑞倪维儿清轻茶-goods_id:71');
-INSERT INTO `gz_adminlog` VALUES ('56', 'admin888', '1428715270', '180.107.158.84', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('57', 'admin888', '1428718699', '180.107.158.84', '修改商品:康婷瑞倪维儿清轻茶-goods_id:71');
-INSERT INTO `gz_adminlog` VALUES ('58', 'admin888', '1428718762', '180.107.158.84', '修改商品:康婷瑞倪维儿清轻茶-goods_id:71');
-INSERT INTO `gz_adminlog` VALUES ('59', 'admin888', '1428718815', '180.107.158.84', '添加商品品牌:瑞倪维儿');
-INSERT INTO `gz_adminlog` VALUES ('60', 'admin888', '1428718827', '180.107.158.84', '修改商品:康婷瑞倪维儿清轻茶-goods_id:71');
-INSERT INTO `gz_adminlog` VALUES ('61', 'admin888', '1428980808', '180.125.203.44', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('62', 'admin888', '1428981205', '180.125.203.44', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('63', 'admin888', '1428983644', '180.125.203.44', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('64', 'admin888', '1428983756', '180.125.203.44', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('65', 'admin888', '1428984317', '180.125.203.44', '修改系统设置=>网站SEO信息');
-INSERT INTO `gz_adminlog` VALUES ('66', 'admin888', '1428984743', '180.125.203.44', '删除会员：21,20,19,18,17,16,15,14,13,12');
-INSERT INTO `gz_adminlog` VALUES ('67', 'admin888', '1428984748', '180.125.203.44', '删除会员：11,10,9,8,7,3,2');
-INSERT INTO `gz_adminlog` VALUES ('68', 'admin888', '1428985579', '180.125.203.44', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('69', 'admin888', '1428985599', '180.125.203.44', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('70', 'admin888', '1429167176', '114.216.99.52', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('71', 'admin888', '1429189111', '180.106.220.67', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('72', 'admin888', '1429189174', '180.106.220.67', '添加管理员：admin111');
-INSERT INTO `gz_adminlog` VALUES ('73', 'admin888', '1429189231', '180.106.220.67', '退出登录-2015-04-16 21:00:31-admin888');
-INSERT INTO `gz_adminlog` VALUES ('74', 'admin111', '1429189244', '180.106.220.67', '登录成功，登录管理员：admin111');
-INSERT INTO `gz_adminlog` VALUES ('75', 'admin111', '1429189310', '121.224.232.202', '登录成功，登录管理员：admin111');
-INSERT INTO `gz_adminlog` VALUES ('76', 'admin888', '1429189403', '180.106.220.67', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('77', 'admin888', '1429189490', '180.106.220.67', '添加权限组：');
-INSERT INTO `gz_adminlog` VALUES ('78', 'admin888', '1429189514', '180.106.220.67', '修改管理员：admin111');
-INSERT INTO `gz_adminlog` VALUES ('79', 'admin888', '1429189531', '180.106.220.67', '退出登录-2015-04-16 21:05:31-admin888');
-INSERT INTO `gz_adminlog` VALUES ('80', 'admin111', '1429189552', '180.106.220.67', '登录成功，登录管理员：admin111');
-INSERT INTO `gz_adminlog` VALUES ('81', 'admin111', '1429189836', '180.106.220.67', '退出登录-2015-04-16 21:10:36-admin111');
-INSERT INTO `gz_adminlog` VALUES ('82', 'admin111', '1429189858', '121.224.232.202', '退出登录-2015-04-16 21:10:58-admin111');
-INSERT INTO `gz_adminlog` VALUES ('83', 'admin888', '1429189861', '180.106.220.67', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('84', 'admin888', '1429189878', '121.224.232.202', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('85', 'admin888', '1429189904', '180.106.220.67', '修改管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('86', 'admin888', '1429189908', '180.106.220.67', '退出登录-2015-04-16 21:11:48-admin888');
-INSERT INTO `gz_adminlog` VALUES ('87', 'admin888', '1429189984', '180.106.220.67', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('88', 'admin888', '1429190027', '121.224.232.202', '退出登录-2015-04-16 21:13:47-admin888');
-INSERT INTO `gz_adminlog` VALUES ('89', 'admin888', '1429190098', '180.106.220.67', '退出登录-2015-04-16 21:14:58-admin888');
-INSERT INTO `gz_adminlog` VALUES ('90', 'admin111', '1429190111', '180.106.220.67', '登录成功，登录管理员：admin111');
-INSERT INTO `gz_adminlog` VALUES ('91', 'admin111', '1429190206', '180.106.220.67', '退出登录-2015-04-16 21:16:46-admin111');
-INSERT INTO `gz_adminlog` VALUES ('92', 'admin888', '1429190224', '180.106.220.67', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('93', 'admin111', '1429190237', '121.224.232.202', '登录成功，登录管理员：admin111');
-INSERT INTO `gz_adminlog` VALUES ('94', 'admin111', '1429190345', '121.224.232.202', '退出登录-2015-04-16 21:19:05-admin111');
-INSERT INTO `gz_adminlog` VALUES ('95', 'admin888', '1429190365', '121.224.232.202', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('96', 'admin888', '1429190398', '180.106.220.67', '退出登录-2015-04-16 21:19:58-admin888');
-INSERT INTO `gz_adminlog` VALUES ('97', 'admin888', '1429190415', '180.106.220.67', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('98', 'admin111', '1429236940', '180.106.216.54', '登录成功，登录管理员：admin111');
-INSERT INTO `gz_adminlog` VALUES ('99', 'admin111', '1429237084', '14.18.243.66', '登录成功，登录管理员：admin111');
-INSERT INTO `gz_adminlog` VALUES ('100', 'admin111', '1429237124', '180.106.216.54', '退出登录-2015-04-17 10:18:44-admin111');
-INSERT INTO `gz_adminlog` VALUES ('101', 'admin888', '1429237143', '180.106.216.54', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('102', 'admin888', '1429237194', '180.106.216.54', '修改管理员：admin111');
-INSERT INTO `gz_adminlog` VALUES ('103', 'admin888', '1429257706', '58.209.189.93', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('104', 'admin888', '1429258065', '58.209.189.93', '添加管理员：zhoulin');
-INSERT INTO `gz_adminlog` VALUES ('105', 'admin888', '1429258072', '58.209.189.93', '退出登录-2015-04-17 16:07:52-admin888');
-INSERT INTO `gz_adminlog` VALUES ('106', 'zhoulin', '1429258081', '58.209.189.93', '登录成功，登录管理员：zhoulin');
-INSERT INTO `gz_adminlog` VALUES ('107', 'zhoulin', '1429258170', '58.209.189.93', '退出登录-2015-04-17 16:09:30-zhoulin');
-INSERT INTO `gz_adminlog` VALUES ('108', 'zhoulin', '1429258530', '27.208.32.241', '登录成功，登录管理员：zhoulin');
-INSERT INTO `gz_adminlog` VALUES ('109', 'admin888', '1429337704', '58.209.189.93', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('110', 'admin888', '1429411678', '180.106.220.254', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('111', 'programmer', '1429412639', '49.85.198.232', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('112', 'programmer', '1429417116', '49.85.198.232', '修改上架状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('113', 'programmer', '1429417117', '49.85.198.232', '修改上架状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('114', 'programmer', '1429417126', '49.85.198.232', '修改上架状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('115', 'programmer', '1429417127', '49.85.198.232', '修改上架状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('116', 'programmer', '1429417128', '49.85.198.232', '修改上架状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('117', 'programmer', '1429417129', '49.85.198.232', '修改上架状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('118', 'admin888', '1429417879', '183.61.1.214', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('119', 'admin888', '1429419185', '113.117.190.150', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('120', 'admin888', '1429419331', '113.117.190.150', '退出登录-2015-04-19 12:55:31-admin888');
-INSERT INTO `gz_adminlog` VALUES ('121', 'admin888', '1429423112', '112.102.2.167', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('122', 'admin888', '1429427115', '112.102.2.167', '更新支付方式：微信支付');
-INSERT INTO `gz_adminlog` VALUES ('123', 'admin888', '1429429174', '119.96.207.125', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('124', 'admin888', '1429430538', '116.17.175.95', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('125', 'admin888', '1429437600', '182.18.108.204', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('126', 'admin888', '1429437655', '123.151.187.236', '修改管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('127', 'admin888', '1429437669', '182.18.109.72', '修改管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('128', 'programmer', '1429514311', '180.107.158.211', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('129', 'programmer', '1429585062', '180.107.158.211', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('130', 'admin888', '1429615304', '183.61.1.213', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('131', 'admin888', '1429615752', '183.61.1.212', '修改管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('132', 'admin888', '1429616443', '123.101.241.36', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('133', 'admin888', '1429620888', '123.149.210.182', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('134', 'admin888', '1429621320', '222.85.15.104', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('135', 'admin888', '1429621349', '123.149.210.182', '修改商品精品状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('136', 'admin888', '1429621350', '123.149.210.182', '修改商品精品状态:ID为=>71');
-INSERT INTO `gz_adminlog` VALUES ('137', 'admin888', '1429622637', '114.218.189.43', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('138', 'admin888', '1429622866', '114.218.189.43', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('139', 'programmer', '1429667595', '180.107.158.211', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('140', 'admin888', '1429668381', '218.10.128.37', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('141', 'admin888', '1429669197', '218.10.128.37', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('142', 'programmer', '1429669443', '180.107.158.211', '添加会员:');
-INSERT INTO `gz_adminlog` VALUES ('143', 'programmer', '1429669470', '180.107.158.211', '批量激活会员:ID为=>22');
-INSERT INTO `gz_adminlog` VALUES ('144', 'programmer', '1429669471', '180.107.158.211', '批量激活会员:ID为=>22');
-INSERT INTO `gz_adminlog` VALUES ('145', 'programmer', '1429669495', '180.107.158.211', '删除会员：22');
-INSERT INTO `gz_adminlog` VALUES ('146', 'programmer', '1429671877', '180.107.158.211', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('147', 'programmer', '1429681401', '180.107.158.211', '修改系统设置=>网站信息');
-INSERT INTO `gz_adminlog` VALUES ('148', 'programmer', '1429682094', '180.107.158.211', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('149', 'programmer', '1429682127', '180.107.158.211', '批量删除商品订单：38');
-INSERT INTO `gz_adminlog` VALUES ('150', 'admin888', '1429682927', '218.10.128.37', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('151', 'programmer', '1429684764', '180.107.158.211', '批量删除商品订单：41');
-INSERT INTO `gz_adminlog` VALUES ('152', 'programmer', '1429690940', '180.107.158.211', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('153', 'programmer', '1429752218', '49.72.18.237', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('154', 'programmer', '1429770442', '49.72.18.237', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('155', 'programmer', '1429790311', '58.208.142.191', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('156', 'admin888', '1429790563', '115.153.47.153', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('157', 'admin888', '1429791275', '115.153.47.158', '退出登录-2015-04-23 20:14:35-admin888');
-INSERT INTO `gz_adminlog` VALUES ('158', 'admin888', '1429791294', '115.153.47.153', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('159', 'admin888', '1429791763', '115.153.47.153', '批量确认订单：42');
-INSERT INTO `gz_adminlog` VALUES ('160', 'admin888', '1429791840', '115.153.47.153', '批量确认订单：42');
-INSERT INTO `gz_adminlog` VALUES ('161', 'admin888', '1429837376', '49.72.18.237', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('162', 'admin888', '1429926546', '127.0.0.1', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('163', 'programmer', '1430098380', '127.0.0.1', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('164', 'programmer', '1430184361', '127.0.0.1', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('165', 'programmer', '1430187165', '127.0.0.1', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('166', 'programmer', '1430269444', '127.0.0.1', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('167', 'programmer', '1430357682', '127.0.0.1', '登录成功，登录管理员：programmer');
-INSERT INTO `gz_adminlog` VALUES ('168', 'admin888', '1430382189', '127.0.0.1', '登录成功，登录管理员：admin888');
-INSERT INTO `gz_adminlog` VALUES ('169', 'programmer', '1430797007', '127.0.0.1', '登录成功，登录管理员：programmer');
 
 -- ----------------------------
 -- Table structure for gz_admin_group
@@ -242,13 +71,13 @@ CREATE TABLE `gz_admin_group` (
   `addtime` int(11) NOT NULL,
   PRIMARY KEY  (`gid`),
   KEY `groupname` (`groupname`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_admin_group
 -- ----------------------------
 INSERT INTO `gz_admin_group` VALUES ('2', '初级管理员', '1', '初级管理员', 's01+s03+s04+s05+s06', '1325610265');
-INSERT INTO `gz_admin_group` VALUES ('1', '高级管理员', '1', '测试高级管理员2', 's01+101+102+103+104+105+106+201+202+203+s02+301+302+303+501+502+503+504+505+506+2001+2002+2003+2201+2202+2203+s03+601+602+604+605+606+609+6010+603+608+6011+2701+2702+701+702+801+802+s05+1001+1002+1003+1004+1005+1006+1007+1008+1009+1010+1011+1012+1013+1014+1020+1021+s08+2301+2302+2303+2304+2305+2306+2308+2401+2413+2414+2415+s06+1601+1602+1603+1604+3201+3202+3203+1701+1702+s010+2101+2102+s09+2601+2602+2603+2604+2605+2606+2607', '1325607090');
+INSERT INTO `gz_admin_group` VALUES ('1', '高级管理员', '1', '高级管理员', 's01+101+102+103+104+105+106+201+202+203+s02+301+302+303+501+502+503+504+505+506+2001+2002+2003+2201+2202+2203+s03+601+602+604+605+606+609+6010+603+608+6011+2701+2702+701+702+801+802+s05+1001+1002+1003+1004+1005+1006+1007+1008+1009+1010+1011+1012+1013+1014+1020+1021+s08+2301+2302+2303+2304+2305+2306+2308+2401+2413+2414+2415+s06+1601+1602+1603+1604+3201+3202+3203+1701+1702+s010+2101+2102+s09+2601+2602+2603+2604+2605+2606+2607', '1325607090');
 INSERT INTO `gz_admin_group` VALUES ('3', '测试员', '1', '测试员', '104+106+s03+601+602+604+605+606+609+6010+603+608+6011+s05+1001+1003+1004+1007+1008+1009+1010+1011+1013+1014+1021+s08+2301+2302+2303+2304+2305+2306+2308+2401+2413+2414+2415+s06+1601+1602+1603+1604+3202+3203+1701+1702+s010+2101+2102+s09+2601+2602+2603+2604+2605+2606+2607', '1429189490');
 
 -- ----------------------------
@@ -272,7 +101,7 @@ CREATE TABLE `gz_ad_content` (
   `vieworder` smallint(5) NOT NULL default '50',
   PRIMARY KEY  (`pid`),
   KEY `ad_name` (`tid`)
-) ENGINE=MyISAM AUTO_INCREMENT=141 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_ad_content
@@ -294,7 +123,7 @@ CREATE TABLE `gz_ad_position` (
   `uptime` int(11) default NULL,
   PRIMARY KEY  (`tid`),
   KEY `ad_name` (`ad_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_ad_position
@@ -335,7 +164,7 @@ CREATE TABLE `gz_article` (
   PRIMARY KEY  (`article_id`),
   KEY `cat_id` (`cat_id`),
   KEY `meta_keys` (`meta_keys`)
-) ENGINE=MyISAM AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_article
@@ -371,7 +200,7 @@ CREATE TABLE `gz_article_cate` (
   KEY `parent_id` (`parent_id`),
   KEY `meta_keys` (`meta_keys`),
   KEY `cat_name` (`cat_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_article_cate
@@ -398,12 +227,8 @@ CREATE TABLE `gz_attribute` (
   `is_show_cart` enum('0','1') NOT NULL default '1',
   `sort_order` tinyint(3) unsigned NOT NULL default '0',
   PRIMARY KEY  (`attr_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of gz_attribute
--- ----------------------------
-INSERT INTO `gz_attribute` VALUES ('3', '颜色', 'yanse', '2', '白色\r\n红色\r\n蓝色', '2', '0', '1', '0');
 
 -- ----------------------------
 -- Table structure for gz_bonus_list
@@ -419,7 +244,7 @@ CREATE TABLE `gz_bonus_list` (
   `emailed` tinyint(3) unsigned NOT NULL default '0',
   PRIMARY KEY  (`bonus_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_bonus_list
@@ -442,7 +267,7 @@ CREATE TABLE `gz_bonus_type` (
   `use_end_date` int(11) NOT NULL default '0',
   `min_goods_amount` decimal(10,2) unsigned NOT NULL default '0.00',
   PRIMARY KEY  (`type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_bonus_type
@@ -478,7 +303,7 @@ CREATE TABLE `gz_brand` (
   `is_hot` enum('0','1') NOT NULL default '0',
   PRIMARY KEY  (`brand_id`),
   KEY `is_show` (`is_show`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_brand
@@ -528,7 +353,7 @@ CREATE TABLE `gz_comment` (
   PRIMARY KEY  (`comment_id`),
   KEY `parent_id` (`parent_id`),
   KEY `id_value` (`id_value`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_comment
@@ -647,7 +472,7 @@ CREATE TABLE `gz_goods` (
   KEY `promote_start_date` (`promote_start_date`),
   KEY `goods_number` (`goods_number`),
   KEY `sort_order` (`sort_order`)
-) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods
@@ -733,7 +558,7 @@ CREATE TABLE `gz_goods_cache_site` (
   `goods_preg_4` varchar(250) default NULL,
   `goods_preg_5` varchar(250) NOT NULL default '',
   PRIMARY KEY  (`gcid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods_cache_site
@@ -786,7 +611,7 @@ CREATE TABLE `gz_goods_cate` (
   `ctype` varchar(64) NOT NULL default '',
   PRIMARY KEY  (`cat_id`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=588 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods_cate
@@ -809,7 +634,7 @@ CREATE TABLE `gz_goods_collect` (
   KEY `user_id` (`user_id`),
   KEY `goods_id` (`goods_id`),
   KEY `is_attention` (`is_attention`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods_collect
@@ -865,7 +690,7 @@ CREATE TABLE `gz_goods_groupbuy` (
   `price` float(6,2) default '0.00',
   `qingdan` text,
   PRIMARY KEY  (`group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods_groupbuy
@@ -884,7 +709,7 @@ CREATE TABLE `gz_goods_groupbuy_price` (
   `price` float(6,2) NOT NULL default '0.00',
   PRIMARY KEY  (`gpid`),
   KEY `group_id` (`group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods_groupbuy_price
@@ -911,7 +736,7 @@ CREATE TABLE `gz_goods_keyword` (
   `p_fix` varchar(8) NOT NULL default '',
   `is_show` enum('0','1') NOT NULL default '1',
   PRIMARY KEY  (`kid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods_keyword
@@ -953,7 +778,7 @@ CREATE TABLE `gz_goods_order` (
   PRIMARY KEY  (`rec_id`),
   KEY `order_id` (`order_id`),
   KEY `goods_id` (`goods_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=154 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods_order
@@ -976,45 +801,8 @@ CREATE TABLE `gz_goods_order_action` (
   `log_time` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`action_id`),
   KEY `order_id` (`order_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of gz_goods_order_action
--- ----------------------------
-INSERT INTO `gz_goods_order_action` VALUES ('100', '53', 'programmer', '2', '0', '1', '0', '---', '1430202561');
-INSERT INTO `gz_goods_order_action` VALUES ('101', '53', 'programmer', '2', '2', '1', '0', '---', '1430203512');
-INSERT INTO `gz_goods_order_action` VALUES ('102', '53', 'programmer', '2', '5', '1', '0', '---', '1430203569');
-INSERT INTO `gz_goods_order_action` VALUES ('103', '53', 'programmer', '3', '4', '2', '0', '---', '1430203594');
-INSERT INTO `gz_goods_order_action` VALUES ('104', '53', 'programmer', '2', '0', '0', '0', '---', '1430203596');
-INSERT INTO `gz_goods_order_action` VALUES ('105', '53', 'programmer', '2', '0', '1', '0', '---', '1430203621');
-INSERT INTO `gz_goods_order_action` VALUES ('106', '53', 'programmer', '2', '2', '1', '0', '---', '1430203658');
-INSERT INTO `gz_goods_order_action` VALUES ('107', '53', 'programmer', '2', '5', '1', '0', '---', '1430203954');
-INSERT INTO `gz_goods_order_action` VALUES ('108', '53', 'programmer', '3', '4', '2', '0', '---', '1430204651');
-INSERT INTO `gz_goods_order_action` VALUES ('109', '53', 'programmer', '2', '0', '0', '0', '---', '1430204652');
-INSERT INTO `gz_goods_order_action` VALUES ('110', '53', 'programmer', '2', '2', '0', '0', '---', '1430204904');
-INSERT INTO `gz_goods_order_action` VALUES ('111', '53', 'programmer', '2', '2', '1', '0', '---', '1430204905');
-INSERT INTO `gz_goods_order_action` VALUES ('112', '53', 'programmer', '3', '4', '2', '0', '---', '1430206020');
-INSERT INTO `gz_goods_order_action` VALUES ('113', '53', 'programmer', '2', '0', '0', '0', '---', '1430206022');
-INSERT INTO `gz_goods_order_action` VALUES ('114', '53', 'programmer', '2', '0', '1', '0', '---', '1430206027');
-INSERT INTO `gz_goods_order_action` VALUES ('115', '53', 'programmer', '2', '2', '1', '0', '---', '1430206057');
-INSERT INTO `gz_goods_order_action` VALUES ('116', '53', 'programmer', '3', '4', '2', '0', '---', '1430206081');
-INSERT INTO `gz_goods_order_action` VALUES ('117', '53', 'programmer', '2', '0', '0', '0', '---', '1430206083');
-INSERT INTO `gz_goods_order_action` VALUES ('118', '53', 'programmer', '2', '0', '1', '0', '---', '1430206084');
-INSERT INTO `gz_goods_order_action` VALUES ('119', '53', 'programmer', '2', '2', '1', '0', '---', '1430206087');
-INSERT INTO `gz_goods_order_action` VALUES ('120', '53', 'programmer', '2', '5', '1', '0', '---', '1430206109');
-INSERT INTO `gz_goods_order_action` VALUES ('121', '53', 'programmer', '3', '4', '2', '0', '---', '1430206673');
-INSERT INTO `gz_goods_order_action` VALUES ('122', '53', 'programmer', '2', '0', '0', '0', '---', '1430206677');
-INSERT INTO `gz_goods_order_action` VALUES ('123', '53', 'programmer', '2', '0', '1', '0', '---', '1430206679');
-INSERT INTO `gz_goods_order_action` VALUES ('124', '53', 'programmer', '2', '2', '1', '0', '---', '1430206708');
-INSERT INTO `gz_goods_order_action` VALUES ('125', '53', 'programmer', '2', '5', '1', '0', '---', '1430206725');
-INSERT INTO `gz_goods_order_action` VALUES ('126', '53', 'programmer', '3', '4', '2', '0', '---', '1430206764');
-INSERT INTO `gz_goods_order_action` VALUES ('127', '53', 'programmer', '2', '0', '0', '0', '---', '1430206765');
-INSERT INTO `gz_goods_order_action` VALUES ('128', '53', 'programmer', '2', '0', '1', '0', '---', '1430206766');
-INSERT INTO `gz_goods_order_action` VALUES ('129', '53', 'programmer', '2', '2', '1', '0', '---', '1430206767');
-INSERT INTO `gz_goods_order_action` VALUES ('130', '53', 'programmer', '3', '4', '2', '0', '---', '1430207047');
-INSERT INTO `gz_goods_order_action` VALUES ('131', '53', 'programmer', '2', '0', '0', '0', '---', '1430207048');
-INSERT INTO `gz_goods_order_action` VALUES ('132', '53', 'programmer', '2', '0', '1', '0', '---', '1430207050');
-INSERT INTO `gz_goods_order_action` VALUES ('133', '53', 'programmer', '2', '2', '1', '0', '---', '1430207051');
 
 -- ----------------------------
 -- Table structure for gz_goods_order_action_log
@@ -1177,7 +965,7 @@ CREATE TABLE `gz_goods_order_info` (
   KEY `pay_status` (`pay_status`),
   KEY `shipping_id` (`shipping_id`),
   KEY `pay_id` (`pay_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods_order_info
@@ -1261,7 +1049,7 @@ CREATE TABLE `gz_goods_sn` (
   `addtime` int(10) default '0',
   `usetime` int(10) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods_sn
@@ -1277,7 +1065,7 @@ CREATE TABLE `gz_goods_tuijian` (
   `goods_desc` text,
   PRIMARY KEY  (`id`),
   KEY `goods_id` (`goods_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_goods_tuijian
@@ -1424,7 +1212,7 @@ CREATE TABLE `gz_nei_userdbinfo` (
   `addtime` int(10) default '0',
   `endtime` int(10) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_nei_userdbinfo
@@ -1443,7 +1231,7 @@ CREATE TABLE `gz_oauth` (
   `count` int(10) unsigned NOT NULL default '0',
   `status` tinyint(1) unsigned NOT NULL,
   PRIMARY KEY  (`oid`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_oauth
@@ -1465,7 +1253,7 @@ CREATE TABLE `gz_payment` (
   `is_cod` tinyint(1) unsigned NOT NULL default '0',
   `is_online` tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (`pay_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_payment
@@ -1486,7 +1274,7 @@ CREATE TABLE `gz_photos` (
   `time` int(10) default '0',
   `type` tinyint(4) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_photos
@@ -1506,7 +1294,7 @@ CREATE TABLE `gz_region` (
   KEY `parent_id` (`parent_id`),
   KEY `region_type` (`region_type`),
   KEY `agency_id` (`agency_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4170 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_region
@@ -5675,7 +5463,7 @@ CREATE TABLE `gz_shipping` (
   `print_model` tinyint(1) default '0',
   PRIMARY KEY  (`shipping_id`),
   KEY `shipping_code` (`shipping_code`,`enabled`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_shipping
@@ -5700,7 +5488,7 @@ CREATE TABLE `gz_shipping_area` (
   `type` enum('item','weight') NOT NULL default 'item',
   PRIMARY KEY  (`shipping_area_id`),
   KEY `shipping_id` (`shipping_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_shipping_area
@@ -5723,7 +5511,7 @@ CREATE TABLE `gz_shipping_name` (
   `enabled` tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (`shipping_id`),
   KEY `shipping_code` (`shipping_code`,`enabled`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_shipping_name
@@ -5764,7 +5552,7 @@ CREATE TABLE `gz_shop_yuyue` (
   `time` int(10) default '0',
   PRIMARY KEY  (`id`),
   KEY `sid` (`sid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_shop_yuyue
@@ -5962,7 +5750,7 @@ CREATE TABLE `gz_topic` (
   `topic_bgimg` varchar(128) default NULL,
   `topic_bgcolor` varchar(128) default NULL,
   KEY `topic_id` (`topic_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_topic
@@ -5982,7 +5770,7 @@ CREATE TABLE `gz_top_cate` (
   `parent_id` smallint(5) default '0',
   `cat_id` smallint(5) default '0',
   PRIMARY KEY  (`tcid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_top_cate
@@ -6024,7 +5812,7 @@ CREATE TABLE `gz_udaili_siteset` (
   `kefucode` varchar(255) default NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_udaili_siteset
@@ -6083,7 +5871,7 @@ CREATE TABLE `gz_user` (
   `gzranking` mediumint(8) NOT NULL default '0' COMMENT '当前关注排名',
   PRIMARY KEY  (`user_id`),
   KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user
@@ -6169,7 +5957,7 @@ CREATE TABLE `gz_user_address` (
   `peisong` int(10) unsigned default NULL,
   PRIMARY KEY  (`address_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_address
@@ -6191,7 +5979,7 @@ CREATE TABLE `gz_user_bank` (
   `banksn` varchar(64) default NULL,
   `uptime` int(10) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_bank
@@ -6207,7 +5995,7 @@ CREATE TABLE `gz_user_bonus_config` (
   `config` text,
   `linetime` varchar(20) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_bonus_config
@@ -6225,7 +6013,7 @@ CREATE TABLE `gz_user_bonus_list` (
   `bonus` decimal(11,2) NOT NULL,
   `linetime` varchar(20) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_bonus_list
@@ -6245,7 +6033,7 @@ CREATE TABLE `gz_user_bonus_record` (
   `bonus_info` text NOT NULL,
   `linetime` varchar(20) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_bonus_record
@@ -6271,7 +6059,7 @@ CREATE TABLE `gz_user_drawmoney` (
   `banksn` varchar(64) default NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_drawmoney
@@ -6288,7 +6076,7 @@ CREATE TABLE `gz_user_level` (
   `jifendesc` varchar(255) NOT NULL default '',
   `is_show` enum('0','1') default '0',
   PRIMARY KEY  (`lid`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_level
@@ -6337,7 +6125,7 @@ CREATE TABLE `gz_user_money_change` (
   `type` varchar(32) NOT NULL default 'system',
   `order_id` int(8) NOT NULL default '0',
   PRIMARY KEY  (`cid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_money_change
@@ -6365,7 +6153,7 @@ CREATE TABLE `gz_user_money_change_cache` (
   `type` varchar(32) NOT NULL default 'system',
   `order_id` int(8) NOT NULL default '0',
   PRIMARY KEY  (`cid`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_money_change_cache
@@ -6390,7 +6178,7 @@ CREATE TABLE `gz_user_money_record` (
   `date_d` varchar(32) default NULL,
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_money_record
@@ -6410,7 +6198,7 @@ CREATE TABLE `gz_user_point_change` (
   `subuid` mediumint(8) default '0' COMMENT '关注用户ID',
   `order_sn` varchar(32) default NULL,
   PRIMARY KEY  (`cid`)
-) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_point_change
@@ -6430,7 +6218,7 @@ CREATE TABLE `gz_user_salesmen_brand` (
   PRIMARY KEY  (`usbid`),
   KEY `uid` (`uid`),
   KEY `brand_id` (`brand_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_salesmen_brand
@@ -6452,7 +6240,7 @@ CREATE TABLE `gz_user_share` (
   `counts` smallint(5) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_share
@@ -6475,7 +6263,7 @@ CREATE TABLE `gz_user_tuijian` (
   PRIMARY KEY  (`id`),
   KEY `parent_uid` (`parent_uid`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_tuijian
@@ -6497,7 +6285,7 @@ CREATE TABLE `gz_user_tuijian_fx` (
   PRIMARY KEY  (`id`),
   KEY `parent_uid` (`p1_uid`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_user_tuijian_fx
@@ -6517,7 +6305,7 @@ CREATE TABLE `gz_wxdiymen` (
   `is_show` tinyint(1) default '1',
   `sort` tinyint(3) default '50',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_wxdiymen
@@ -6534,7 +6322,7 @@ CREATE TABLE `gz_wxkeyword` (
   `url` varchar(128) default NULL,
   `cid` smallint(5) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_wxkeyword
@@ -6556,7 +6344,7 @@ CREATE TABLE `gz_wxuserset` (
   `winxintype` tinyint(1) default NULL,
   `headerpic` varchar(128) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_wxuserset
@@ -6585,7 +6373,7 @@ CREATE TABLE `gz_wx_article` (
   `type` varchar(32) default NULL,
   PRIMARY KEY  (`article_id`),
   KEY `cat_id` (`cat_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_wx_article
@@ -6612,7 +6400,7 @@ CREATE TABLE `gz_wx_cate` (
   PRIMARY KEY  (`cat_id`),
   KEY `parent_id` (`parent_id`),
   KEY `cat_name` (`cat_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gz_wx_cate
