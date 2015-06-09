@@ -74,7 +74,7 @@ $dt = $thisurl.'?type=list&asc=add_time';
 	<td><?php echo $row['add_time'];?></td>
 	<td><font color="#FF0000">[<?php echo $row['nickname'];?>]</font><?php echo $row['consignee'];?></td>
 	<td><?php echo $row['tprice'];?></td>
-	<td><?php echo $row['status'];echo !empty($row['sn_id']) ? '&nbsp;<font color=blue>&nbsp;['.$row['shoppingname'].']物流单:<a style="color:#fe0000" href="http://m.kuaidi100.com/index_all.html?type='.$row['shipping_code'].'&postid='.$row['sn_id'].'" target="_blank">'.$row['sn_id'].'</a></font>' : '';?></td>
+	<td><?php echo $row['status'];echo !empty($row['sn_id']) ? '&nbsp;<font color=blue>&nbsp;['.$row['shoppingname'].']物流单:<a style="color:#fe0000" href="http://m.kuaidi100.com/index_all.html?type='.$row['shipping_code'].'&postid='.$row['sn_id'].'&callbackurl='.urlencode( SITE_URL.'m/user.php?act=orderlist').'" target="_blank">'.$row['sn_id'].'</a></font>' : '';?></td>
 	<td>
 	<a href="goods_order.php?type=order_info&id=<?php echo $row['order_id'];?>" title="编辑"><img src="<?php echo $this->img('icon_view.gif');?>" title="编辑"/></a>&nbsp;
 	<?php if(in_array($row['order_status'],array('1','4'))){?><img src="<?php echo $this->img('icon_drop.gif');?>" title="删除" alt="删除" id="<?php echo $row['order_id'];?>" class="delorder"/><?php } ?>

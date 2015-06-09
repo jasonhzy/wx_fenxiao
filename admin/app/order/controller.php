@@ -346,7 +346,7 @@ class OrderController extends Controller{
 			$str = "";
 			if($order_status==0){ 	//没确认(没付款、没发货)
 				$str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-				$str .= '<input value="发货" class="order_action" type="button" id="202">'."\n";
+				//$str .= '<input value="发货" class="order_action" type="button" id="202">'."\n";
 				$str .= '<input value="付款" class="order_action" type="button" id="210">'."\n";
 				$str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
 				$str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
@@ -378,7 +378,7 @@ class OrderController extends Controller{
 				    	 $str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
 						 
 					 }else if($shipping_status==2){ //已发货
-					     $str .= '<input value="设为未支付" class="order_action" type="button" id="200">'."\n";
+					     //$str .= '<input value="设为未支付" class="order_action" type="button" id="200">'."\n";
 					     $str .= '<input value="设为未发货" class="order_action" type="button" id="210">'."\n";
 						 if($pay_status!='1'){
 						 	$str .= '<input value="付款" class="order_action" type="button" id="210">'."\n";
@@ -493,14 +493,14 @@ class OrderController extends Controller{
 				
 			}
 			
-			if($data['opstatus']=='720'){ //退款操作
+			if($data['opstatus']=='324'){ //退款操作
 				//已经返的佣金
 				$sql = "SELECT * FROM  `{$this->App->prefix()}user_money_change` WHERE order_sn='$order_sn'";
 				$rr = $this->App->find($sql);
 				if(!empty($rr))foreach($rr as $item){
 					$money = $item['money'];
 					$uids = $item['uid']; //返佣用户
-					$cid = $row['cid'];
+					$cid = $item['cid'];
 					$sql = "UPDATE `{$this->App->prefix()}user` SET `money_ucount` = `money_ucount`-$money,`mymoney` = `mymoney`-$money WHERE user_id = '$uids'";
 					$this->App->query($sql);
 					$this->App->delete('user_money_change','cid',$cid);
@@ -511,7 +511,7 @@ class OrderController extends Controller{
 				if(!empty($rr))foreach($rr as $item){
 					$money = $item['money'];
 					$uids = $item['uid']; //返佣用户
-					$cid = $row['cid'];
+					$cid = $item['cid'];
 					$this->App->delete('user_money_change_cache','cid',$cid);
 				}
 				
@@ -521,7 +521,7 @@ class OrderController extends Controller{
 				if(!empty($rr))foreach($rr as $item){
 					$points = $item['points'];
 					$uids = $item['uid'];
-					$cid = $row['cid'];
+					$cid = $item['cid'];
 					$sql = "UPDATE `{$this->App->prefix()}user` SET `mypoints` = `mypoints`-$points,`points_ucount` = `points_ucount`-$points WHERE user_id = '$uids'";
 					$this->App->query($sql);
 					$this->App->delete('user_point_change','cid',$cid);
