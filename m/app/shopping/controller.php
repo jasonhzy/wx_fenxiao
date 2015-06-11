@@ -758,6 +758,7 @@ class ShoppingController extends Controller{
 				$dd = array();
 				$ss = array();
 				$ss[] = $uid;
+				$dd['addtime'] = time();
 				$dd['uid'] = $uid;
 				$dd['p1_uid'] = 0;
 				$dd['p2_uid'] = 0;
