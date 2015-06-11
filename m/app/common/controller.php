@@ -120,9 +120,15 @@ class CommonController extends Controller{
 	//获取jsapi_ticket
 	function _get_jsapi_ticket(){
 			$rt = $this->_get_appid_appsecret();
-			if( is_weixin()==false || $rt['is_oauth']=='0'){
-				return array();
+			
+			if (isset($_GET['games_jsapi']) && $_GET['games_jsapi'] == '1') {
+				
+			}else{
+				if( is_weixin()==false || $rt['is_oauth']=='0'){
+					return array();
+				}
 			}
+			
 
 			$t = Common::_return_px();
 			$cache = Import::ajincache();
@@ -142,6 +148,7 @@ class CommonController extends Controller{
 					$rr = $this->_get_appid_appsecret();
 					$rt['jsapi_ticket'] = $ticket;
 					$rt['appid'] = $rr['appid'];
+					file_put_contents('/var/www/pinet-fenxiao/games/Home/Runtime/jsapi_ticket', print_r(json_encode($rt), 1));
 					$cache->write($fn, $rt,'rt');
 		   }
 		  
