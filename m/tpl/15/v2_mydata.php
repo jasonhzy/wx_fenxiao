@@ -21,7 +21,7 @@
 		<a href="<?php echo ADMIN_URL.'user.php?act=myuser';?>"><i></i>成功关注<span><?php echo empty($rt['userinfo']['guanzhu_ucount']) ? '0' : $rt['userinfo']['guanzhu_ucount'];?>人</span></a>
 		</li>
 		<li>
-		<a href="javascript:void(0)"><i></i>下单购买<span><?php echo empty($rt['userinfo']['ordercount']) ? '0' : $rt['userinfo']['ordercount'];?>单</span></a>
+		<a href="<?php echo ADMIN_URL.'user.php?act=orderlist';?>"><i></i>下单购买<span><?php echo empty($rt['userinfo']['ordercount']) ? '0' : $rt['userinfo']['ordercount'];?>单</span></a>
 		</li>
 		<li>
 		<a href="<?php echo ADMIN_URL.'daili.php?act=my_is_daili';?>"><i></i>成为分销<span><?php echo empty($rt['userinfo']['fxcount']) ? '0' : $rt['userinfo']['fxcount'];?>人</span></a>
