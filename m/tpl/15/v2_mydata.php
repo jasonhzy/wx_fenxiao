@@ -12,7 +12,7 @@
 .dailicenter li a:hover{ background:#EAEAEA}
 
 </style>
-<div id="main" style="min-height:300px;margin-bottom:20px;position: relative;z-index: -1;">
+<div id="main" style="min-height:300px;margin-bottom:20px;">
 	<ul class="dailicenter">
 		<li>
 		<a href="<?php echo ADMIN_URL.'user.php?act=myshare';?>"><i></i>点击链接<span><?php echo empty($rt['userinfo']['share_ucount']) ? '0' : $rt['userinfo']['share_ucount'];?>人</span></a>
