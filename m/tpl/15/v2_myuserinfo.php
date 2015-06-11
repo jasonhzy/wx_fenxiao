@@ -123,7 +123,7 @@ width:100%;
 				<a href="javascript:;" onclick="ajax_show_sub(1,this);"><i></i>他的一级客户<span><?php echo empty($rt['zcount1']) ? '0' : $rt['zcount1'];?>人</span></a>
 			</p>
 			<ul class="gonglist gg1">
-				<li class="uli6"><p><a href="javascript:;"><i></i>代理人数<span>0人</span></a></p></li>
+				<li class="uli6"><p><a href="javascript:;"><i></i>代理人数<span><?php echo empty($rt['zcount1']) ? '0' : $rt['zcount1'];?>人</span></a></p></li>
 				<li class="uli9"><p><a href="javascript:;"><i></i>消费金额<span>￥0.00</span></a></p></li>
 				<li class="uli10"><p><a href="javascript:;"><i></i>贡献佣金<span>￥0.00</span></a></p></li>		
 				<div class="clear"></div>
@@ -135,7 +135,7 @@ width:100%;
 				<a href="javascript:;" onclick="ajax_show_sub(2,this);"><i></i>他的二级客户<span><?php echo empty($rt['zcount2']) ? '0' : $rt['zcount2'];?>人</span></a>
 			</p>
 			<ul class="gonglist gg2">
-				<li class="uli6"><p><a href="javascript:;"><i></i>代理人数<span>0人</span></a></p></li>
+				<li class="uli6"><p><a href="javascript:;"><i></i>代理人数<span><?php echo empty($rt['zcount2']) ? '0' : $rt['zcount2'];?>人</span></a></p></li>
 				<li class="uli9"><p><a href="javascript:;"><i></i>消费金额<span>￥0.00</span></a></p></li>
 				<li class="uli10"><p><a href="javascript:;"><i></i>贡献佣金<span>￥0.00</span></a></p></li>		
 				<div class="clear"></div>
@@ -147,7 +147,7 @@ width:100%;
 				<a href="javascript:;" onclick="ajax_show_sub(3,this);"><i></i>他的三级客户<span><?php echo empty($rt['zcount3']) ? '0' : $rt['zcount3'];?>人</span></a>
 			</p>
 			<ul class="gonglist gg3">
-				<li class="uli6"><p><a href="javascript:;"><i></i>代理人数<span>0人</span></a></p></li>
+				<li class="uli6"><p><a href="javascript:;"><i></i>代理人数<span><?php echo empty($rt['zcount3']) ? '0' : $rt['zcount3'];?>人</span></a></p></li>
 				<li class="uli9"><p><a href="javascript:;"><i></i>消费金额<span>￥0.00</span></a></p></li>
 				<li class="uli10"><p><a href="javascript:;"><i></i>贡献佣金<span>￥0.00</span></a></p></li>		
 				<div class="clear"></div>
