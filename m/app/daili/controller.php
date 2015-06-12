@@ -847,7 +847,7 @@ class DailiController extends Controller{
 	
 	function myuserinfo($data=array()){
 		$this->checked_login();
-		
+		$curuser_uid = $this->Session->read('User.uid');
 		$uid = $data['uid'];
 		
 		$sql = "SELECT * FROM `{$this->App->prefix()}user` WHERE user_id ='{$uid}' AND active='1' LIMIT 1";
@@ -873,12 +873,36 @@ class DailiController extends Controller{
 		
 		//一级
 		$rt['zcount1'] = $this->App->findvar("SELECT COUNT(id) FROM `{$this->App->prefix()}user_tuijian` WHERE parent_uid = '$uid' LIMIT 1");
+		
+		//一级消费额
+		$sql = "SELECT  SUM(info.`order_amount`) AS amount FROM `{$this->App->prefix()}user_tuijian` tj INNER JOIN `{$this->App->prefix()}goods_order_info` info ON tj.`uid` = info.`user_id`
+				WHERE tj.`parent_uid` = '$uid' AND info.`pay_status` = '1'";
+		$rt['zordermoney1'] = $this->App->findvar($sql);
+		
+		//一级佣金
+		$sql = "SELECT SUM(money) FROM `gz_user_tuijian` tj INNER JOIN `{$this->App->prefix()}user_money_change` yj ON yj.`buyuid` = tj.`uid` WHERE tj.`parent_uid` = '$uid' AND yj.`uid` = '$curuser_uid'";
+		$rt['yj1'] = $this->App->findvar($sql);
+		
+		
 		//二级
 		//$rt['zcount2'] = $this->App->findvar("SELECT COUNT(DISTINCT tb2.uid) FROM `{$this->App->prefix()}user_tuijian` AS tb1 LEFT JOIN `{$this->App->prefix()}user_tuijian` AS tb2 ON tb2.parent_uid = tb1.uid AND tb2.uid != tb2.daili_uid WHERE tb1.parent_uid='$uid' LIMIT 1");
 		$sql = "SELECT COUNT(tb1.id) FROM `{$this->App->prefix()}user_tuijian` AS tb1";
 		$sql .= " LEFT JOIN `{$this->App->prefix()}user_tuijian` AS tb2 ON tb2.parent_uid = tb1.uid ";
 		$sql .= " WHERE tb1.parent_uid='$uid' AND tb2.uid IS NOT NULL  LIMIT 1";
 		$rt['zcount2'] = $this->App->findvar($sql);
+		
+		//二级消费额
+		$sql = "SELECT  SUM(info.`order_amount`) AS amount FROM `{$this->App->prefix()}user_tuijian` tj
+					INNER JOIN `{$this->App->prefix()}user_tuijian` tj_first ON tj.`uid` = tj_first.`parent_uid`
+					INNER JOIN `{$this->App->prefix()}goods_order_info` info ON tj_first.`uid` = info.`user_id`
+					WHERE tj.`parent_uid` = '$uid' AND info.`pay_status` = '1'";
+		$rt['zordermoney2'] = $this->App->findvar($sql);
+		//二级佣金
+		$sql = "SELECT SUM(money) FROM `gz_user_tuijian` tj 
+					INNER JOIN `gz_user_tuijian` tj_first ON tj.`uid` = tj_first.`parent_uid`
+					INNER JOIN `gz_user_money_change` yj ON yj.`buyuid` = tj_first.`uid`
+					WHERE tj.`parent_uid` = '$uid' AND yj.`uid` = '$curuser_uid'";
+		$rt['yj2'] = $this->App->findvar($sql);
 		
 		//三级
 		//$rt['zcount3'] = $this->App->findvar("SELECT COUNT(tb3.id) FROM `{$this->App->prefix()}user_tuijian` AS tb1 LEFT JOIN `{$this->App->prefix()}user_tuijian` AS tb2 ON tb2.parent_uid = tb1.uid AND tb2.uid != tb2.daili_uid LEFT JOIN `{$this->App->prefix()}user_tuijian` AS tb3 ON tb3.parent_uid = tb2.uid AND tb3.uid != tb3.daili_uid WHERE tb1.parent_uid='$uid' LIMIT 1");
@@ -887,6 +911,21 @@ class DailiController extends Controller{
 		$sql .= " LEFT JOIN `{$this->App->prefix()}user_tuijian` AS tb3 ON tb3.parent_uid = tb2.uid ";
 		$sql .= " WHERE tb1.parent_uid='$uid' AND tb3.uid IS NOT NULL  LIMIT 1";
 		$rt['zcount3'] = $this->App->findvar($sql);
+		
+		//三级消费额
+		$sql = "SELECT  SUM(info.`order_amount`) AS amount FROM `{$this->App->prefix()}user_tuijian` tj
+					INNER JOIN `{$this->App->prefix()}user_tuijian` tj_first ON tj.`uid` = tj_first.`parent_uid`
+					INNER JOIN `{$this->App->prefix()}user_tuijian` tj_second ON tj_first.`uid` = tj_second.`parent_uid`
+					INNER JOIN `{$this->App->prefix()}goods_order_info` info ON tj_second.`uid` = info.`user_id`
+					WHERE tj.`parent_uid` = '$uid' AND info.`pay_status` = '1'";
+		$rt['zordermoney3'] = $this->App->findvar($sql);
+		//三级佣金
+		$sql = "SELECT SUM(money) FROM `{$this->App->prefix()}user_tuijian` tj 
+				INNER JOIN `{$this->App->prefix()}user_tuijian` tj_first ON tj.`uid` = tj_first.`parent_uid`
+				INNER JOIN `{$this->App->prefix()}user_tuijian` tj_second ON tj_first.`uid` = tj_second.`parent_uid`
+				INNER JOIN `{$this->App->prefix()}user_money_change` yj ON yj.`buyuid` = tj_second.`uid`
+				WHERE tj.`parent_uid` = '$uid' AND yj.`uid` = '$curuser_uid'";
+		$rt['yj3'] = $this->App->findvar($sql);
 		
 		if(!defined(NAVNAME)) define('NAVNAME', "分销会员详情");
 		$this->set('rt',$rt);
