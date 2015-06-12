@@ -124,8 +124,8 @@ width:100%;
 			</p>
 			<ul class="gonglist gg1">
 				<li class="uli6"><p><a href="javascript:;"><i></i>代理人数<span><?php echo empty($rt['zcount1']) ? '0' : $rt['zcount1'];?>人</span></a></p></li>
-				<li class="uli9"><p><a href="javascript:;"><i></i>消费金额<span>￥0.00</span></a></p></li>
-				<li class="uli10"><p><a href="javascript:;"><i></i>贡献佣金<span>￥0.00</span></a></p></li>		
+				<li class="uli9"><p><a href="javascript:;"><i></i>消费金额<span>￥<?php echo empty($rt['zordermoney1']) ? '0.00' : $rt['zordermoney1'];?></span></a></p></li>
+				<li class="uli10"><p><a href="javascript:;"><i></i>贡献佣金<span>￥<?php echo empty($rt['yj1']) ? '0.00' : $rt['yj1'];?></span></a></p></li>		
 				<div class="clear"></div>
 			</ul>
 		</div>
@@ -136,8 +136,8 @@ width:100%;
 			</p>
 			<ul class="gonglist gg2">
 				<li class="uli6"><p><a href="javascript:;"><i></i>代理人数<span><?php echo empty($rt['zcount2']) ? '0' : $rt['zcount2'];?>人</span></a></p></li>
-				<li class="uli9"><p><a href="javascript:;"><i></i>消费金额<span>￥0.00</span></a></p></li>
-				<li class="uli10"><p><a href="javascript:;"><i></i>贡献佣金<span>￥0.00</span></a></p></li>		
+				<li class="uli9"><p><a href="javascript:;"><i></i>消费金额<span>￥<?php echo empty($rt['zordermoney2']) ? '0.00' : $rt['zordermoney2'];?></span></a></p></li>
+				<li class="uli10"><p><a href="javascript:;"><i></i>贡献佣金<span>￥<?php echo empty($rt['yj2']) ? '0.00' : $rt['yj2'];?></span></a></p></li>		
 				<div class="clear"></div>
 			</ul>
 		</div>
@@ -148,8 +148,8 @@ width:100%;
 			</p>
 			<ul class="gonglist gg3">
 				<li class="uli6"><p><a href="javascript:;"><i></i>代理人数<span><?php echo empty($rt['zcount3']) ? '0' : $rt['zcount3'];?>人</span></a></p></li>
-				<li class="uli9"><p><a href="javascript:;"><i></i>消费金额<span>￥0.00</span></a></p></li>
-				<li class="uli10"><p><a href="javascript:;"><i></i>贡献佣金<span>￥0.00</span></a></p></li>		
+				<li class="uli9"><p><a href="javascript:;"><i></i>消费金额<span>￥<?php echo empty($rt['zordermoney3']) ? '0.00' : $rt['zordermoney3'];?></span></a></p></li>
+				<li class="uli10"><p><a href="javascript:;"><i></i>贡献佣金<span>￥<?php echo empty($rt['yj3']) ? '0.00' : $rt['yj3'];?></span></a></p></li>		
 				<div class="clear"></div>
 			</ul>
 		</div>
