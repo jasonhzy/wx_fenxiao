@@ -348,6 +348,7 @@ class DailiController extends Controller{
 		$uid = $this->Session->read('User.uid');
 		if(!defined(NAVNAME)) define('NAVNAME', "我的佣金");
 		//未有付款佣金
+		//$sql = "SELECT SUM(tb1.money) FROM `{$this->App->prefix()}user_money_change_cache` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn WHERE tb1.uid = '$uid' AND tb2.pay_status='0' AND tb2.order_status!='4' AND tb2.order_status!='1' AND tb1.money > 0 LIMIT 1";
 		$sql = "SELECT SUM(tb1.money) FROM `{$this->App->prefix()}user_money_change_cache` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn WHERE tb1.uid = '$uid' AND tb2.pay_status='0' AND tb2.order_status!='4' AND tb2.order_status!='1' AND tb1.money > 0 LIMIT 1";
 		$rt['pay1'] = $this->App->findvar($sql);
 		
@@ -360,6 +361,7 @@ class DailiController extends Controller{
 		$rt['pay3'] = $this->App->findvar($sql);
 		
 		//已经取消作废佣金
+		//$sql = "SELECT SUM(tb1.money) FROM `{$this->App->prefix()}user_money_change_cache` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn WHERE tb1.uid = '$uid' AND (tb2.order_status='1' OR tb2.pay_status='2') AND tb1.money > 0 LIMIT 1";
 		$sql = "SELECT SUM(tb1.money) FROM `{$this->App->prefix()}user_money_change_cache` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn WHERE tb1.uid = '$uid' AND (tb2.order_status='1' OR tb2.pay_status='2') AND tb1.money > 0 LIMIT 1";
 		$rt['pay4'] = $this->App->findvar($sql);
 		
@@ -473,7 +475,8 @@ class DailiController extends Controller{
 		}
 		$w = " WHERE ".implode(' AND ',$w_rt);
 		
-		$sql = "SELECT SUM(tb1.money) FROM `{$this->App->prefix()}user_money_change_cache` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn $w";
+		//$sql = "SELECT SUM(tb1.money) FROM `{$this->App->prefix()}user_money_change_cache` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn $w";
+		$sql = "SELECT SUM(tb1.money) FROM `{$this->App->prefix()}user_money_change` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn $w";
 		$rt['zmoney'] = $this->App->findvar($sql);
    		//分页
 		$page = isset($_GET['page'])&&intval($_GET['page'])>0 ? intval($_GET['page']) : 1;
@@ -482,10 +485,12 @@ class DailiController extends Controller{
 		}
 		$list = 10 ; //每页显示多少个
 		$start = ($page-1)*$list;
-		$tt = $this->App->findvar("SELECT COUNT(tb1.cid) FROM `{$this->App->prefix()}user_money_change_cache` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn $w");
+		//$tt = $this->App->findvar("SELECT COUNT(tb1.cid) FROM `{$this->App->prefix()}user_money_change_cache` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn $w");
+		$tt = $this->App->findvar("SELECT COUNT(tb1.cid) FROM `{$this->App->prefix()}user_money_change` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn $w");
 		$rt['pages'] = Import::basic()->getpage($tt,$list,$page,'?page=',true);
 		
-		$sql = "SELECT tb1.*,tb3.nickname,tb3.headimgurl FROM `{$this->App->prefix()}user_money_change_cache` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn LEFT JOIN `{$this->App->prefix()}user` AS tb3 ON tb1.buyuid = tb3.user_id $w ORDER BY tb1.time DESC LIMIT $start,$list";
+		//$sql = "SELECT tb1.*,tb3.nickname,tb3.headimgurl FROM `{$this->App->prefix()}user_money_change_cache` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn LEFT JOIN `{$this->App->prefix()}user` AS tb3 ON tb1.buyuid = tb3.user_id $w ORDER BY tb1.time DESC LIMIT $start,$list";
+		$sql = "SELECT tb1.*,tb3.nickname,tb3.headimgurl FROM `{$this->App->prefix()}user_money_change` AS tb1 LEFT JOIN `{$this->App->prefix()}goods_order_info` AS tb2 ON tb2.order_sn = tb1.order_sn LEFT JOIN `{$this->App->prefix()}user` AS tb3 ON tb1.buyuid = tb3.user_id $w ORDER BY tb1.time DESC LIMIT $start,$list";
 		$rt['lists'] = $this->App->find($sql); //商品列表
 		$rt['page'] = $page;
 		
