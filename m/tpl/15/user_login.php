@@ -35,7 +35,7 @@ border-radius:5px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
 			</tr>
 			<tr>
 				<td align="center" width="100%">
-				<p style="text-align:right; padding-right:10px"><a href="<?php echo ADMIN_URL;?>user.php?act=register">新用户注册?</a>&nbsp;&nbsp;&nbsp;<a href="">忘记密码?</a></p>
+				<p style="text-align:right; padding-right:10px"><a href="<?php echo ADMIN_URL;?>user.php?act=register">新用户注册?</a>&nbsp;&nbsp;&nbsp;<!-- <a href="">忘记密码?</a> --></p>
 				</td>
 			</tr>
 			</table>   
