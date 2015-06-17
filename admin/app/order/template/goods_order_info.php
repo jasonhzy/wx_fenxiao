@@ -198,7 +198,11 @@ $('.order_action').live('click',function(){
 	id = '<?php echo $_REQUEST['id']?>';
 	$.post('<?php echo $thisurl;?>',{action:'op_status',opstatus:opstatus,opremark:opremark,opid:id},function(data){
 		$("textarea[name='action_note']").val("");
-		if(data !=""){
+		if(data ==  '1' || data ==  '2'){
+			alert("非法操作！");
+		}else if(data ==  '3'){
+			alert("库存不足，请重新确认订单！");
+		}else if(data !=""){
 			$.post('<?php echo $thisurl;?>',{action:'get_status_button',status:opstatus},function(datas){
 				if(datas !=""){
 					$("#get_button").html("")
