@@ -384,7 +384,7 @@ class OrderController extends Controller{
 						 	$str .= '<input value="付款" class="order_action" type="button" id="210">'."\n";
 						 }
 				   		 $str .= '<input value="收货" class="order_action" type="button" id="215">'."\n";
-				    	 $str .= '<input value="退货" class="order_action" type="button" id="324">'."\n";
+				    	 //$str .= '<input value="退货" class="order_action" type="button" id="324">'."\n";
 						 
 					 }else if($shipping_status==1){ //配货中
 					     $str .= '<input value="设为未支付" class="order_action" type="button" id="200">'."\n";

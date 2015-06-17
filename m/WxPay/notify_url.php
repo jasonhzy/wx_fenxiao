@@ -15,6 +15,9 @@ require_once('../load.php');
 
 	//存储微信的回调
 	$xmls = $GLOBALS['HTTP_RAW_POST_DATA'];	
+	if(empty($xmls)) {
+		$xmls = file_get_contents("php://input"); 
+	}
 	//使用simplexml_load_string() 函数将接收到的XML消息数据载入对象$postObj中。
 	if(!empty($xmls)){
 		$postObj = simplexml_load_string($xmls, 'SimpleXMLElement', LIBXML_NOCDATA);

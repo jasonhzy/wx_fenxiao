@@ -1515,7 +1515,7 @@ class UserController extends Controller{
 		//条件
 		$w = "WHERE l.lid!='1'";
 		if(isset($_GET['keyword'])&&$_GET['keyword']){
-                  $w .= " AND u.user_name LIKE '%".trim($_GET['keyword'])."%' OR u.email LIKE '%".trim($_GET['keyword'])."%' OR u.birthday LIKE '%".trim($_GET['keyword'])."%' OR u.nickname LIKE '%".trim($_GET['keyword'])."%'";
+                  $w .= " AND (u.user_name LIKE '%".trim($_GET['keyword'])."%' OR u.email LIKE '%".trim($_GET['keyword'])."%' OR u.birthday LIKE '%".trim($_GET['keyword'])."%' OR u.nickname LIKE '%".trim($_GET['keyword'])."%')";
 		}
 		$list = 10;
 		$start = ($page-1)*$list;
