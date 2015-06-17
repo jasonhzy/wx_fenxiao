@@ -2861,7 +2861,12 @@ class UserController extends Controller{
             return $str;
   }
 
-  
+  /**
+   *  order_status => $oid
+   *  pay_status => $pid
+   *  shipping_status => $sid
+   * 
+   */
   function get_option($sn=0,$oid=0,$pid=0,$sid=0){
   			if(empty($sn)) return "";
   		    $str = '';

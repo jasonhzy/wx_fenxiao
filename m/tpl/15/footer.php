@@ -5,7 +5,7 @@
 <div id="opquyubox">
 	<!--<p><img src="<?php echo $this->img('homeMenuTop.png');?>" width="100%" /></p>-->
 	<div style="line-height:26px;">
-		<h2 style="border-bottom:1px solid #ededed;"><a href="<?php echo ADMIN_URL.'exchange.php';?>">积分兑换</a></h2>
+	<!--	<h2 style="border-bottom:1px solid #ededed;"><a href="<?php echo ADMIN_URL.'exchange.php';?>">积分兑换</a></h2>-->
 	<?php if(!empty($lang['menu']))foreach($lang['menu'] as $row){?>
 		<h2 style="border-bottom:1px solid #ededed;"><a href="<?php echo ADMIN_URL.'catalog.php?cid='.$row['id'];?>"><?php echo $row['name'];?></a></h2>
 		<?php if(!empty($row['cat_id'])){?>

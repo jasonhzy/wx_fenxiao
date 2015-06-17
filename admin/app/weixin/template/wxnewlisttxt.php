@@ -1,11 +1,12 @@
 <div class="contentbox">
      <table cellspacing="2" cellpadding="5" width="100%">
 	 <tr>
-		<th colspan="5" align="left"><span style="float:left">文本信息</span><a style=" float:right" href="weixin.php?type=infostxt">添加信息</a></th>
+		<th colspan="6" align="left"><span style="float:left">文本信息</span><a style=" float:right" href="weixin.php?type=infostxt">添加信息</a></th>
 	</tr>
     <tr>
 	   <th width="60"><label><input type="checkbox" class="quxuanall" value="checkbox" />选择</label></th>
 	   <th>标题</th>
+	   <th>关键词</th>
 	   <th>状态</th>
 	   <th>时间</th>
 	   <th>操作</th>
@@ -17,6 +18,7 @@
 	<tr>
 	<td><input type="checkbox" name="quanxuan" value="<?php echo $row['article_id'];?>" class="gids"/></td>
 	<td><?php echo $row['article_title'];?></td>
+	<td><?php echo $row['keyword'];?></td>
 	<td><img src="<?php echo $this->img($row['is_show']==1 ? 'yes.gif' : 'no.gif');?>" alt="<?php echo $row['is_show']==1 ? '0' : '1';?>" class="activeop" lang="is_show" id="<?php echo $row['article_id'];?>"/></td>
   <td><?php echo !empty($row['addtime']) ? date('Y-m-d',$row['addtime']) : "无知";?></td>
 	<td>
