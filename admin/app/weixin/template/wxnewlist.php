@@ -33,7 +33,7 @@
 	<?php
 	 } ?>
 	<tr>
-		 <td colspan="7"> <input type="checkbox" class="quxuanall" value="checkbox" />
+		 <td colspan="8"> <input type="checkbox" class="quxuanall" value="checkbox" />
 			  <input type="button" name="button" value="批量删除" disabled="disabled" class="bathdel" id="bathdel"/>
 		 </td>
 	</tr>
