@@ -249,9 +249,11 @@ class ShoppingController extends Controller{
 		$sql = "SELECT gdorder.`goods_number` as buy_num, goods.`goods_number` pro_num FROM `{$this->App->prefix()}goods_order` gdorder
 			INNER JOIN `{$this->App->prefix()}goods` goods ON gdorder.goods_id = goods.goods_id
 			WHERE gdorder.order_id = '$oid'";
-		$order = $this->App->findrow($sql);
-		if ($order && $order['pro_num'] < $order['buy_num']) {
-			$this->jump(ADMIN_URL,0,'库存已不足，请重新下单购买!'); exit;
+		$order = $this->App->find($sql);
+		foreach ($order as $item) {
+			if ($item['pro_num'] < $item['buy_num']) {
+				$this->jump(ADMIN_URL,0,'库存已不足，请重新下单购买!'); exit;
+			}
 		}
 
 		
