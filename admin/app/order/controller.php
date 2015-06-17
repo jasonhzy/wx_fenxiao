@@ -349,7 +349,7 @@ class OrderController extends Controller{
 				//$str .= '<input value="发货" class="order_action" type="button" id="202">'."\n";
 				$str .= '<input value="付款" class="order_action" type="button" id="210">'."\n";
 				$str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
-				$str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
+				//$str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
 				
 			}else if($order_status==2){   //已经确认
 			    if($pay_status==0){ //没支付
@@ -365,7 +365,7 @@ class OrderController extends Controller{
 				    $str .= '<input value="付款" class="order_action" type="button" id="21'.$s2.'">'."\n";
 					}
 				    $str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
-				    $str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
+				    //$str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
 				
 				}else if($pay_status==1){ //已支付
 					if($shipping_status==0){ //未发货
@@ -409,12 +409,12 @@ class OrderController extends Controller{
 				}
 			}else if($order_status==1){  //取消
 			  	$str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-				$str .= '<input value="移除" class="order_action" type="button" id="remove">'."\n";
+				//$str .= '<input value="移除" class="order_action" type="button" id="remove">'."\n";
 			}else if($order_status==4){ //无效
 			    $str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
 			}else if($order_status==3){ //退货
 			    $str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-				$str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
+				$str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
 			}else if($order_status==5){ //同意退款
 			    $str .= '<input value="确认退款" class="order_action" type="button" id="720">'."\n";
 			}
@@ -423,7 +423,7 @@ class OrderController extends Controller{
 			}
 			else if($order_status==7){ //同意退货
 			     $str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-				$str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
+				$str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
 			}
 			return $str;
 		}
