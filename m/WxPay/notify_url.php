@@ -25,6 +25,7 @@ require_once('../load.php');
 		$openid = $postObj->openid;
 		$out_trade_no = $postObj->out_trade_no;
 		//file_put_contents('error.txt',"(支付)time:".$out_trade_no.'-'.$result_code,FILE_APPEND);
+		file_put_contents('/var/www/pinet-fenxiao/cache/wxpay', print_r($postObj, 1)."\r\n",FILE_APPEND);
 		if($result_code == "SUCCESS") {
 			if(!empty($out_trade_no)){
 				//file_put_contents('error.txt',"(支付2)time:".$out_trade_no.'-'.$result_code,FILE_APPEND);

@@ -414,7 +414,7 @@ class OrderController extends Controller{
 			    $str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
 			}else if($order_status==3){ //退货
 			    $str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-				$str .= '<input value="移除" class="order_action" type="button" id="remove">'."\n";
+				$str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
 			}else if($order_status==5){ //同意退款
 			    $str .= '<input value="确认退款" class="order_action" type="button" id="720">'."\n";
 			}
@@ -423,7 +423,7 @@ class OrderController extends Controller{
 			}
 			else if($order_status==7){ //同意退货
 			     $str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-				$str .= '<input value="移除" class="order_action" type="button" id="remove">'."\n";
+				$str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
 			}
 			return $str;
 		}
@@ -431,32 +431,48 @@ class OrderController extends Controller{
 		//ajax订单状态操作记录
 		function ajax_op_status($data=array()){
 			@set_time_limit(300); //最大运行时间
-			if(strlen($data['opstatus'])!=3) {echo  "非法操作"; exit; }
-			if(empty($data['opid'])){echo  "非法操作"; exit; }
+			if(strlen($data['opstatus'])!=3) {echo  "1"; exit; }
+			if(empty($data['opid'])){echo  "2"; exit; }
 			
  			$datas['order_status'] = substr($data['opstatus'],0,1);
 			$datas['pay_status'] = substr($data['opstatus'],1,1);
 			$datas['shipping_status'] = substr($data['opstatus'],-1);
 			$order_id = $data['opid'];
+			
+			//判断是否库存足够
+			$sql = "SELECT gdorder.`goods_number` as buy_num, goods.`goods_number` pro_num FROM `{$this->App->prefix()}goods_order` gdorder
+				INNER JOIN `{$this->App->prefix()}goods` goods ON gdorder.goods_id = goods.goods_id
+				WHERE gdorder.order_id = '$order_id'";
+			$order = $this->App->find($sql);
+			if (!empty($order)) {
+				foreach ($order as $item) {
+					if ($item['pro_num'] < $item['buy_num']) {
+						echo 3; exit;
+					}
+				}
+			}
+			
 			//当前购买用户
-			$pu = $this->App->findrow("SELECT user_id,order_sn FROM `{$this->App->prefix()}goods_order_info` WHERE order_id = '$order_id' LIMIT 1");
+			$pu = $this->App->findrow("SELECT user_id,order_sn, order_amount, pay_status FROM `{$this->App->prefix()}goods_order_info` WHERE order_id = '$order_id' LIMIT 1");
 			$uid = isset($pu['user_id']) ? $pu['user_id'] : 0; 
 			$order_sn = isset($pu['order_sn']) ? $pu['order_sn'] : ''; 
-				
-			if($datas['shipping_status']=='5' || $datas['shipping_status']=='2'){ //收货，开通代理
-				
-				if($uid > 0){
-					//标记当前用户所有下级为该代理会员
-					//加入代理关系表
-					$rank = $this->App->findvar("SELECT user_rank FROM `{$this->App->prefix()}user` WHERE user_id = '$uid' LIMIT 1");
-					if($rank=='1'){
-						$this->App->update('user',array('user_rank'=>'12'),'user_id',$uid);
-						
-						$this->action('user','update_user_tree',$uid,$uid);
-						
-						$this->action('user','update_daili_tree',$uid);//更新代理关系
+			$pay_status = isset($pu['pay_status']) ? $pu['pay_status'] : ''; 
+			
+			if ($pay_status != '1' && $datas['pay_status'] == '1') {
+				$sql = "SELECT * FROM `{$this->App->prefix()}userconfig` WHERE type = 'basic' LIMIT 1";
+				$rrL = $this->App->findrow($sql);
+				$openfx_minmoney = empty($rrL['openfx_minmoney']) ? 0 : intval($rrL['openfx_minmoney']);
+				if($rrL && $rrL['openfxbuy']=='1' && $pu['order_amount'] >= $openfx_minmoney){ //开通代理
+					if($uid > 0){
+						//标记当前用户所有下级为该代理会员
+						//加入代理关系表
+						$rank = $this->App->findvar("SELECT user_rank FROM `{$this->App->prefix()}user` WHERE user_id = '$uid' LIMIT 1");
+						if($rank=='1'){
+							$this->App->update('user',array('user_rank'=>'12'),'user_id',$uid);
+							$this->action('user','update_user_tree',$uid,$uid);
+							$this->action('user','update_daili_tree',$uid);//更新代理关系
+						}
 					}
-					
 				}
 			}
 			
@@ -484,13 +500,9 @@ class OrderController extends Controller{
 				if(!empty($pwecha_id) && !empty($nickname)){
 					$this->action('api','send',array('openid'=>$pwecha_id,'appid'=>'','appsecret'=>'','nickname'=>$nickname,'order_sn'=>$order_sn),'fahuo');
 				}
-
 				// 短信通知
-	
-				$rr3 = $this->App->findrow("SELECT * FROM `{$this->App->prefix()}goods_order_info` WHERE order_sn='{$order_sn}' LIMIT 1");
-				$this->action('sms','sms_yssend',array('tel'=>$rr3['mobile'],'order_sn'=>$order_sn,'type'=>'tmp_order'));
-				
-				
+				//$rr3 = $this->App->findrow("SELECT * FROM `{$this->App->prefix()}goods_order_info` WHERE order_sn='{$order_sn}' LIMIT 1");
+				//$this->action('sms','sms_yssend',array('tel'=>$rr3['mobile'],'order_sn'=>$order_sn,'type'=>'tmp_order'));
 			}
 			
 			if($data['opstatus']=='324'){ //退款操作
@@ -528,7 +540,6 @@ class OrderController extends Controller{
 					$this->App->query($sql);
 					$this->App->delete('user_point_change','cid',$cid);
 				}
-				
 			}
 			if($datas['shipping_status'] == '5'){
 				$datas['shipping_time'] = time();
@@ -536,7 +547,6 @@ class OrderController extends Controller{
 				$datas['pay_time'] = time();
 			}
 			//修改库存
-			$pay_status = $this->App->findvar("SELECT `pay_status` FROM `{$this->App->prefix()}goods_order_info` WHERE `order_id` = $order_id");
 			if ($pay_status != '1' && $datas['pay_status'] == '1') {
 				$sql = "SELECT `goods_id`, `goods_number` FROM `{$this->App->prefix()}goods_order` gdorder
 					INNER JOIN `{$this->App->prefix()}goods_order_info` info ON gdorder.order_id = info.order_id
@@ -586,8 +596,7 @@ class OrderController extends Controller{
 			}
 			//邮件发送
 			
-			//支付
-			//返佣金
+			//支付返佣金
 			if($datas['pay_status']=='1'){
 				$order_id = $data['opid'];
 				$order_sn = $this->App->findvar("SELECT order_sn FROM `{$this->App->prefix()}goods_order_info` WHERE order_id = '$order_id' LIMIT 1");
