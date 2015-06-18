@@ -675,12 +675,13 @@ class OrderController extends Controller{
 				     $pointnum_ag =  isset($rts['pointnum_ag'])&&!empty($rts['pointnum_ag']) ? $rts['pointnum_ag'] : 1;
 					 $points = intval($moeys * $pointnum * $pointnum_ag);
 					
-					
-					$thismonth = date('Y-m-d',mktime());
-					//购买者送积分
-					$sql = "UPDATE `{$this->App->prefix()}user` SET `points_ucount` = `points_ucount`+$points,`mypoints` = `mypoints`+$points WHERE user_id = '$uid'";
-					$this->App->query($sql);
-					$this->App->insert('user_point_change',array('order_sn'=>$order_sn,'thismonth'=>$thismonth,'points'=>$points,'changedesc'=>'消费返积分','time'=>mktime(),'uid'=>$uid));
+					if ($points > 0) {
+						$thismonth = date('Y-m-d',mktime());
+						//购买者送积分
+						$sql = "UPDATE `{$this->App->prefix()}user` SET `points_ucount` = `points_ucount`+$points,`mypoints` = `mypoints`+$points WHERE user_id = '$uid'";
+						$this->App->query($sql);
+						$this->App->insert('user_point_change',array('order_sn'=>$order_sn,'thismonth'=>$thismonth,'points'=>$points,'changedesc'=>'消费返积分','time'=>mktime(),'uid'=>$uid));
+					}
 			}
 			
 			$record = array();

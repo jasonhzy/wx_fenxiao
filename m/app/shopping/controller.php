@@ -477,12 +477,14 @@ class ShoppingController extends Controller{
 					$points = intval($moeys * $pointnum * $pointnum_ag);
 					$thismonth = date('Y-m-d',mktime());
 					//购买者送积分
-					$sql = "UPDATE `{$this->App->prefix()}user` SET `points_ucount` = `points_ucount`+$points,`mypoints` = `mypoints`+$points WHERE user_id = '$uid'";
-					$this->App->query($sql);
-					$this->App->insert('user_point_change',array('order_sn'=>$order_sn,'thismonth'=>$thismonth,'points'=>$points,'changedesc'=>'消费返积分','time'=>mktime(),'uid'=>$uid));
-					//发送推荐用户通知
-					$pwecha_id = $this->App->findvar("SELECT wecha_id FROM `{$this->App->prefix()}user` WHERE user_id='$uid' LIMIT 1");
-					$this->action('api','send',array('openid'=>$pwecha_id,'appid'=>$appid,'appsecret'=>$appsecret,'nickname'=>''),'payreturnpoints');
+					if ($points) {
+						$sql = "UPDATE `{$this->App->prefix()}user` SET `points_ucount` = `points_ucount`+$points,`mypoints` = `mypoints`+$points WHERE user_id = '$uid'";
+						$this->App->query($sql);
+						$this->App->insert('user_point_change',array('order_sn'=>$order_sn,'thismonth'=>$thismonth,'points'=>$points,'changedesc'=>'消费返积分','time'=>mktime(),'uid'=>$uid));
+						//发送推荐用户通知
+						$pwecha_id = $this->App->findvar("SELECT wecha_id FROM `{$this->App->prefix()}user` WHERE user_id='$uid' LIMIT 1");
+						$this->action('api','send',array('openid'=>$pwecha_id,'appid'=>$appid,'appsecret'=>$appsecret,'nickname'=>''),'payreturnpoints');
+					}
 			}
 			
 			$record = array();
@@ -499,9 +501,11 @@ class ShoppingController extends Controller{
 						$points2 = intval($moeys * $tjpointnum * $tjpointnum_ag);
 						$thismonth = date('Y-m-d',mktime());
 						//购买者送积分
-						$sql = "UPDATE `{$this->App->prefix()}user` SET `points_ucount` = `points_ucount`+$points2,`mypoints` = `mypoints`+$points2 WHERE user_id = '$pid'";
-						$this->App->query($sql);
-						$this->App->insert('user_point_change',array('order_sn'=>$order_sn,'thismonth'=>$thismonth,'points'=>$points2,'changedesc'=>'推荐消费返积分','time'=>mktime(),'uid'=>$pid));
+						if ($points2) {
+							$sql = "UPDATE `{$this->App->prefix()}user` SET `points_ucount` = `points_ucount`+$points2,`mypoints` = `mypoints`+$points2 WHERE user_id = '$pid'";
+							$this->App->query($sql);
+							$this->App->insert('user_point_change',array('order_sn'=>$order_sn,'thismonth'=>$thismonth,'points'=>$points2,'changedesc'=>'推荐消费返积分','time'=>mktime(),'uid'=>$pid));
+						}
 					}
 				}	
 				
