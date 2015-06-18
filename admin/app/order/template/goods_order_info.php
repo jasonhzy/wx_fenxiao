@@ -205,18 +205,18 @@ $('.order_action').live('click',function(){
 		}else if(data !=""){
 			$.post('<?php echo $thisurl;?>',{action:'get_status_button',status:opstatus},function(datas){
 				if(datas !=""){
-					$("#get_button").html("")
-					$("#get_button").html(datas)
+					$("#get_button").html("");
+					$("#get_button").html(datas);
+				}else{
+					$("#get_button").html("");
 				}
 			});
-			$("#action_list").html("")
-			//$('#action_list').html(data);
-			$("#action_list").html(data)
+			$("#action_list").html("");
+			$("#action_list").html(data);
 		}else{
 			alert("操作失败！");
 		}
 		removewindow();
-
 	});
 });
 -->
