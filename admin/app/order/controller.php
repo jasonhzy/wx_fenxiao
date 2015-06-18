@@ -265,6 +265,12 @@ class OrderController extends Controller{
         function select_statue($id=""){
             if(empty($id)) return "";
             switch ($id){
+                case '-1':  //默认-请选择
+                    return "";
+                    break;
+                case '11': //待确认
+                    return "order_status='0'";
+                    break;
             	case '210'://待发货
                     return "order_status='2' AND shipping_status='0' AND pay_status='1'";
                     break;
@@ -273,6 +279,9 @@ class OrderController extends Controller{
 					break;
 				 case '314'://退货单
                     return "shipping_status='4'";
+                    break;
+                case '1': //已取消
+                    return "order_status='1'";
                     break;
                 case '2'://退款单
                     return "pay_status='2'";
@@ -283,12 +292,10 @@ class OrderController extends Controller{
 				case '7'://退款申请单
                     return "(order_status='5' OR order_status='3') AND pay_status = '1'";
                     break;
-                case '-1':  //TODO...  no used code 
-                    return "";
+                case '215': //已收货
+                    return "order_status='2' AND shipping_status='5' AND pay_status='1'";
                     break;
-                case '11':
-                    return "order_status='0'";
-                    break;
+                //TODO...  no used code 
                 case '200':
                     return "order_status='2' AND shipping_status='0' AND pay_status='0'";
                     break;
@@ -297,9 +304,6 @@ class OrderController extends Controller{
                     break;
                 case '214':
                     return "order_status='2' AND shipping_status='4' AND pay_status='1'";
-                    break;
-                case '1':
-                    return "order_status='1'";
                     break;
                 case '4':
                     return "order_status='4'";
@@ -505,6 +509,21 @@ class OrderController extends Controller{
 					$sql = "UPDATE `{$this->App->prefix()}user` SET `mypoints` = `mypoints`-$points,`points_ucount` = `points_ucount`-$points WHERE user_id = '$uids'";
 					$this->App->query($sql);
 					$this->App->delete('user_point_change','cid',$cid);
+				}
+				
+				//是否取消分销商资格
+				$sql = "SELECT * FROM `{$this->App->prefix()}userconfig` WHERE type = 'basic' LIMIT 1";
+				$rrL = $this->App->findrow($sql);
+				$openfx_minmoney = empty($rrL['openfx_minmoney']) ? 0 : intval($rrL['openfx_minmoney']);
+				if($rrL && $rrL['openfxbuy']=='1' && $pu['order_amount'] >= $openfx_minmoney){ 
+					if($uid > 0){
+						$sql = "SELECT COUNT(`order_id`) FROM `{$this->App->prefix()}goods_order_info` WHERE `pay_status` = '1' AND `order_id` !=  '$order_id' AND `order_amount` >= ".$openfx_minmoney;
+						$fx_num = $this->App->findvar($sql);
+						$rank = $this->App->findvar("SELECT user_rank FROM `{$this->App->prefix()}user` WHERE user_id = '$uid' LIMIT 1");
+						if($rank=='12'){
+							$this->App->update('user',array('user_rank'=>'1'),'user_id',$uid);
+						}
+					}
 				}
 			}
 			if($datas['shipping_status'] == '5'){
