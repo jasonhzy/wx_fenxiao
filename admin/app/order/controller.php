@@ -519,9 +519,11 @@ class OrderController extends Controller{
 					if($uid > 0){
 						$sql = "SELECT COUNT(`order_id`) FROM `{$this->App->prefix()}goods_order_info` WHERE `pay_status` = '1' AND `order_id` !=  '$order_id' AND `order_amount` >= ".$openfx_minmoney;
 						$fx_num = $this->App->findvar($sql);
-						$rank = $this->App->findvar("SELECT user_rank FROM `{$this->App->prefix()}user` WHERE user_id = '$uid' LIMIT 1");
-						if($rank=='12'){
-							$this->App->update('user',array('user_rank'=>'1'),'user_id',$uid);
+						if (!$fx_num) {
+							$rank = $this->App->findvar("SELECT user_rank FROM `{$this->App->prefix()}user` WHERE user_id = '$uid' LIMIT 1");
+							if($rank=='12'){
+								$this->App->update('user',array('user_rank'=>'1'),'user_id',$uid);
+							}
 						}
 					}
 				}
