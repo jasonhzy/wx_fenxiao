@@ -1321,7 +1321,7 @@ class UserController extends Controller{
 			$this->App->update('goods_order_info',array('order_status'=>'1'),'order_id',$id);
 		}else if($op=="confirm"){
 			//$this->App->update('goods_order_info_daigou',array('shipping_status'=>'5'),'order_id',$id);
-/*			$uid = $this->Session->read('User.uid');
+			/*$uid = $this->Session->read('User.uid');
 			$rank = $this->App->findvar("SELECT user_rank FROM `{$this->App->prefix()}user` WHERE user_id = '$uid' LIMIT 1");
 			if($rank=='1'){
 				$this->App->update('user',array('user_rank'=>'12'),'user_id',$uid);
@@ -2824,6 +2824,15 @@ class UserController extends Controller{
                 case '4':
                     $str .= '<font color="red">无效</font>,';
                     break;
+                case '5':
+                    $str .= '<font color="red">退款中</font>,';
+                    break;
+                case '6':
+                    $str .= '<font color="red">退货中</font>,';
+                    break;
+                case '7':
+                    $str .= '<font color="red">退款'.($sid!=0 ? '退货' : '').'</font>,';
+                    break;
             }
 
            switch($pid){
@@ -2875,7 +2884,15 @@ class UserController extends Controller{
                     return $str = '<a href="javascript:;" name="confirm" id="'.$sn.'" class="oporder"><font color="red">确认收货</font></a>';
                     break;
                 case '5':
-                    return $str = '<a href="javascript:;"><font color="red">已完成</font></a>';
+                	if ($oid == '2') {
+	                   	$str = '<a href="javascript:;"><font color="red">已完成</font></a>';
+						if ($pid == '1') {
+		                    $str .= '<a href="javascript:;" name="tuihuo" id="'.$sn.'" class="oporder"><font color="red">申请退货</font></a>';
+	                    }
+                	}else if ($oid == '6') {
+                		$str = '<a href="javascript:;"><font color="red">退货中，请等待...</font></a>';
+                	}
+                    return $str;
                     break;
             }
 			
@@ -2888,12 +2905,24 @@ class UserController extends Controller{
                     break;
                 case '2':
                     $str = '<a href="javascript:;"><font color="red">已确认</font></a>';
+                    if ($pid == '1' && $sid == '0') {
+	                    $str .= '<a href="javascript:;" name="tuikuan" id="'.$sn.'" class="oporder"><font color="red">申请退款</font></a>';
+                    }
                     break;
                 case '3':
                     $str = '<a href="javascript:;"><font color="red">已退货</font></a>';
                     break;
                 case '4':
                     $str = '<a href="javascript:;"><font color="red">无效订单</font></a>';
+                    break;
+               	case '5':
+                    $str .= '<a href="javascript:;"><font color="red">退款中，请等待...</font></a>';
+                    break;
+                case '6':
+                    $str .= '<a href="javascript:;"><font color="red">退货中，请等待...</font></a>';
+                    break;
+                case '7':
+                    $str .= '<a href="javascript:;"><font color="red">已退款'.($sid!=0 ? '退货' : '').'</font></a>';
                     break;
             }
          

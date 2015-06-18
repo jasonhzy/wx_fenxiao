@@ -34,11 +34,11 @@ $dt = $thisurl.'?type=list&asc=add_time';
 		$status_option[11] = '待确认';
 		$status_option[200] = '待付款';
 		$status_option[210] = '待发货';
-		$status_option[222] = '已发货';
-		$status_option[214] = '已完成';
+		$status_option[212] = '已发货';
+		$status_option[215] = '已收货';
 		$status_option[1] = '取消';
-		$status_option[4] = '无效';
-		$status_option[3] = '退货';
+		//$status_option[4] = '无效';
+		$status_option[314] = '退货';
 		$status_option[2] = '退款';
 		?>  
 		 <select name="status" >
@@ -53,7 +53,7 @@ $dt = $thisurl.'?type=list&asc=add_time';
 		<input value=" 搜索 " class="order_search" type="button">
 		<a href="goods_order.php?type=list&status=11">待确认</a>
 		<a href="goods_order.php?type=list&status=200">待付款</a>
-		<a href="goods_order.php?type=list&status=2x0">待发货</a>
+		<a href="goods_order.php?type=list&status=210">待发货</a>
 	</th></tr>
     <tr>
 	   <th width="80"><label><input type="checkbox" class="quxuanall" value="checkbox" />选择</label></th>
