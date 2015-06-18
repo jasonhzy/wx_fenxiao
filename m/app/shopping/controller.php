@@ -1887,7 +1887,7 @@ class ShoppingController extends Controller{
 					}*/
 				}
 				
-				$this->_return_money($orderdata['order_sn']);
+				//$this->_return_money($orderdata['order_sn']);
 				
 				//派发红包
 				$sql = "SELECT bonus_id FROM `{$this->App->prefix()}bonus_list` WHERE bonus_type_id='6' AND user_id='$uid' LIMIT 1";
