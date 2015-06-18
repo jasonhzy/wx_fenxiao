@@ -113,8 +113,8 @@ width:100%;
 	<ul>
 		<li class="li1"><a href="<?php echo ADMIN_URL.'daili.php?act=monrydeial';?>">营业额:￥<?php echo empty($rt['userinfo']['zordermoney']) ? '0.00' : $rt['userinfo']['zordermoney'];?></a></li>
 		<!--<li><a href="<?php echo ADMIN_URL;?>user.php?act=mypoints">积分:<?php echo empty($rt['userinfo']['mypoints']) ? '0' : $rt['userinfo']['mypoints'];?></a></li>-->
-		<li><a href="<?php echo ADMIN_URL.'daili.php?act=monrydeial';?>">佣金:￥<?php echo empty($rt['userinfo']['mymoney']) ? '0.00' : $rt['userinfo']['mymoney'];?></a></li>
-	</ul>
+		<li><a href="<?php echo ADMIN_URL.'daili.php?act=monrydeial';?>">佣金:￥<?php echo !empty($rt['pay5']) ? $rt['pay5'] : '0.00></a></li>
+	</ul><?php echo !empty($rt['pay5']) ? $rt['pay5'] : '0.00';?>
 	</div>
 	<p style="line-height:24px; text-align:center; padding-top:8px;">
 		你是由【<?php echo empty($rt['tjren']) ? '官网':$rt['tjren'];?>】推荐
