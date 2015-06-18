@@ -292,7 +292,7 @@ class OrderController extends Controller{
 				case '7'://退款申请单
                     return "(order_status='5' OR order_status='3') AND pay_status = '1'";
                     break;
-                case '215':
+                case '215': //已收货
                     return "order_status='2' AND shipping_status='5' AND pay_status='1'";
                     break;
                 //TODO...  no used code 

@@ -53,7 +53,7 @@ $dt = $thisurl.'?type=list&asc=add_time';
 		<input value=" 搜索 " class="order_search" type="button">
 		<a href="goods_order.php?type=list&status=11">待确认</a>
 		<a href="goods_order.php?type=list&status=200">待付款</a>
-		<a href="goods_order.php?type=list&status=2x0">待发货</a>
+		<a href="goods_order.php?type=list&status=210">待发货</a>
 	</th></tr>
     <tr>
 	   <th width="80"><label><input type="checkbox" class="quxuanall" value="checkbox" />选择</label></th>
