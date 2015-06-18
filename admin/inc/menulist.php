@@ -104,9 +104,9 @@ $menu[23] = array(
 	'big_mod'=>'订单管理',
 	'sub_mod'=>array(
 		array('name'=>'订单列表','en_name'=>'2301','url'=>'goods_order.php?type=list'),
-		array('name'=>'待发货','en_name'=>'2302','url'=>'goods_order.php?type=list&status=2x0'),
-		array('name'=>'物流单','en_name'=>'2303','url'=>'goods_order.php?type=list&tt=delivery&status=222'),
-		array('name'=>'退货单','en_name'=>'2304','url'=>'goods_order.php?type=list&tt=back&status=3'),
+		array('name'=>'待发货','en_name'=>'2302','url'=>'goods_order.php?type=list&status=210'),
+		array('name'=>'物流单','en_name'=>'2303','url'=>'goods_order.php?type=list&tt=delivery&status=212'),
+		array('name'=>'退货单','en_name'=>'2304','url'=>'goods_order.php?type=list&tt=back&status=314'),
 		array('name'=>'退款单','en_name'=>'2305','url'=>'goods_order.php?type=list&tt=back&status=2'),
 		array('name'=>'退货申请单','en_name'=>'2306','url'=>'goods_order.php?type=list&tt=back&status=5'),
 		array('name'=>'退款申请单','en_name'=>'2308','url'=>'goods_order.php?type=list&tt=back&status=7')
