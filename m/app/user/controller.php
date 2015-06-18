@@ -3,6 +3,7 @@
  * 会员登录类
  */
 class UserController extends Controller{
+	
  	function  __construct() {
 		$this->css(array('jquery_dialog.css','user2015.css'));
 		$this->js(array('jquery.json-1.3.js','jquery_dialog.js','common.js','user.js?v=v1'));
