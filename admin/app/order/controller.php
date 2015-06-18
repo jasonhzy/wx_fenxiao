@@ -510,6 +510,21 @@ class OrderController extends Controller{
 					$this->App->query($sql);
 					$this->App->delete('user_point_change','cid',$cid);
 				}
+				
+				//是否取消分销商资格
+				$sql = "SELECT * FROM `{$this->App->prefix()}userconfig` WHERE type = 'basic' LIMIT 1";
+				$rrL = $this->App->findrow($sql);
+				$openfx_minmoney = empty($rrL['openfx_minmoney']) ? 0 : intval($rrL['openfx_minmoney']);
+				if($rrL && $rrL['openfxbuy']=='1' && $pu['order_amount'] >= $openfx_minmoney){ 
+					if($uid > 0){
+						$sql = "SELECT COUNT(`order_id`) FROM `{$this->App->prefix()}goods_order_info` WHERE `pay_status` = '1' AND `order_id` !=  '$order_id' AND `order_amount` >= ".$openfx_minmoney;
+						$fx_num = $this->App->findvar($sql);
+						$rank = $this->App->findvar("SELECT user_rank FROM `{$this->App->prefix()}user` WHERE user_id = '$uid' LIMIT 1");
+						if($rank=='12'){
+							$this->App->update('user',array('user_rank'=>'1'),'user_id',$uid);
+						}
+					}
+				}
 			}
 			if($datas['shipping_status'] == '5'){
 				$datas['shipping_time'] = time();
