@@ -215,6 +215,15 @@ class OrderController extends Controller{
                 case '4':
                     $str .= '<font color="red">无效</font>,';
                     break;
+                case '5':
+                    $str .= '<font color="red">退款申请</font>,';
+                    break;
+                case '6':
+                    $str .= '<font color="red">退货申请</font>,';
+                    break;
+                case '7':
+                    $str .= '<font color="red">退款'.($sid!=0 ? '退货' : '').'</font>,';
+                    break;
             }
 
            switch($pid){
@@ -256,7 +265,25 @@ class OrderController extends Controller{
         function select_statue($id=""){
             if(empty($id)) return "";
             switch ($id){
-                case '-1':
+            	case '210'://待发货
+                    return "order_status='2' AND shipping_status='0' AND pay_status='1'";
+                    break;
+                case '212': //物流单
+					return "shipping_status='2'";
+					break;
+				 case '314'://退货单
+                    return "shipping_status='4'";
+                    break;
+                case '2'://退款单
+                    return "pay_status='2'";
+                    break;
+                case '5'://退货申请单
+                    return "order_status='6'";
+                    break;
+				case '7'://退款申请单
+                    return "(order_status='5' OR order_status='3') AND pay_status = '1'";
+                    break;
+                case '-1':  //TODO...  no used code 
                     return "";
                     break;
                 case '11':
@@ -264,9 +291,6 @@ class OrderController extends Controller{
                     break;
                 case '200':
                     return "order_status='2' AND shipping_status='0' AND pay_status='0'";
-                    break;
-                case '210':
-                    return "order_status='2' AND shipping_status='0' AND pay_status='1'";
                     break;
 				case '2x0'://代发货
                     return "order_status='2' AND shipping_status='0'";
@@ -280,24 +304,12 @@ class OrderController extends Controller{
                 case '4':
                     return "order_status='4'";
                     break;
-                case '3':
-                    return "order_status='3'";
-                    break;
                 case '2':
                     return "pay_status='2'";
-                    break;
-				case '5'://退货申请单
-                    return "order_status='6'";
                     break;
 				case '6'://换货申请单
                     return "order_status='7'";
                     break;
-				case '7'://退款申请单
-                    return "order_status='5'";
-                    break;
-				case '222': //已发货
-					return "shipping_status='2'";
-					break;
                 default :
                     return "";
                     break;
@@ -344,89 +356,43 @@ class OrderController extends Controller{
 		*/
 		function get_order_action_button($order_status=0,$pay_status=0,$shipping_status=0){
 			$str = "";
-			if($order_status==0){ 	//没确认(没付款、没发货)
+			if($order_status==0){ 	//没确认、没付款、没发货
 				$str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-				//$str .= '<input value="发货" class="order_action" type="button" id="202">'."\n";
-				$str .= '<input value="付款" class="order_action" type="button" id="210">'."\n";
 				$str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
 				//$str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
-				
+			}else if($order_status==1){  //取消
+			  	//$str .= '<input value="恢复订单" class="order_action" type="button" id="000">'."\n";
 			}else if($order_status==2){   //已经确认
 			    if($pay_status==0){ //没支付
-					$s2 = '0';
-					if($pay_status=='1') $s = '1'; else $s = '0';
-					if($shipping_status=='0'){
-						//$str .= '<input value="发货" class="order_action" type="button" id="2'.$s.'2">'."\n";
-					}elseif($shipping_status=='2'){//已经发货
-						$s2 = '2';
-						$str .= '<input value="收货" class="order_action" type="button" id="215">'."\n";
-					}
-					if($pay_status!='1'){
-				    $str .= '<input value="付款" class="order_action" type="button" id="21'.$s2.'">'."\n";
-					}
+					$str .= '<input value="付款" class="order_action" type="button" id="210">'."\n";
 				    $str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
 				    //$str .= '<input value="无效" class="order_action" type="button" id="400">'."\n";
-				
 				}else if($pay_status==1){ //已支付
 					if($shipping_status==0){ //未发货
-						 if($pay_status=='1') $s = '1'; else $s = '0';
-					    	 $str .= '<input value="发货" class="order_action" type="button" id="2'.$s.'2">'."\n";
-						 if($pay_status!='1'){
-							 $str .= '<input value="付款" class="order_action" type="button" id="210">'."\n";
-						 }
-				   		 $str .= '<input value="设为未支付" class="order_action" type="button" id="200">'."\n";
-				    	 $str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
-						 
+					    	 $str .= '<input value="发货" class="order_action" type="button" id="212">'."\n";
+					    	 $str .= '<input value="申请退款" class="order_action" type="button" id="510">'."\n";
+					 }else if($shipping_status==1){ //配货中
+					     
 					 }else if($shipping_status==2){ //已发货
-					     //$str .= '<input value="设为未支付" class="order_action" type="button" id="200">'."\n";
-					     $str .= '<input value="设为未发货" class="order_action" type="button" id="210">'."\n";
-						 if($pay_status!='1'){
-						 	$str .= '<input value="付款" class="order_action" type="button" id="210">'."\n";
-						 }
 				   		 $str .= '<input value="收货" class="order_action" type="button" id="215">'."\n";
-				    	 //$str .= '<input value="退货" class="order_action" type="button" id="324">'."\n";
-						 
-					 }else if($shipping_status==1){ //配货中
-					     $str .= '<input value="设为未支付" class="order_action" type="button" id="200">'."\n";
-				   		 $str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
 					 }else if($shipping_status==5){ //已收货
-					     $str .= '<input value="退货" class="order_action" type="button" id="324">'."\n";
-						 if($pay_status!='1'){
-						 	$str .= '<input value="付款" class="order_action" type="button" id="210">'."\n";
-						 }
-					 }     
-				}else if($pay_status==2){ //退款
-				    if($shipping_status==2){ //已发货
-					     $str .= '<input value="设为未发货" class="order_action" type="button" id="120">'."\n";
-				   		 $str .= '<input value="退货" class="order_action" type="button" id="124">'."\n";
-					 }else if($shipping_status==1){ //配货中
-					      $str .= '<input value="设为未发货" class="order_action" type="button" id="120">'."\n";
-				   		  $str .= '<input value="退货" class="order_action" type="button" id="124">'."\n";
-					 }else if($shipping_status==5){  //已收货
-					      $str .= '<input value="设为未发货" class="order_action" type="button" id="120">'."\n";
-				   		  $str .= '<input value="退货" class="order_action" type="button" id="124">'."\n";
+					     $str .= '<input value="申请退货" class="order_action" type="button" id="615">'."\n";
 					 }     
 				}
-			}else if($order_status==1){  //取消
-			  	$str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-				//$str .= '<input value="移除" class="order_action" type="button" id="remove">'."\n";
+			}else if($order_status==3){ //已退货同意退款
+			    $str .= '<input value="确认退款" class="order_action" type="button" id="724">'."\n";
 			}else if($order_status==4){ //无效
-			    $str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-			}else if($order_status==3){ //退货
-			    $str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-				$str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
+			    
 			}else if($order_status==5){ //同意退款
-			    $str .= '<input value="确认退款" class="order_action" type="button" id="720">'."\n";
-			}
-			else if($order_status==6){ //同意退货
-			    $str .= '<input value="确认退货" class="order_action" type="button" id="340">'."\n";
-			}
-			else if($order_status==7){ //同意退货
-			     $str .= '<input value="确认" class="order_action" type="button" id="200">'."\n";
-				$str .= '<input value="取消" class="order_action" type="button" id="100">'."\n";
+			    $str .= '<input value="确认退款" class="order_action" type="button" id="72'.$shipping_status.'">'."\n";
+			}else if($order_status==6){ //同意退货
+			    $str .= '<input value="确认退货" class="order_action" type="button" id="514">'."\n";
+			}else if($order_status==7){ //已经退款
+				$str .= '<input value="取消" class="order_action" type="button" id="1'.$pay_status.$shipping_status.'">'."\n";
 			}
 			return $str;
 		}
+        
 		
 		//ajax订单状态操作记录
 		function ajax_op_status($data=array()){
@@ -505,7 +471,7 @@ class OrderController extends Controller{
 				//$this->action('sms','sms_yssend',array('tel'=>$rr3['mobile'],'order_sn'=>$order_sn,'type'=>'tmp_order'));
 			}
 			
-			if($data['opstatus']=='324'){ //退款操作
+			if($pay_status == '1' && $datas['pay_status'] != '1'){ //退款操作
 				//已经返的佣金
 				$sql = "SELECT * FROM  `{$this->App->prefix()}user_money_change` WHERE order_sn='$order_sn'";
 				$rr = $this->App->find($sql);
