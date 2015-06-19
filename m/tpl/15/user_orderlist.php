@@ -54,7 +54,7 @@ text-align:center;
 		<p style="color:#5286B7">订单号码:<font color="#60ACDC"><?php echo $row['order_sn'];?></font></p>
 		<p style="color:#5286B7">订单金额:<font color="#FF0000"><?php echo $row['total_fee'];?>元</font></p>
 		<p style="color:#5286B7">下单时间:<font color="#60ACDC"><?php echo date('Y-m-d H:i:s',$row['add_time']);?></font></p>
-		<p style="color:#5286B7">订单状态:<font color="#60ACDC"><?php echo $row['status'];?></font><?php if($row['type']!='3'){ if($row['shipping_status']=='2' || $row['shipping_status']=='5'){?><a href="http://m.kuaidi100.com/index_all.html?type=<?php echo $row['shipping_code'];?>&postid=<?php echo $row['sn_id'];?>&callbackurl=<?php echo urlencode( SITE_URL.'m/user.php?act=orderlist'); ?>" style="float:right; margin-right:10px; color:#0066CC">查看物流</a><?php } }else{?><a href="javascript:;" style="float:right; margin-right:10px; color:#0066CC" onclick="return js_show_sn('<?php echo $row['sn'];?>','<?php echo $row['pass'];?>',this)">查看卡密</a><?php }?></p>
+		<p style="color:#5286B7">订单状态:<font color="#60ACDC"><?php echo $row['status'];?></font><?php if($row['type']!='3'){ if($row['shipping_status']=='2' || $row['shipping_status']=='5'){?><a href="http://m.kuaidi100.com/index_all.html?type=<?php echo trim($row['shipping_code']);?>&postid=<?php echo trim($row['sn_id']);?>&callbackurl=<?php echo urlencode( SITE_URL.'m/user.php?act=orderlist'); ?>" style="float:right; margin-right:10px; color:#0066CC">查看物流</a><?php } }else{?><a href="javascript:;" style="float:right; margin-right:10px; color:#0066CC" onclick="return js_show_sn('<?php echo $row['sn'];?>','<?php echo $row['pass'];?>',this)">查看卡密</a><?php }?></p>
 		<p>
 		<?php echo $row['op'];?>
 		<?php if($row['pay_status']=='0' && $row['order_status']!='1'){?>
