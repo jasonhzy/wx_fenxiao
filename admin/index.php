@@ -14,7 +14,7 @@ require_once('load.php');
   <frame src="topframe.html" name="topFrame" frameborder="no" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
   <frameset name="myFrame" id="myFrame"  cols="199,7,*" frameborder="no" border="0" framespacing="0">
     <frame src="leftframe.php" name="leftFrame" frameborder="no" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
-	<frame src="switchframe.html?v=<?php echo round(); ?>" name="midFrame" frameborder="no" scrolling="No" noresize="noresize" id="midFrame" title="midFrame" />
+	<frame src="switchframe.html" name="midFrame" frameborder="no" scrolling="No" noresize="noresize" id="midFrame" title="midFrame" />
     <frameset rows="59,*" cols="*" frameborder="no" border="0" framespacing="0">
          <frame src="mainframe.php" name="mainFrame" frameborder="no" scrolling="No"  noresize="noresize" id="mainFrame" title="mainFrame" />
          <frame src="manframe.php" name="manFrame" frameborder="no" id="manFrame" title="manFrame" />
