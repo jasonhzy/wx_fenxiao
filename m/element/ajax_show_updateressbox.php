@@ -7,7 +7,7 @@
     <td width="22%"><b class="cr2">*</b>姓名：</td>
     <td align="left"><input name="consignee" class="pw"  value="<?php echo isset($rt['userress']['consignee']) ? $rt['userress']['consignee'] : "";?>" type="text"></td>
   </tr>
-    <tr>
+    <!-- <tr>
     <td>物流：</td>
 	<td align="left"> 
 	  <?php
@@ -18,7 +18,7 @@
 		<?php } ?>
 	  </td>
 		<?php } else{ echo '<script> location.href="'.SITE_URL.'mycart.php";</script>'; exit; } ?>
-  </tr>
+  </tr> -->
   <tr>
     <td><b class="cr2">*</b>地区：</td>
     <td align="left">  
@@ -147,6 +147,14 @@ function get_peisong(obj,seobj){
 			alert(data);
 		}
 	});
+}
+function jisuan_shopping(id){
+		if(id==6){
+			$('.shipping').show();
+		}else{
+			$('.shipping').hide();
+			$("select[name='shop_id']").val('0');
+		}
 }
 </script>
 </form>

@@ -2706,7 +2706,6 @@ class UserController extends Controller{
    
    function ajax_ressinfoop($data=array()){
    			$uid = $this->Session->read('User.uid');
-					
    			if(isset($data['attrbul'])&&!empty($data['attrbul'])){
 				$err = 0;
 				$result = array('error' => $err, 'message' => '');
