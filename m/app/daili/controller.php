@@ -957,6 +957,7 @@ class DailiController extends Controller{
 		$uid = $this->Session->read('User.uid');
 		$ts = isset($_GET['t']) ? $_GET['t'] : '0';
 		$nickname = trim(isset($_POST['key']) ? $_POST['key'] : '');
+		$search = '';
 		if ($nickname) {
 			$search = $nickname;
 			$nickname = mysql_real_escape_string($nickname);
