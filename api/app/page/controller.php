@@ -552,6 +552,7 @@ class PageController extends Controller{
 							if($uid > 0){
 								$gzcount = $this->App->findvar("SELECT COUNT(user_id) FROM `{$this->App->prefix()}user` LIMIT 1");
 								$gzcount = $gzcount*5+750;
+								$puid = $this->App->findvar("SELECT ut.parent_uid FROM `{$this->App->prefix()}user_tuijian` AS ut LEFT JOIN `{$this->App->prefix()}user` AS u ON u.user_id = ut.parent_uid WHERE ut.uid='$uid' LIMIT 1");
 								if($puid > 0){
 									$nickname = $this->App->findvar("SELECT nickname FROM `{$this->App->prefix()}user` WHERE user_id = '$puid' LIMIT 1");
 									if(empty($nickname)) $nickname = '官网';
