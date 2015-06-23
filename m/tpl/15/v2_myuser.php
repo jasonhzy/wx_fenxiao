@@ -8,13 +8,15 @@
 #main li:hover{ background:#ededed}
 </style>
 <div style="background:#F08125; line-height:44px; padding-left:10px; padding-right:10px;">
+	<form method="post" action="<?php echo ADMIN_URL;?>daili.php?act=myuser&t=<?php echo $level;?>">
 	<div style="width:80%; float:left;height:44px; text-align:right">
-	  <input placeholder="输入昵称" type="text" name="key" style="background:#FFF; height:30px;border-radius:8px; border:1px solid #ededed; width:100%; margin-bottom:3px; line-height:normal; color:#999; text-indent:2em" />
+	  <input placeholder="输入昵称" type="text" name="key"  value="<?php echo $nickname;?>" style="background:#FFF; height:30px;border-radius:8px; border:1px solid #ededed; width:100%; margin-bottom:3px; line-height:normal; color:#999; text-indent:2em" />
 	</div>
 	<div style="width:20%; float:right;height:44px;">
 	  <input type="submit" name="Submit" value="搜索" style="border-radius:5px; height:30px; line-height:30px; font-size:14px; margin-bottom:3px;  margin-left:10px; padding-left:3px; padding-right:3px; background:#FFF; cursor:pointer" />
 	</div>
 	<div class="clear"></div>
+	</form>
 </div>
 
 <div id="main" style="min-height:300px;margin-bottom:20px;">

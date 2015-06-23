@@ -824,29 +824,41 @@ class DailiController extends Controller{
 	}
 		
 	//一级用户
-	function get_myuser_level_1($uid='0',$start='0',$list='30'){
+	function get_myuser_level_1($uid='0',$start='0',$list='30', $nickname=''){
 			$sql = "SELECT tb1.*,tb2.subscribe_time,tb2.reg_time,tb2.nickname,tb2.headimgurl,tb2.money_ucount,tb2.points_ucount,tb2.share_ucount,tb2.guanzhu_ucount,tb2.is_subscribe FROM `{$this->App->prefix()}user_tuijian` AS tb1";
 			$sql .=" LEFT JOIN `{$this->App->prefix()}user` AS tb2 ON tb1.uid = tb2.user_id";
-			$sql .=" WHERE tb1.parent_uid = '$uid' ORDER BY tb2.share_ucount DESC,tb2.money_ucount DESC,tb1.id DESC LIMIT $start,$list";
+			if ($nickname) {
+				$sql .=" WHERE tb1.parent_uid = '$uid' AND tb2.nickname LIKE '%$nickname%' ORDER BY tb2.share_ucount DESC,tb2.money_ucount DESC,tb1.id DESC LIMIT $start,$list";
+			}else{
+				$sql .=" WHERE tb1.parent_uid = '$uid' ORDER BY tb2.share_ucount DESC,tb2.money_ucount DESC,tb1.id DESC LIMIT $start,$list";
+			}
 			return $this->App->find($sql);
 	}
 	
 	//二级用户
-	function get_myuser_level_2($uid='0',$start='0',$list='30'){
+	function get_myuser_level_2($uid='0',$start='0',$list='30', $nickname=''){
 			$sql = "SELECT tb2.*,tb3.subscribe_time,tb3.reg_time,tb3.nickname,tb3.headimgurl,tb3.money_ucount,tb3.points_ucount,tb3.share_ucount,tb3.guanzhu_ucount,tb3.is_subscribe FROM `{$this->App->prefix()}user_tuijian` AS tb1";
 			$sql .= " LEFT JOIN `{$this->App->prefix()}user_tuijian` AS tb2 ON tb2.parent_uid = tb1.uid ";
 			$sql .= " LEFT JOIN `{$this->App->prefix()}user` AS tb3 ON tb2.uid = tb3.user_id";
-			$sql .= " WHERE tb1.parent_uid='$uid' AND tb2.uid IS NOT NULL ORDER BY tb3.share_ucount DESC,tb3.money_ucount DESC,tb2.id DESC LIMIT $start,$list";
+			if ($nickname) {
+				$sql .= " WHERE tb1.parent_uid='$uid' AND tb2.nickname LIKE '%$nickname%'  AND tb2.uid IS NOT NULL ORDER BY tb3.share_ucount DESC,tb3.money_ucount DESC,tb2.id DESC LIMIT $start,$list";
+			}else{
+				$sql .= " WHERE tb1.parent_uid='$uid' AND tb2.uid IS NOT NULL ORDER BY tb3.share_ucount DESC,tb3.money_ucount DESC,tb2.id DESC LIMIT $start,$list";
+			}
 			return $this->App->find($sql);
 	}
 	
 	//三级用户
-	function get_myuser_level_3($uid='0',$start='0',$list='30'){
+	function get_myuser_level_3($uid='0',$start='0',$list='30', $nickname=''){
 			$sql = "SELECT tb3.*,tb4.subscribe_time,tb4.reg_time,tb4.nickname,tb4.headimgurl,tb4.money_ucount,tb4.points_ucount,tb4.share_ucount,tb4.guanzhu_ucount,tb4.is_subscribe FROM `{$this->App->prefix()}user_tuijian` AS tb1";
 			$sql .= " LEFT JOIN `{$this->App->prefix()}user_tuijian` AS tb2 ON tb2.parent_uid = tb1.uid ";
 			$sql .= " LEFT JOIN `{$this->App->prefix()}user_tuijian` AS tb3 ON tb3.parent_uid = tb2.uid ";
 			$sql .= " LEFT JOIN `{$this->App->prefix()}user` AS tb4 ON tb3.uid = tb4.user_id";
-			$sql .= " WHERE tb1.parent_uid='$uid' AND tb3.uid IS NOT NULL  ORDER BY tb4.share_ucount DESC,tb4.money_ucount DESC,tb3.id DESC LIMIT $start,$list";
+			if ($nickname) {
+				$sql .= " WHERE tb1.parent_uid='$uid' AND tb2.nickname LIKE '%$nickname%' AND tb3.uid IS NOT NULL  ORDER BY tb4.share_ucount DESC,tb4.money_ucount DESC,tb3.id DESC LIMIT $start,$list";
+			}else{
+				$sql .= " WHERE tb1.parent_uid='$uid' AND tb3.uid IS NOT NULL  ORDER BY tb4.share_ucount DESC,tb4.money_ucount DESC,tb3.id DESC LIMIT $start,$list";
+			}
 			return $this->App->find($sql);
 	}
 	
@@ -944,9 +956,9 @@ class DailiController extends Controller{
 		$this->checked_login();
 		$uid = $this->Session->read('User.uid');
 		$ts = isset($_GET['t']) ? $_GET['t'] : '0';
+		$nickname = trim(isset($_POST['key']) ? $_POST['key'] : '');
 		$l = $ts=='1' ? '一级会员' : ($ts=='2' ? '二级会员' : '三级会员');
 		if(!defined(NAVNAME)) define('NAVNAME', "我的分销：".$l);
-		
 		
 		//分页
 		$page= isset($_GET['page']) ? $_GET['page'] : '1';
@@ -968,17 +980,18 @@ class DailiController extends Controller{
 			$rt['lists'] = $this->App->find($sql); // AND tb2.is_subscribe ='1'
 		}elseif($ts=='1'){
 			//一级用户
-			$rt['lists'] = $this->get_myuser_level_1($uid,$start,$list);
+			$rt['lists'] = $this->get_myuser_level_1($uid,$start,$list, $nickname);
 		}elseif($ts=='2'){
 			//二级用户
-			$rt['lists'] = $this->get_myuser_level_2($uid,$start,$list);
+			$rt['lists'] = $this->get_myuser_level_2($uid,$start,$list, $nickname);
 		}elseif($ts=='3'){
 			//三级用户
-			$rt['lists'] = $this->get_myuser_level_3($uid,$start,$list);
+			$rt['lists'] = $this->get_myuser_level_3($uid,$start,$list, $nickname);
 		}
 		
 		$this->set('level',$ts);
 		$this->set('rt',$rt);
+		$this->set('nickname',$nickname);
 		$mb = $GLOBALS['LANG']['mubanid'] > 0 ? $GLOBALS['LANG']['mubanid'] : '';
 		$this->template($mb.'/v2_myuser');
 	}
