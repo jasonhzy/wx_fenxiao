@@ -72,21 +72,21 @@ table p{ line-height:22px;}
 				  <p style="padding-left:10px;">数量:<?php echo $row['goods_number'];?><b style="margin-left:3px;"><?php  echo $row['goods_unit'];?></b>&nbsp;&nbsp;小计:<font color="#FF0000">￥<?php echo $row['goods_price']*$row['goods_number'];?></font></p>
 				</td>
 		</tr>
-		<?php foreach($row['ress'] as $k=>$rows){?>
-			<tr>
+	</table>
+	<?php } ?>
+	<div class="usertitle">收货地址</div>
+		<table border="0" cellpadding="0" cellspacing="0" style="width:100%;border-radius:5px; border:1px solid #e1e1e1; margin-top:10px;">
+				<tr>
 				<td>&nbsp;</td>
 				<td style="text-align:left">
 					<div style="padding:5px; padding-left:25px;border-radius:5px; border:1px solid #ededed; margin-bottom:5px; margin-top:5px; position:relative">
-						<p>收货人:<?php echo $rows['consignee'];?>&nbsp;&nbsp;&nbsp;电话:<?php echo $rows['moblie'];?></p>
-						<p>收货地址:<?php echo $rows['province'].$rows['city'].$rows['district'].$rows['address'];?></p>
-						<p>数量:<?php echo $rows['goods_number'];?></p>
-						<span style="border-radius:50%; padding:3px; display:block;background:#B70000; text-align:center; font-size:12px; font-weight:bold; color:#FFF; cursor:pointer; position:absolute;left:5px; top:40%; z-index:99"><i style="font-style:normal"><?php echo ++$k;?></i></span>
+						<p>收货人:<?php echo $rt['orderinfo']['consignee'];?></p>
+						<p>电话:<?php echo $rt['orderinfo']['mobile'];?></p>
+						<p>收货地址:<?php echo $rt['orderinfo']['province'].$rt['orderinfo']['city'].$rt['orderinfo']['district'].$rt['orderinfo']['address'];?></p>
 					</div>
 				</td>
 			</tr>
-		<?php } ?>
 	</table>
-	<?php } ?>
 	<table border="0" cellpadding="0" cellspacing="0" style="width:100%;border-radius:5px; margin-top:10px;">
 		<tr>
 		  <td align="right">
