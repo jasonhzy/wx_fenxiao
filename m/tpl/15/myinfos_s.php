@@ -40,13 +40,13 @@ border-radius:5px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
 			  </tr>
 			  <tr>
 				<td>
-			   <a href="<?php echo ADMIN_URL.'user.php?act=myinfos_s&id='.$row['address_id'];?>"><img src="<?php echo SITE_URL.'theme/images/btu_up.gif';?>" height="26" width="66" border="0" style="cursor:pointer"/></a>&nbsp; <!--onclick="ressinfoop('<?php echo $row['address_id'];?>','showupdate',this)"-->
+			   <!-- <a href="<?php echo ADMIN_URL.'user.php?act=myinfos_s&id='.$row['address_id'];?>">--><img src="<?php echo SITE_URL.'theme/images/btu_up.gif';?>" height="26" width="66" border="0" onclick="ressinfoop('<?php echo $row['address_id'];?>','showupdate',this)" style="cursor:pointer"/></a>&nbsp;
 			   <img src="<?php echo SITE_URL.'theme/images/btu_dell.gif';?>" height="26" width="66" border="0" onclick="ressinfoop('<?php echo $row['address_id'];?>','delete',this)" style="cursor:pointer"/>&nbsp;
-			 <!--  <?php if($row['is_default']=='1'){?>
+			   <?php if($row['is_default']=='1'){?>
 			   <img class="set_quxiao_icon" src="<?php echo ADMIN_URL.'images/quxiaodefaultress.png';?>" height="26" border="0" onclick="ressinfoop('<?php echo $row['address_id'];?>','quxiao',this)" style="cursor:pointer"/>&nbsp;
 			   <?php }else{?>
 			   <img class="set_quxiao_icon" src="<?php echo ADMIN_URL.'images/setdefaultress.png';?>" height="26" border="0" onclick="ressinfoop('<?php echo $row['address_id'];?>','setdefaut',this)" style="cursor:pointer"/>&nbsp;
-			   <?php } ?>-->
+			   <?php } ?>
 			  </td>
 			  </tr>
   </table>
@@ -103,12 +103,12 @@ border-radius:5px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
 	  <tr>
 		<td align="left"><input name="address" class="pw" value="" type="text"/></td>
 	  </tr>
-	  <tr>
+	  <!-- <tr>
 		<td align="left"><b class="cr2">*</b> 邮箱：</td>
 	  </tr>
 	  <tr>
 		<td align="left"><input type="text" class="pw" name="email"/></td>
-	  </tr>
+	  </tr> -->
 	  <tr>
 		<td align="left"><b class="cr2">*</b> 电话：</td>
 		</tr>
