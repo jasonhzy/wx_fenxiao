@@ -997,7 +997,7 @@ class DailiController extends Controller{
 		
 		$this->set('level',$ts);
 		$this->set('rt',$rt);
-		$this->set('nickname',$search);
+		$this->set('nickname', htmlspecialchars($search));
 		$mb = $GLOBALS['LANG']['mubanid'] > 0 ? $GLOBALS['LANG']['mubanid'] : '';
 		$this->template($mb.'/v2_myuser');
 	}
