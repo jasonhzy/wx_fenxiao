@@ -957,6 +957,10 @@ class DailiController extends Controller{
 		$uid = $this->Session->read('User.uid');
 		$ts = isset($_GET['t']) ? $_GET['t'] : '0';
 		$nickname = trim(isset($_POST['key']) ? $_POST['key'] : '');
+		if ($nickname) {
+			$nickname = mysql_real_escape_string($nickname);
+		}
+		
 		$l = $ts=='1' ? '一级会员' : ($ts=='2' ? '二级会员' : '三级会员');
 		if(!defined(NAVNAME)) define('NAVNAME', "我的分销：".$l);
 		
