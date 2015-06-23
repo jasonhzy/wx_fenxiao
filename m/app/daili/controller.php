@@ -957,7 +957,9 @@ class DailiController extends Controller{
 		$uid = $this->Session->read('User.uid');
 		$ts = isset($_GET['t']) ? $_GET['t'] : '0';
 		$nickname = trim(isset($_POST['key']) ? $_POST['key'] : '');
+		$search = '';
 		if ($nickname) {
+			$search = $nickname;
 			$nickname = mysql_real_escape_string($nickname);
 		}
 		
@@ -995,7 +997,7 @@ class DailiController extends Controller{
 		
 		$this->set('level',$ts);
 		$this->set('rt',$rt);
-		$this->set('nickname',$nickname);
+		$this->set('nickname', htmlspecialchars($search));
 		$mb = $GLOBALS['LANG']['mubanid'] > 0 ? $GLOBALS['LANG']['mubanid'] : '';
 		$this->template($mb.'/v2_myuser');
 	}
