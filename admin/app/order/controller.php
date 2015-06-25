@@ -517,7 +517,7 @@ class OrderController extends Controller{
 				$openfx_minmoney = empty($rrL['openfx_minmoney']) ? 0 : intval($rrL['openfx_minmoney']);
 				if($rrL && $rrL['openfxbuy']=='1' && $pu['order_amount'] >= $openfx_minmoney){ 
 					if($uid > 0){
-						$sql = "SELECT COUNT(`order_id`) FROM `{$this->App->prefix()}goods_order_info` WHERE `pay_status` = '1' AND `order_id` !=  '$order_id' AND `order_amount` >= ".$openfx_minmoney;
+						$sql = "SELECT COUNT(`order_id`) FROM `{$this->App->prefix()}goods_order_info` WHERE `pay_status` = '1' AND `order_id` !=  '$order_id'  AND `user_id` = '$uid'  AND `order_amount` >= ".$openfx_minmoney;
 						$fx_num = $this->App->findvar($sql);
 						if (!$fx_num) {
 							$rank = $this->App->findvar("SELECT user_rank FROM `{$this->App->prefix()}user` WHERE user_id = '$uid' LIMIT 1");
