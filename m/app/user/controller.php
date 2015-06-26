@@ -2740,9 +2740,8 @@ class UserController extends Controller{
 					$result['message'] = "收货地址不能为空！";
 					die($json->encode($result));
 				}
-				
 				$sql = "SELECT COUNT(`region_id`) FROM `{$this->App->prefix()}region` WHERE region_type='3' AND parent_id='{$dd['city']}'";
-				$dis_num = $this->App->findval($sql);
+				$dis_num = $this->App->findvar($sql);
 				if ($dis_num > 0 && empty($dd['district'])) {
 					$result['error'] = 1;
 					$result['message'] = "收货地址不能为空！";
