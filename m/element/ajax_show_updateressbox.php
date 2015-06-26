@@ -126,7 +126,9 @@ function ger_ress_copy(type,obj,seobj){
 			}
 			
 		}else{
-			alert(data);
+			//alert(data);
+			$(obj).parent().find('#select_district').hide();
+			$(obj).parent().find('#'+seobj).html('');
 		}
 	});
 }
