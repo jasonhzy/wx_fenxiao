@@ -2731,7 +2731,7 @@ class UserController extends Controller{
 				$dd['country'] = 1;
 				$dd['province'] = $attrbul->province;
 				$dd['city'] = $attrbul->city; 
-				$dd['district'] = $attrbul->district;
+				$dd['district'] = $attrbul->district ? $attrbul->district : 0;
 				$dd['address'] = $attrbul->address;
 				/*$dd['shoppingname'] = $attrbul->shoppingname;
 				$dd['shoppingtime'] = $attrbul->shoppingtime;*/
