@@ -76,7 +76,7 @@ function ger_ress(type,obj,seobj){
 			}
 
 		}else{
-			alert(data);
+			//alert(data);
 		}
 	});
 }
