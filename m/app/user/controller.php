@@ -2735,11 +2735,21 @@ class UserController extends Controller{
 				$dd['address'] = $attrbul->address;
 				/*$dd['shoppingname'] = $attrbul->shoppingname;
 				$dd['shoppingtime'] = $attrbul->shoppingtime;*/
-				if(empty($dd['province']) || empty($dd['city']) || empty($dd['district']) ||empty($dd['address'])){
+				if(empty($dd['province']) || empty($dd['city']) || empty($dd['address'])){
 					$result['error'] = 1;
 					$result['message'] = "收货地址不能为空！";
 					die($json->encode($result));
 				}
+				
+				$sql = "SELECT COUNT(`region_id`) FROM `{$this->App->prefix()}region` WHERE region_type='3' AND parent_id='{$dd['city']}'";
+				$dis_num = $this->App->findval($sql);
+				if ($dis_num > 0 && empty($dd['district'])) {
+					$result['error'] = 1;
+					$result['message'] = "收货地址不能为空！";
+					die($json->encode($result));
+				}
+				
+				
 				//$dd['sex'] = $attrbul->sex; 
 				//$dd['email'] = $attrbul->email; 
 				//$dd['zipcode'] = $attrbul->zipcode;
