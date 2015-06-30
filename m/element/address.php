@@ -76,7 +76,9 @@ function ger_ress(type,obj,seobj){
 			}
 
 		}else{
-			alert(data);
+			//alert(data);
+			$(obj).parent().find('#select_district').hide();
+			$(obj).parent().find('#'+seobj).html('');
 		}
 	});
 }

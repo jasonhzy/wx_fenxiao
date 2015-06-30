@@ -138,7 +138,9 @@ function ger_ress_copy(type,obj,seobj){
 				$(obj).parent().find('#select_district').html("");
 			}
 		}else{
-			alert(data);
+			//alert(data);
+			$(obj).parent().find('#select_district').hide();
+			$(obj).parent().find('#'+seobj).html('');
 		}
 	});
 }
