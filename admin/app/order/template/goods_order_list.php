@@ -78,19 +78,19 @@ $dt = $thisurl.'?type=list&asc=add_time';
 	<td>
 	<a href="goods_order.php?type=order_info&id=<?php echo $row['order_id'];?>" title="编辑"><img src="<?php echo $this->img('icon_view.gif');?>" title="编辑"/></a>&nbsp;
 	<?php if(in_array($row['order_status'],array('1','4'))){?><img src="<?php echo $this->img('icon_drop.gif');?>" title="删除" alt="删除" id="<?php echo $row['order_id'];?>" class="delorder"/><?php } ?>
-	<!--<input name="button" value="打印" type="button" onclick="if(confirm('确定打印吗？打印后将会更改打印状态')){ $(this).css('color','#330066');window.open('<?php echo ADMIN_URL;?>goods_order.php?type=orderprint&ids=<?php echo $row['order_id'];?>')}" style="cursor:pointer;<?php echo $row['is_prints']=='1' ? 'color:#330066':'color:#FE0000';?>" id="<?php echo $row['is_prints'];?>"/>-->
+	<input name="button" value="打印" type="button" onclick="if(confirm('确定打印吗？打印后将会更改打印状态')){ $(this).css('color','#330066');window.open('<?php echo ADMIN_URL;?>goods_order.php?type=orderprint&ids=<?php echo $row['order_id'];?>')}" style="display:none;cursor:pointer;<?php echo $row['is_prints']=='1' ? 'color:#330066':'color:#FE0000';?>" id="<?php echo $row['is_prints'];?>"/>
 	</td>
 	</tr>
 	<?php
 	 } ?>
 	<tr>
-		 <td colspan="7"> 
-		 	<input type="checkbox" class="quxuanall" value="checkbox" />
+		 <td colspan="7" style="display:none;"> 
+		 		<input type="checkbox" class="quxuanall" value="checkbox" />
 			    <input name="button" id="bathconfirm" value="确认" class="bathop" disabled="true"  type="button">
 				<input name="button" id="bathinvalid" value="无效" class="bathop" disabled="true" type="button">
 				<input name="button" id="bathcancel" value="取消" class="bathop" disabled="true" type="button">
 				<input name="button" id="bathdel" value="移除"  class="bathop" disabled="true" type="button"/>
-			    <!--<input name="button" id="printorder" value="打印"  class="printorder" disabled="true" type="button" onclick="return printorder()" style="cursor:pointer"/>-->
+			    <input name="button" id="printorder" value="打印"  class="printorder" disabled="true" type="button" onclick="return printorder()" style="cursor:pointer;"/>
 		 </td>
 	</tr>
 		<?php } ?>

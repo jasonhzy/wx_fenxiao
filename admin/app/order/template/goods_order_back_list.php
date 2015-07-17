@@ -59,8 +59,8 @@ $dt = $thisurl.'?type=list&tt=back&status=3&asc=add_time';
 	<?php
 	 } ?>
 	<tr>
-		 <td colspan="7"> 
-		 	<input type="checkbox" class="quxuanall" value="checkbox" />
+		 <td colspan="7"  style="display:none;"> 
+		 		<input type="checkbox" class="quxuanall" value="checkbox" />
 			    <input name="button" id="bathconfirm" value="确认" class="bathop" disabled="true"  type="button">
 				<input name="button" id="bathinvalid" value="无效" class="bathop" disabled="true" type="button">
 				<input name="button" id="bathcancel" value="取消" class="bathop" disabled="true" type="button">

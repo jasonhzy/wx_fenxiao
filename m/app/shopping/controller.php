@@ -381,6 +381,29 @@ class ShoppingController extends Controller{
 		}
 		
 		if($tt == 'true' && $status=='1' && !empty($order_sn)){
+			$pu = $this->App->findrow("SELECT user_id, order_amount FROM `{$this->App->prefix()}goods_order_info` WHERE order_sn='$order_sn' LIMIT 1");
+			$moeys = isset($pu['order_amount']) ? $pu['order_amount'] : 0; //实际消费
+			$uid = isset($pu['user_id']) ? $pu['user_id'] : 0;
+			$rrL = $this->action('common','get_userconfig');
+			$openfx_minmoney = empty($rrL['openfx_minmoney']) ? 0 : intval($rrL['openfx_minmoney']);
+			
+			if($rrL['openfxbuy']=='1' && $moeys >= $openfx_minmoney){ 
+				//付款开通代理
+				if($uid > 0){
+					$rank = $this->App->findvar("SELECT user_rank FROM `{$this->App->prefix()}user` WHERE user_id = '$uid' LIMIT 1");
+					if($rank=='1'){
+						$this->App->update('user',array('user_rank'=>'12'),'user_id',$uid);
+						
+						$this->App->update('user_tuijian',array('daili_uid'=>$uid),'uid',$uid);
+						
+						$this->update_user_tree($uid,$uid);
+						
+						$this->update_daili_tree($uid);//更新代理关系
+					}
+				}
+			}
+			
+			
 			$pu = $this->App->findrow("SELECT user_id,daili_uid,parent_uid,parent_uid2,parent_uid3,goods_amount,order_amount,order_sn,pay_status,order_id FROM `{$this->App->prefix()}goods_order_info` WHERE order_sn='$order_sn' LIMIT 1");
 			
 			$parent_uid = isset($pu['parent_uid']) ? $pu['parent_uid'] : 0; //分享者
@@ -428,7 +451,7 @@ class ShoppingController extends Controller{
 			}
 			
 			
-			$rrL = $this->action('common','get_userconfig');
+			/*$rrL = $this->action('common','get_userconfig');
 			$openfx_minmoney = empty($rrL['openfx_minmoney']) ? 0 : intval($rrL['openfx_minmoney']);
 			
 			if($rrL['openfxbuy']=='1' && $moeys >= $openfx_minmoney){ 
@@ -445,7 +468,7 @@ class ShoppingController extends Controller{
 						$this->update_daili_tree($uid);//更新代理关系
 					}
 				}
-			}
+			}*/
 			
 			$sql = "SELECT * FROM `{$this->App->prefix()}userconfig` LIMIT 1";//用户配置信息
 			$rts = $this->App->findrow($sql);

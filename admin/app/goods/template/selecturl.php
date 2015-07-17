@@ -1,13 +1,14 @@
 <style type="text/css">
 .contentbox li{ width:25%; text-align:left; line-height:26px; float:left}
 </style>
-<div class="contentbox">
+<div class="contentbox" style="height:360px; overflow:hidden; overflow-y:auto;">
    <table cellspacing="1" cellpadding="5" width="100%">
 	 <tr>
 		<th align="left">点击选择</th>
 	</tr>
 	</table>
 	<ul style="padding:0px 10px 0px 10px">
+		<p style="font-size:14px; font-weight:bold; margin:0px; padding:0px; border-bottom:1px solid #ccc">基础链接</p>
 		<?php if(!empty($tjgoods)){foreach($tjgoods as $row){?>
 		<li><a href="javascript:;" onclick="seturl('<?php echo SITE_URL.'m/in.php?id='.$row['id'];?>')"><?php echo '<font color=blue>[单品推荐]</font>'.$row['goods_name'];?></a></li>
 		<?php } ?>
@@ -30,39 +31,37 @@
 		<li><a href="javascript:;" onclick="seturl('<?php echo SITE_URL.'m/catalog.php?keyword=is_new';?>')">新品大促</a></li>
 		<li><a href="javascript:;" onclick="seturl('<?php echo SITE_URL.'m/catalog.php?keyword=is_best';?>')">推荐商品</a></li>
 		<li><a href="javascript:;" onclick="seturl('<?php echo SITE_URL.'m/user.php?act=myerweima';?>')">我的二维码</a></li>
-		<div style="clear:both; border-bottom:2px solid #ccc; margin-bottom:10px"></div>
+		<div style="clear:both; border-bottom:0px solid #ccc; margin-bottom:10px"></div>
 		
-		<?php if(!empty($artlist)){foreach($artlist as $row){?>
-		<li><a href="javascript:;" onclick="seturl('<?php echo !empty($row['art_url']) ? $row['art_url'] : SITE_URL.'m/art.php?id='.$row['article_id'];?>')"><?php echo $row['article_title'];?></a></li>
-		<?php } ?>
-		<div style="clear:both; border-bottom:2px solid #ccc; margin-bottom:10px"></div>
-		<?php } ?>
-                
-		<?php if(!empty($catelist)){foreach($catelist as $row){?>
-		<li><a href="javascript:;" onclick="seturl('<?php echo SITE_URL.'m/catalog.php?cid='.$row['cat_id'];?>')"><?php echo $row['cat_name'];?></a></li>
-		<?php } ?>
-		<div style="clear:both; border-bottom:2px solid #ccc; margin-bottom:10px"></div>
-		<?php } ?>
-                
+		<p style="font-size:14px; font-weight:bold; margin:0px; padding:0px; border-bottom:1px solid #ccc">文章分类</p>        
 		<?php if(!empty($catelist2)){ foreach($catelist2 as $row){?>
 		<li><a href="javascript:;" onclick="seturl('<?php echo SITE_URL.'m/new.php?cid='.$row['cat_id'];?>')"><?php echo $row['cat_name'];?></a></li>
 		<?php } ?>
-		<div style="clear:both; border-bottom:2px solid #ccc; margin-bottom:10px"></div>
+		<div style="clear:both; border-bottom:0px solid #ccc; margin-bottom:10px"></div>
 		<?php } ?>
 		
+		<p style="font-size:14px; font-weight:bold; margin:0px; padding:0px; border-bottom:1px solid #ccc">文章列表</p>
+		<?php if(!empty($artlist)){foreach($artlist as $row){?>
+		<li><a href="javascript:;" onclick="seturl('<?php echo !empty($row['art_url']) ? $row['art_url'] : SITE_URL.'m/art.php?id='.$row['article_id'];?>')"><?php echo $row['article_title'];?></a></li>
+		<?php } ?>
+		<div style="clear:both; border-bottom:0px solid #ccc; margin-bottom:10px"></div>
+		<?php } ?>
+		
+        <p style="font-size:14px; font-weight:bold; margin:0px; padding:0px; border-bottom:1px solid #ccc">产品分类</p>       
+		<?php if(!empty($catelist)){foreach($catelist as $row){?>
+		<li><a href="javascript:;" onclick="seturl('<?php echo SITE_URL.'m/catalog.php?cid='.$row['cat_id'];?>')"><?php echo $row['cat_name'];?></a></li>
+		<?php } ?>
+		<div style="clear:both; border-bottom:0px solid #ccc; margin-bottom:10px"></div>
+		<?php } ?>
+		
+		<p style="font-size:14px; font-weight:bold; margin:0px; padding:0px; border-bottom:1px solid #ccc">产品列表</p>
 		<?php foreach($lists as $row){?>
 		<li style="height:70px; width:50%;">
 		<img src="<?php echo SITE_URL.$row['goods_thumb'];?>" width="60" height="60" style="float:left; padding:1px; border:1px solid #ededed; margin-right:4px;" />
 		<a href="javascript:;" onclick="seturl('<?php echo SITE_URL.'m/product.php?id='.$row['goods_id'];?>')" ><?php echo $row['goods_name'];?></a>
 		</li>
 		<?php } ?>
-		<div style="clear:both; border-bottom:2px solid #ccc; margin-bottom:10px"></div>
-                
-		<?php if(!empty($artlist2)){foreach($artlist2 as $row){?>
-		<li><a href="javascript:;" onclick="seturl('<?php echo !empty($row['art_url']) ? $row['art_url'] : SITE_URL.'m/new.php?id='.$row['article_id'];?>')"><?php echo $row['article_title'];?></a></li>
-		<?php } ?>
-		<div style="clear:both; border-bottom:2px solid #ccc; margin-bottom:10px"></div>
-		<?php } ?>
+		<div style="clear:both; border-bottom:0px solid #ccc; margin-bottom:10px"></div>
 	</ul>
 	
 	<div style="clear:both"></div>

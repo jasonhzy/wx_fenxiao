@@ -22,7 +22,7 @@ var JqueryDialog = {
 	//Header背景色
 	"cHeaderBackgroundColor"	:	"#999999",
 	//右上角关闭显示文本
-	"cCloseText"				:	"关闭",
+	"cCloseText"				:	"&nbsp;&nbsp;&nbsp;",
 	//鼠标移上去时的提示文字
 	"cCloseTitle"				:	"关闭",
 	
