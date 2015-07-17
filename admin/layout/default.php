@@ -12,6 +12,5 @@
 	<?php echo $this->content();?>
 </div>
 <div style="clear:both"></div>
-<!--<p align="center"><?php echo base64_decode('5bm/5bee5LiH6Ziz572R57uc56eR5oqA5pyJ6ZmQ5YWs5Y+4');?></p>
---></body>
+</body>
 </html>

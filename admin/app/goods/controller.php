@@ -1065,13 +1065,9 @@ class GoodsController extends Controller{
 			$this->set("tjgoods",$tjgoods);
 			
 			//文章类
-			$sql = "SELECT keyword,article_title,article_id,art_url,type,addtime FROM `{$this->App->prefix()}wx_article` WHERE cat_id='1' AND type='img' ORDER BY article_id DESC LIMIT 20";
+			$sql = "SELECT keyword,article_title,article_id,art_url,type,addtime FROM `{$this->App->prefix()}wx_article` WHERE type='img' ORDER BY addtime DESC";
             $artlist = $this->App->find($sql);
 			$this->set("artlist",$artlist);
-			
-			$sql = "SELECT keyword,article_title,article_id,art_url,type,addtime FROM `{$this->App->prefix()}wx_article` WHERE cat_id!='1' AND type='img' ORDER BY article_id DESC";
-            $artlist = $this->App->find($sql);
-			$this->set("artlist2",$artlist);
 			
 			$sql = "SELECT cat_name,cat_id FROM `{$this->App->prefix()}wx_cate`";
             $catelist = $this->App->find($sql);
