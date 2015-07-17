@@ -12,7 +12,7 @@
 		<?php }else{?>
 		  <input type="hidden" name="uname" id="uname" value="<?php echo $rt[0];?>"/>
 		  <input type="hidden" name="uid" id="uid" value="<?php echo $rt['uid'];?>"/>
-		  <input type="hidden" name="emial" id="email" value="<?php echo $rt[1];?>"/>
+		  <input type="hidden" name=email id="email" value="<?php echo $rt[1];?>"/>
 		  重设新密码：
 		  <label>
 		  <input type="text" name="newpass" id="newpass" style="height:22px; width:250px"/>

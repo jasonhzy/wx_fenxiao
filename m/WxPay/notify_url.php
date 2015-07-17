@@ -19,13 +19,13 @@ require_once('../load.php');
 		$xmls = file_get_contents("php://input"); 
 	}
 	//使用simplexml_load_string() 函数将接收到的XML消息数据载入对象$postObj中。
+	file_put_contents('/var/www/pinet-fenxiao/cache/xmls', print_r($xmls, 1)."\r\n",FILE_APPEND);
 	if(!empty($xmls)){
 		$postObj = simplexml_load_string($xmls, 'SimpleXMLElement', LIBXML_NOCDATA);
 		$result_code = $postObj->result_code; //SUCCESS
 		$openid = $postObj->openid;
 		$out_trade_no = $postObj->out_trade_no;
 		//file_put_contents('error.txt',"(支付)time:".$out_trade_no.'-'.$result_code,FILE_APPEND);
-		file_put_contents('/var/www/pinet-fenxiao/cache/wxpay', print_r($postObj, 1)."\r\n",FILE_APPEND);
 		if($result_code == "SUCCESS") {
 			if(!empty($out_trade_no)){
 				//file_put_contents('error.txt',"(支付2)time:".$out_trade_no.'-'.$result_code,FILE_APPEND);
